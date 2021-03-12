@@ -11,7 +11,7 @@ class Restaurant extends Model
     'slug',
     'img',
     'p_iva',
-    'adddress'
+    'address'
   ];
 
   public function categories()
