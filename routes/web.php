@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//ROTTE PROTETTE DA AUTENTICAZIONE
+Route::prefix('admin')       // prefisso delle rotte
+  ->namespace('Admin')    // namespace (sottocartella del controller)
+  ->middleware('auth')          // filtro per autenticazione
+  ->name('admin.')        // prefisso di tutti i nomi delle rotte
+  ->group(
+    function () {
+
+      Route::resource('restaurants', 'RestaurantController');
+    }
+  );
