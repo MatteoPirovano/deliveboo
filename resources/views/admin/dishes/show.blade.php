@@ -15,12 +15,12 @@
             NO  
             @endif
         </h4>
-
-        {{-- <div class="card">
-            <h2>{{$dish->name}}</h2>
-            <a class="btn btn-secondary" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>
-        </div>
-        @endforeach --}}
+        <a class="btn btn-dark" href="{{route('admin.restaurants.dishes.edit', ['restaurant'=>$restaurant->slug, 'dish'=>$dish->slug])}}">Modifica</a>
+        <form action="{{route('admin.restaurants.dishes.destroy', ['restaurant'=>$restaurant->slug, 'dish'=>$dish->slug])}}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questo piatto?')">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Elimina</button>
+        </form>
     </div>
     
 </div>

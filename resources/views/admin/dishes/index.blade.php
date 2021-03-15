@@ -16,7 +16,7 @@
         </div>
         @endforeach
     </div>
-    
+    <a class="btn btn-dark" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}">Crea Piatto</a>
 </div>
 @endsection
 

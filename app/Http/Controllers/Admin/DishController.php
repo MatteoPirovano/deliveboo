@@ -18,7 +18,7 @@ class DishController extends Controller
     public function index($slug)
     {   
         $restaurant = Restaurant::where('slug', $slug)->first();
-        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+        $dishes = Dish::where('restaurant_id', $restaurant->id)->orderBy('name')->get();
         return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
 
@@ -75,8 +75,9 @@ class DishController extends Controller
      */
     public function show($slug, $dish_slug)
     {
-        $dish = Dish::where('slug', $dish_slug )->first();
-        return view('admin.dishes.show', compact('dish'));
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $dish = Dish::where('slug', $dish_slug)->first();
+        return view('admin.dishes.show', compact('dish', 'restaurant'));
     }
 
     /**
@@ -85,9 +86,13 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug, $dish_slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $dish = Dish::where('slug', $dish_slug)->get()->first();
+        if(empty($dish)){
+            return view('404.error');
+        } else return view('admin.dishes.edit', compact('dish', 'restaurant'));
     }
 
     /**
@@ -97,9 +102,27 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug, $dish_slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $dish = Dish::where('slug', $dish_slug)->first();
+        $data = $request->all();
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $request->validate([
+            'name'=> 'required|max:100',
+            // 'img'=> 'mimes:jpeg,bmp,png',
+            'ingredients'=> 'required|max:1000',
+            'courses'=> 'required',
+            'description'=> 'required|max:1500',
+            'price'=> 'required|numeric',
+            'visibility'=> 'required'
+        ]);
+        $dish->update($data);
+
+        return redirect()
+            ->route('admin.restaurants.dishes.index', $restaurant->slug)
+            ->with('message', "The dish has been edited successfully");
     }
 
     /**
@@ -108,8 +131,14 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug, $dish_slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $dish = Dish::where('slug', $dish_slug)->first();
+        $dish->delete();
+
+        return redirect()
+            ->route('admin.restaurants.dishes.index', $restaurant->slug)
+            ->with('message', "The dish has been deleted successfully");
     }
 }

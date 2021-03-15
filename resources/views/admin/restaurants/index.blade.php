@@ -16,6 +16,7 @@
         </ul>
         <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">Modifica</a>
         <a class="btn btn-warning" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a>
+        <a class="btn" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">Vedi Menù</a>
         <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST">
         @csrf
         @method('DELETE')
