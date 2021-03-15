@@ -47,14 +47,8 @@
 
         <div class="form-group">
             <label for="price" class="form-label">Prezzo</label>
-            <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Inserisci il prezzo">
+            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Inserisci il prezzo">
         </div>
-        {{-- <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="visibility" value='1'>
-            <label class="form-check-label">
-                Visibility
-            </label>
-        </div> --}}
         <div>Visibilità</div>
         <div class="form-check">
             <input class="form-check-input" type="radio" name="visibility" value='1'>

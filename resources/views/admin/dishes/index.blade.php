@@ -12,6 +12,7 @@
         @foreach ($dishes as $dish)
         <div class="card">
             <h2>{{$dish->name}}</h2>
+            <a class="btn btn-secondary" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>
         </div>
         @endforeach
     </div>

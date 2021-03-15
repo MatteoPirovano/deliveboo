@@ -19,7 +19,7 @@ class DishController extends Controller
     {   
         $restaurant = Restaurant::where('slug', $slug)->first();
         $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
-        return view('admin.dishes.index', compact('dishes'));
+        return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
 
     /**
@@ -45,7 +45,7 @@ class DishController extends Controller
         $data = $request->all();
         // dd($data);
         $request->validate([
-            'name'=> 'required|max:100',
+            'name'=> 'required|unique:dishes|max:100',
             // 'img'=> 'mimes:jpeg,bmp,png',
             'ingredients'=> 'required|max:1000',
             'courses'=> 'required',
@@ -73,9 +73,10 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug, $dish_slug)
     {
-        //
+        $dish = Dish::where('slug', $dish_slug )->first();
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**
