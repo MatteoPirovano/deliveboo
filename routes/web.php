@@ -29,7 +29,11 @@ Route::prefix('admin')       // prefisso delle rotte
   ->name('admin.')        // prefisso di tutti i nomi delle rotte
   ->group(
     function () {
-
-      Route::resource('restaurants', 'RestaurantController');
+        Route::resource('restaurants', 'RestaurantController');
+        Route::prefix('restaurants/{restaurant}')
+            ->name('restaurants.')
+            ->group(function () {
+            Route::resource('dishes', 'DishController');
+        });
     }
   );
