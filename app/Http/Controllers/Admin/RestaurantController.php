@@ -80,9 +80,13 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        if(empty($restaurant)){
+            return view('404.error');
+        }
+        return view('admin.restaurants.show', compact('restaurant'));
     }
 
     /**
@@ -110,7 +114,27 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $data = $request->all();
+        // $data['restaurant_id'] = $restaurant->id;
+        $data['slug'] = Str::slug($data['name'], '-');
+
+        $request->validate([
+            'name'=> 'required|max:100',
+            // 'img'=> 'mimes:jpeg,bmp,png',
+            'p_iva'=> 'required|size:11',
+            'address'=> 'required|max:100'
+        ]);
+        $restaurant->update($data);
+
+        if(empty($data['categories'])) {
+    			$restaurant->categories()->detach();
+    	} else $restaurant->categories()->sync($data['categories']);
+    
+
+        return redirect()
+            ->route('admin.restaurants.index')
+            ->with('message', "The restaurant has been edited successfully");
     }
 
     /**
@@ -119,8 +143,13 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($slug)
     {
-        //
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurant->delete();
+
+        return redirect()
+            ->route('admin.restaurants.index')
+            ->with('message', "The restaurant has been deleted successfully");
     }
 }

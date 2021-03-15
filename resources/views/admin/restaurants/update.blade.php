@@ -18,7 +18,7 @@
         {{-- /Div in caso di errori di compilazioni del form --}}
       <form action="{{ route('admin.restaurants.update', $restaurant->slug) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        @method('POST')
+        @method('PUT')
         <div class="form-group">
           <label for="name" class="form-label">Nome</label>
           <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{$restaurant->name}}">
@@ -59,7 +59,7 @@
           <h5 class="mt-4 mb-2">Categorie</h5>
           @foreach ($categories as $category)
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="category-{{ $category->id }}" name="categories[]">
+              <input class="form-check-input" type="checkbox" value="{{ $category->id }}" id="category-{{ $category->id }}" name="categories[]" @if ($restaurant->categories->contains($category->id)) checked @endif>
               <label class="form-check-label" for="category-{{ $category->id }}">
                 {{ $category->name}}
               </label>
