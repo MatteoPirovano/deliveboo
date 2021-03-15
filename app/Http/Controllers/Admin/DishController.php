@@ -15,9 +15,10 @@ class DishController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
-        $dishes = Dish::where('restaurant_id', $id)->get();
+    public function index($slug)
+    {   
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
         return view('admin.dishes.index', compact('dishes'));
     }
 
@@ -62,7 +63,7 @@ class DishController extends Controller
         $dish_result = $dish->save();
 
         return redirect()
-            ->route('admin.restaurants.dishes.index', $restaurant->id)
+            ->route('admin.restaurants.dishes.index', $restaurant->slug)
             ->with('message', "The dish has been added successfully");
     }
 

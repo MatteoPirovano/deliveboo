@@ -7,10 +7,15 @@
         {{ session('message') }}
     </div>
     @endif
-    @foreach ($dishes as $dish)
-    <h2>{{$dish->name}}</h2>
-    @endforeach
-    VAFFANCULO
+
+    <div class="d-flex flex-wrap">
+        @foreach ($dishes as $dish)
+        <div class="card">
+            <h2>{{$dish->name}}</h2>
+        </div>
+        @endforeach
+    </div>
+    
 </div>
 @endsection
 
