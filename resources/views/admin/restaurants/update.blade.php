@@ -4,7 +4,7 @@
     
   
     <div class="container">
-      <h1 class="mb-5">Crea il tuo ristorante</h1>
+      <h1 class="mb-5">Modifica il tuo ristorante</h1>
         {{-- Div in caso di errori di compilazioni del form --}}
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -16,13 +16,12 @@
         </div>
         @endif
         {{-- /Div in caso di errori di compilazioni del form --}}
-    
-      <form action="{{ route('admin.restaurants.store') }}" method="POST" enctype="multipart/form-data">
+      <form action="{{ route('admin.restaurants.update', $restaurant->slug) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')
         <div class="form-group">
           <label for="name" class="form-label">Nome</label>
-          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Inserisci nome">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{$restaurant->name}}">
         </div>
 
         <div class="form-group">
@@ -32,12 +31,12 @@
 
         <div class="form-group">
           <label for="p_iva" class="form-label">Partita Iva</label>
-          <input type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" placeholder="Inserisci partita iva">
+          <input type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" value="{{$restaurant->p_iva}}">
         </div>
 
         <div class="form-group">
           <label for="address" class="form-label">Indirizzo</label>
-          <input type="text" class="form-control" name="address" id="address" placeholder="Inserisci indirizzo" src="">
+          <input type="text" class="form-control" name="address" id="address" value="{{$restaurant->address}}">
         </div>
 
         

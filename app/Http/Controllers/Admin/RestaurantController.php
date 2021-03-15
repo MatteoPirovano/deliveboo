@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -17,9 +18,9 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-      $restaurant = Restaurant::where('user_id', Auth::id())->get();
+      $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
-      return view('admin.restaurants.index', compact('restaurant'));
+      return view('admin.restaurants.index', compact('restaurants'));
     }
 
     /**
@@ -45,6 +46,32 @@ class RestaurantController extends Controller
       /* $data = $request->all();
 
       dd($data); */
+      $data = $request->all();
+
+        $request->validate([
+            'name'=> 'required|max:100',
+            // 'img'=> 'mimes:jpeg,bmp,png',
+            'p_iva'=> 'required|size:11',
+            'address'=> 'required|max:100'
+        ]);
+
+        $restaurant = new Restaurant();
+        $restaurant->fill($data);
+        $restaurant->slug = Str::slug($restaurant->name, '-');
+        $restaurant->user_id = Auth::id();
+        $restaurant_result = $restaurant->save();
+
+        $data['restaurant_id'] = $restaurant->id;
+
+        if($restaurant_result) {
+            if(!empty($data['categories'])) {
+                $restaurant->categories()->attach($data['categories']);
+            }
+        }
+
+        return redirect()
+            ->route('admin.restaurants.index')
+            ->with('message', "The restaurant has been added successfully");
     }
 
     /**
@@ -64,9 +91,14 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+      $restaurant = Restaurant::where('slug', $slug)->get()->first();
+      if(empty($restaurant)){
+          return view('404.error');
+      }
+      $categories = Category::all();
+      return view('admin.restaurants.update', compact('restaurant', 'categories'));
     }
 
     /**
@@ -76,7 +108,7 @@ class RestaurantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $slug)
     {
         //
     }
