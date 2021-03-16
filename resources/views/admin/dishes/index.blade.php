@@ -11,7 +11,7 @@
     <a class="btn btn-dark mb-3" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}">Crea Piatto</a>
     <a class="btn btn-secondary float-right" href="{{ route('admin.restaurants.index') }}">Indietro</a>
     <div class="d-flex flex-wrap">
-        @foreach ($restaurant->dishes as $dish)
+        @foreach ($restaurant->dishes->sortBy('name') as $dish)
         <div style="max-width: 300px" class="card m-2 d-flex justify-content-end">
             <h2 style="word-break: normal">{{$dish->name}}</h2>
             {{-- <img src="{{asset('images/' . $restaurant->img)}}" alt="IMMAGINE"> --}}
