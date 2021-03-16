@@ -31,7 +31,7 @@
                 @yield('aside')                
 
                 @foreach ($restaurants as $restaurant)                    
-                    <a href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
+                    <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
                         <h2 class="bg-white mt-5">{{$restaurant->name}}</h2>
                     </a>
                     <ul>
@@ -50,11 +50,15 @@
                 @endforeach
 
                 {{-- <a href="{{ route('logout') }}">LOG OUT :)</a> --}}
-                <a class="btn btn-secondary mt-5
-                " href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
-                    {{ __('LOG OUT') }}
+                <a class="btn btn-secondary mt-5" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
                 </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
             </div>
         </aside>
 
