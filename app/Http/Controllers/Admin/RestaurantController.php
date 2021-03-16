@@ -8,6 +8,8 @@ use App\Restaurant;
 use App\Category;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class RestaurantController extends Controller
 {
@@ -60,6 +62,7 @@ class RestaurantController extends Controller
         $restaurant->fill($data);
         $restaurant->slug = Str::slug($restaurant->name, '-');
         $restaurant->user_id = Auth::id();
+        $restaurant['img'] = Storage::disk('public')->put('immages', $restaurant['img']);
         $restaurant_result = $restaurant->save();
 
         $data['restaurant_id'] = $restaurant->id;

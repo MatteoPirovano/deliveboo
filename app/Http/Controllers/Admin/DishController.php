@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Dish;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class DishController extends Controller
 {
     private $validation = [
-        'name'=> 'required|unique:dishes|max:100',
+        'name'=> 'required|max:100',
         'img'=> 'mimes:jpeg,jpg,bmp,png',
         'ingredients'=> 'required|max:1000',
         'courses'=> 'required',
@@ -72,6 +74,7 @@ class DishController extends Controller
         $restaurant = Restaurant::where('slug', $slug)->first();
         // dd($restaurant->id);
         $dish->restaurant_id = $restaurant->id;
+        $dish['img'] = Storage::disk('public')->put('immages', $dish['img']);
         $dish_result = $dish->save();
 
         return redirect()
