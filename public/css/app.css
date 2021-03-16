@@ -1,5 +1,28 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @charset "UTF-8";
+.container_ms {
+  width: 260px;
+  height: 100vh;
+  background: yellow;
+}
+
+.main_ms {
+  width: calc(100% - 260px);
+  height: 100vh;
+  background: orange;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.flex_ms {
+  display: flex;
+  flex-direction: row;
+}
+
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

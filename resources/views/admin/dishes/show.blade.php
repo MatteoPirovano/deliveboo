@@ -1,4 +1,8 @@
-@extends('layouts.app')
+@extends('admin.layouts.main')
+
+@section('aside')
+    
+@endsection
 
 @section('content')
 <div class="container">
@@ -9,8 +13,8 @@
             <button type="submit" class="btn btn-danger">Elimina</button>
         </form>
         <h2>{{$dish->name}}</h2>
-        {{-- <img src="{{asset('storage/' . $dish->img)}}" alt="PIATTO"> --}}
-        <img style="max-width: 300px" class="img-thumbnail" src="{{asset('images/placeholder.png')}}" alt="IMMAGINE">
+        <img src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+        {{-- <img style="max-width: 300px" class="img-thumbnail" src="{{asset('images/placeholder.png')}}" alt="IMMAGINE"> --}}
         <p>{{$dish->ingredients}}</p>
         <p>{{$dish->descriptions}}</p>
         <h1>{{$dish->price}}€</h1>

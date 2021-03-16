@@ -28,7 +28,7 @@ class RestaurantController extends Controller
     {
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
-      return view('admin.restaurants.index', compact('restaurants'));
+      return view('admin.layouts.main', compact('restaurants'));
     }
 
     /**
@@ -87,10 +87,12 @@ class RestaurantController extends Controller
     public function show($slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
+
         if(empty($restaurant)){
             return view('404.error');
         }
-        return view('admin.restaurants.show', compact('restaurant'));
+        return view('admin.restaurants.show', compact('restaurant', 'restaurants'));
     }
 
     /**
