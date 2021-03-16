@@ -11,6 +11,12 @@ use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
+    private $validation = [
+        'name'=> 'required|max:100',
+        'img'=> 'mimes:jpeg,jpg,bmp,png',
+        'p_iva'=> 'required|size:11',
+        'address'=> 'required|max:100'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -48,12 +54,7 @@ class RestaurantController extends Controller
       dd($data); */
       $data = $request->all();
 
-        $request->validate([
-            'name'=> 'required|max:100',
-            // 'img'=> 'mimes:jpeg,bmp,png',
-            'p_iva'=> 'required|size:11',
-            'address'=> 'required|max:100'
-        ]);
+        $request->validate($this->validation);
 
         $restaurant = new Restaurant();
         $restaurant->fill($data);
@@ -119,12 +120,7 @@ class RestaurantController extends Controller
         // $data['restaurant_id'] = $restaurant->id;
         $data['slug'] = Str::slug($data['name'], '-');
 
-        $request->validate([
-            'name'=> 'required|max:100',
-            // 'img'=> 'mimes:jpeg,bmp,png',
-            'p_iva'=> 'required|size:11',
-            'address'=> 'required|max:100'
-        ]);
+        $request->validate($this->validation);
         $restaurant->update($data);
 
         if(empty($data['categories'])) {

@@ -10,6 +10,15 @@ use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
+    private $validation = [
+        'name'=> 'required|unique:dishes|max:100',
+        'img'=> 'mimes:jpeg,jpg,bmp,png',
+        'ingredients'=> 'required|max:1000',
+        'courses'=> 'required',
+        'description'=> 'required|max:1500',
+        'price'=> 'required|numeric',
+        'visibility'=> 'required'
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +27,8 @@ class DishController extends Controller
     public function index($slug)
     {   
         $restaurant = Restaurant::where('slug', $slug)->first();
-        $dishes = Dish::where('restaurant_id', $restaurant->id)->orderBy('name')->get();
-        return view('admin.dishes.index', compact('dishes', 'restaurant'));
+        // $dishes = Dish::where('restaurant_id', $restaurant->id)->orderBy('name')->get();
+        return view('admin.dishes.index', compact('restaurant'));
     }
 
     /**
@@ -44,15 +53,7 @@ class DishController extends Controller
         
         $data = $request->all();
         // dd($data);
-        $request->validate([
-            'name'=> 'required|unique:dishes|max:100',
-            // 'img'=> 'mimes:jpeg,bmp,png',
-            'ingredients'=> 'required|max:1000',
-            'courses'=> 'required',
-            'description'=> 'required|max:1500',
-            'price'=> 'required|numeric',
-            'visibility'=> 'required'
-        ]);
+        $request->validate($this->validation);
 
         $dish = new Dish();
         $dish->fill($data);
@@ -109,15 +110,7 @@ class DishController extends Controller
         $data = $request->all();
         $data['slug'] = Str::slug($data['name'], '-');
 
-        $request->validate([
-            'name'=> 'required|max:100',
-            // 'img'=> 'mimes:jpeg,bmp,png',
-            'ingredients'=> 'required|max:1000',
-            'courses'=> 'required',
-            'description'=> 'required|max:1500',
-            'price'=> 'required|numeric',
-            'visibility'=> 'required'
-        ]);
+        $request->validate($this->validation);
         $dish->update($data);
 
         return redirect()
