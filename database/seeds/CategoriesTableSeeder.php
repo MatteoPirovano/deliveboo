@@ -15,43 +15,43 @@ class CategoriesTableSeeder extends Seeder
       $categories = [
         [
           "name" => "italiano",
-          "img" => "asdfasdfasdf"
+          "img" => "spaghetti.png"
         ],
         [
           "name" => "messicano",
-          "img" => "asdfasdfasdf"
+          "img" => "nachos.png"
         ],
         [
           "name" => "cinese",
-          "img" => "asdfasdfasdf"
+          "img" => "china.png"
         ],
         [
           "name" => "giapponese",
-          "img" => "asdfasdfasdf"
+          "img" => "jappo.png"
         ],
         [
-          "name" =>  "indiano",
-          "img" => "asdfasdfasdf"
+          "name" => "indiano",
+          "img" => "indian.png"
         ],
         [
           "name" => "carne",
-          "img" => "asdfasdfasdf"
+          "img" => "meat.png"
         ],
         [
-          "name" =>   "pesce",
-          "img" => "asdfasdfasdf"
+          "name" => "pesce",
+          "img" => "fish.png"
         ],
         [
           "name" => "vegetariano",
-          "img" => "asdfasdfasdf"
+          "img" => "vegetarian.png"
         ],
         [
           "name" => "pizza",
-          "img" => "asdfasdfasdf"
+          "img" => "pizza.svg"
         ],
         [
           "name" => "fast-food",
-          "img" => "asdfasdfasdf"
+          "img" => "fastfood.png"
         ]
 
       ];

@@ -16,6 +16,11 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+            </div>
+            <div class="container">
+                <a href="{{ route('admin.restaurants.create') }}" class="btn btn-secondary mt-4">Crea ristorante</a>
+                <a href="{{ route('admin.restaurants.index') }}" class="btn btn-info mt-4">Lista ristoranti</a>
             </div>
         </div>
     </div>
