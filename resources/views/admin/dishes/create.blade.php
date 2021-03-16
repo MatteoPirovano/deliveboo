@@ -22,7 +22,7 @@
         @method('POST')
         <div class="form-group">
           <label for="name" class="form-label">Nome</label>
-          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Inserisci nome">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Inserisci nome" value="{{ old('name') }}">
         </div>
 
         <div class="form-group">
@@ -37,7 +37,11 @@
 
         <div class="form-group">
           <label for="courses" class="form-label">Tipo di portata</label>
-          <input type="text" class="form-control @error('courses') is-invalid @enderror" name="courses" id="courses" placeholder="Inserisci tipo di portata">
+          <select class="form-control" name="courses" id="courses">
+            @foreach ($courses as $course)
+            <option value="{{ $course }}">{{ $course }}</option>
+            @endforeach
+          </select>
         </div>
 
         <div class="form-group">
@@ -47,17 +51,17 @@
 
         <div class="form-group">
             <label for="price" class="form-label">Prezzo</label>
-            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Inserisci il prezzo">
+            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Inserisci il prezzo" value="{{ old('price') }}">
         </div>
         <div>Visibilità</div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="visibility" value='1'>
+            <input class="form-check-input" type="radio" name="visibility" {{old('visibility') == 1 ? 'checked' : ''}} value='1'>
             <label class="form-check-label">
                 Si
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="visibility" value='0'>
+            <input class="form-check-input" type="radio" name="visibility" {{old('visibility') == 0 ? 'checked' : ''}} value='0'>
             <label class="form-check-label">
                 No
             </label>

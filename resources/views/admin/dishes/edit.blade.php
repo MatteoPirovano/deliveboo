@@ -37,7 +37,11 @@
 
         <div class="form-group">
           <label for="courses" class="form-label">Tipo di portata</label>
-          <input type="text" class="form-control @error('courses') is-invalid @enderror" name="courses" id="courses" value="{{$dish->courses}}">
+          <select class="form-control" name="courses" id="courses">
+            @foreach ($courses as $course)
+            <option value="{{ $course }}"  {{$dish->courses == $course ? 'selected' : '' }} >  {{ $course }}</option>
+            @endforeach
+          </select>
         </div>
 
         <div class="form-group">

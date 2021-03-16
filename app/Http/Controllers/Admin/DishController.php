@@ -19,6 +19,16 @@ class DishController extends Controller
         'price'=> 'required|numeric',
         'visibility'=> 'required'
     ];
+
+    public $courses = [
+        "Antipasti",
+        "Primi",
+        "Secondi",
+        "Dessert",
+        "Bevande",
+        "Piatto completo",
+        "Contorni"
+    ]; 
     /**
      * Display a listing of the resource.
      *
@@ -39,7 +49,8 @@ class DishController extends Controller
     public function create($slug)
     {   
         $restaurant = Restaurant::where('slug', $slug)->first();
-        return view ('admin.dishes.create', compact('restaurant'));
+        $courses = $this->courses;
+        return view ('admin.dishes.create', compact('restaurant', 'courses'));
     }
 
     /**
@@ -91,9 +102,10 @@ class DishController extends Controller
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
         $dish = Dish::where('slug', $dish_slug)->get()->first();
+        $courses = $this->courses;
         if(empty($dish)){
             return view('404.error');
-        } else return view('admin.dishes.edit', compact('dish', 'restaurant'));
+        } else return view('admin.dishes.edit', compact('dish', 'restaurant', 'courses'));
     }
 
     /**
