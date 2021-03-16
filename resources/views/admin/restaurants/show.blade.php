@@ -4,7 +4,7 @@
     
 @endsection
 
-@section('content')
+@section('main')
     <div class="container">
         <h2>{{$restaurant->name}}</h2>
         <img src="{{asset('storage/' . $restaurant->img)}}" alt="IMMAGINE">

@@ -20,17 +20,20 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+
     <section class="flex_ms">
 
         <aside class="container_ms">
-            <div>     
-                
-                <h1>CIAO</h1>
-                
-                @yield('aside')
+            <div>
 
-                @foreach ($restaurants as $restaurant)
-                    <h2 class="bg-white mt-5">{{$restaurant->name}}</h2>
+                <h1>Ciao {{ Auth::user()->name }}</h1>
+
+                @yield('aside')                
+
+                @foreach ($restaurants as $restaurant)                    
+                    <a href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
+                        <h2 class="bg-white mt-5">{{$restaurant->name}}</h2>
+                    </a>
                     <ul>
                         @foreach ($restaurant->categories as $category)
                         <h3>{{$category->name}}</h3>
@@ -42,9 +45,16 @@
                         <button type="submit" class="btn btn-danger float-right">Elimina</button>
                     </form>
                     <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">Modifica</a>
-                    <a class="btn btn-dark" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a>
+                    {{-- <a class="btn btn-dark" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a> --}}
                     <a class="btn btn-info" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">Vedi Menù</a>
-                @endforeach  
+                @endforeach
+
+                {{-- <a href="{{ route('logout') }}">LOG OUT :)</a> --}}
+                <a class="btn btn-secondary mt-5
+                " href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                    {{ __('LOG OUT') }}
+                </a>
             </div>
         </aside>
 
@@ -52,6 +62,6 @@
             @yield('main')
         </main>
 
-    </section>    
+    </section>
 </body>
 </html>

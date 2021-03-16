@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.main')
 
-@section('content')
+@section('aside')
+    
+@endsection
+
+@section('main')
 <div class="container">
     @if (session('message'))
     <div class="alert alert-success mt-2 ml-2">

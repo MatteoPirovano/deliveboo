@@ -4,7 +4,7 @@
     
 @endsection
 
-@section('content')
+@section('main')
 <div class="container">
     <div>
         <form class="float-right" action="{{route('admin.restaurants.dishes.destroy', ['restaurant'=>$restaurant->slug, 'dish'=>$dish->slug])}}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questo piatto?')">
