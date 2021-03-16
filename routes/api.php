@@ -20,16 +20,10 @@ use App\Restaurant;
 //     return $request->user();
 // });
 
-Route::get('/restaurants', function () {
 
-    $restaurants = Restaurant::all();
-    return response()
-    ->json($restaurants);
+Route::namespace('Api')->group( function(){
+    Route::get('/restaurants', 'HomeController@allCategories');
+    Route::get('/restaurants/{category}', 'HomeController@filter');
+    Route::get('/categories', 'HomeController@categories');
+
 });
-
-Route::get('/restaurants/{category}', function ($category) {
-    $categories = Category::where('name', $category)->first();
-    return response()
-    ->json($categories->restaurants);
-});
-
