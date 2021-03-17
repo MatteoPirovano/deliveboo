@@ -26,4 +26,10 @@ class HomeController extends Controller
         return response()
             ->json($categories);
     }
+
+    public function details($slug) {
+        $restaurant = Restaurant::where('slug', $slug)->first();
+        return response()
+            ->json($restaurant->dishes);
+    }
 }

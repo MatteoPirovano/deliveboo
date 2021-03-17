@@ -9,16 +9,15 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <title>Home Page</title>
+    <title>Details</title>
 </head>
 <body>
     <div id="app" class="container">
-        <select v-model="category" v-on:change="filterCategory()">
-            <option value="" disabled>Scegli la categoria</option>
-            <option v-for="category in categories" :value="category.name">@{{category.name}}</option>
-        </select>
-        <a v-for="restaurant in restaurants" :href="restaurant.slug">@{{restaurant.name}}</a>
+        @foreach ($restaurant->dishes as $dish)
+           <div v-on:click="chart('{{$dish->name}}')">{{$dish->name}}</div> 
+        @endforeach
+
     </div>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/details.js')}}"></script>
 </body>
 </html>

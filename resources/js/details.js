@@ -26,28 +26,22 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 import Vue from 'vue';
-
 const app = new Vue({
     el: '#app',
     data: {
-        restaurants: "",
-        category: '',
-        categories: []
+        order: []
     },
     mounted() {
-        axios.get("http://127.0.0.1:8000/api/categories/", {
-      }).then(
-        (response) => {
-            app.categories = response.data;
-        });
+        
     },
     methods: {
-        filterCategory: function() {
-            axios.get("http://127.0.0.1:8000/api/restaurants/" + app.category, {
-        }).then(
-            (response) => {
-                app.restaurants = response.data;
-            });
+        chart(name) {
+            var dish = { 'name': name, 'count': 1}
+            if(!app.order.includes(dish)) {
+                app.order.push(dish);
+                console.log(app.order);
+            } else dish.count++;
+            
         }
     }
 });

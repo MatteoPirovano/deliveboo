@@ -22,6 +22,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/homepage', 'PublicController@home')->name('homepage');
+Route::get('/{slug}', 'PublicController@show')->name('details');
 
 //ROTTE PROTETTE DA AUTENTICAZIONE
 Route::prefix('admin')       // prefisso delle rotte

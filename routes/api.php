@@ -25,5 +25,6 @@ Route::namespace('Api')->group( function(){
     Route::get('/restaurants', 'HomeController@allCategories');
     Route::get('/restaurants/{category}', 'HomeController@filter');
     Route::get('/categories', 'HomeController@categories');
+    Route::get('/{slug}', 'HomeController@details');
 
 });
