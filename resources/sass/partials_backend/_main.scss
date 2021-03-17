@@ -1,6 +1,56 @@
 .main_ms{
     width: calc(100% - 300px);
     height: 100vh;
-    background: orange;
+    // background: linear-gradient(to bottom right, #0C233F, #2A5788);
+    background-color: #EBECF1;
+    color: black;
+    box-shadow: inset 47px 0px 70px -44px black;
+    padding: 50px 40px;
+    display: flex;
+    overflow-y: scroll;
+         &::-webkit-scrollbar {
+                display: none;
+            }
+
+    .img_ms{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        object-position: center;
+    }
+
+    .card_h_ms{
+        max-width: 500px;
+        
+        img{
+            max-width: 500px;
+        }    
+        
+        
+        .delete_ms{
+            position: relative;
+            
+            button{
+                position: absolute;
+                right: 5px;
+                bottom: 5px;
+            }
+        }
+        
+    }
+    .plate_ms {
+        color: $fontColor;
+        text-decoration: none;
+        font-size: 18px;
+
+        span{
+            font-family: 'Lato', sans-serif;
+        }
+
+        &:hover{
+            color: #2e6b3d;
+        }
+    }
+
 }
 

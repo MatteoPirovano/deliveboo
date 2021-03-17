@@ -39,8 +39,9 @@ class RestaurantController extends Controller
     public function create()
     {
       $categories = Category::all();
+      $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
-      return view('admin.restaurants.create', compact('categories'));
+      return view('admin.restaurants.create', compact('categories', 'restaurants'));
     }
 
     /**
@@ -108,7 +109,8 @@ class RestaurantController extends Controller
           return view('404.error');
       }
       $categories = Category::all();
-      return view('admin.restaurants.update', compact('restaurant', 'categories'));
+      $restaurants = Restaurant::where('user_id', Auth::id())->get();
+      return view('admin.restaurants.update', compact('restaurant', 'categories', 'restaurants'));
     }
 
     /**

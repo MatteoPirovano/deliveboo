@@ -4,8 +4,16 @@
     padding: 0;
 }
 
+body{
+    font-family: $fontLato;
+}
+
 .flex_ms{
     display: flex;
     flex-direction: row;
+    
 }
+
+
+
 

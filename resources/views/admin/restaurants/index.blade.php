@@ -2,7 +2,7 @@
 @extends('admin.layouts.main')
 
 @section('aside')
-    <a class="btn btn-success" href="{{ route('admin.restaurants.create') }}">Aggiungi un ristorante</a>      
+    {{-- <a class="btn btn-success" href="{{ route('admin.restaurants.create') }}">Aggiungi un ristorante</a>       --}}
 @endsection
 
 @section('main')

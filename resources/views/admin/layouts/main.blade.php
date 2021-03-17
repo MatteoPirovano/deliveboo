@@ -13,53 +13,67 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Spartan:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 
-    <section class="flex_ms">
+    <section class="flex_ms ">
 
         <aside class="container_ms">
-            <div>
+            <header>
 
-                <h1>Ciao {{ Auth::user()->name }}</h1>
+                <div class="flex_ms">
+                    <img src="{{ asset('images/logo.png') }}" alt="">
+                     <h1>{{ Auth::user()->name }}</h1>
+                </div>
 
                 @yield('aside')                
+                <a href="{{ route('admin.restaurants.create') }}"> 
+                    <i class="fas fa-plus plus_ms"> 
+                        <span>Aggiungi un ristorante</span>
+                    </i>
+                </a>  
+                <h2>I tuo ristoranti</h2> 
+            </header>
 
-                @foreach ($restaurants as $restaurant)                    
-                    <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
-                        <h2 class="bg-white mt-5">{{$restaurant->name}}</h2>
-                    </a>
-                    <ul>
-                        @foreach ($restaurant->categories as $category)
-                        <h3>{{$category->name}}</h3>
-                        @endforeach
-                    </ul>
-                    <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger float-right">Elimina</button>
-                    </form>
-                    <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">Modifica</a>
-                    {{-- <a class="btn btn-dark" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a> --}}
-                    <a class="btn btn-info" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">Vedi Menù</a>
-                @endforeach
+            <main>
+                <div>
+                    
+                    @foreach ($restaurants as $restaurant)                    
+                        <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
+                            <h3>{{$restaurant->name}}</h3>
+                        </a>
+                        <div class="menu_ms flex_ms">
+                            <a href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
+                                <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
+                                Vedi Menù
+                            </a>
+                        </div>
+                        
+                    @endforeach
+    
+                </div>
+            </main>
 
-                {{-- <a href="{{ route('logout') }}">LOG OUT :)</a> --}}
-                <a class="btn btn-secondary mt-5" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+            <footer>
+                <a class="btn_logout" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
                 </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                </form>
-            </div>
+            </form>
+            </footer>
+            
+            
         </aside>
 
         <main class="main_ms">
