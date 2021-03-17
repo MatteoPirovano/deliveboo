@@ -1,9 +1,34 @@
 .main_ms{
+    background-color: lightsalmon;
     width: calc(100% - 300px);
     height: 100vh;
     // background: linear-gradient(to bottom right, #0C233F, #2A5788);
     background-color: #EBECF1;
-    color: white;
-    box-shadow: inset 47px 0px 70px -44px rgba(0,0,0,1);
+    color: black;
+    box-shadow: inset 47px 0px 70px -44px black;
+    padding: 50px 40px;
+    display: flex;
+    align-items: center;
+    
+    .card_h_ms{
+        max-width: 500px;
+        
+        img{
+            width: 100%;
+        }    
+        
+        
+        .delete_ms{
+            position: relative;
+            
+            button{
+                position: absolute;
+                right: 5px;
+                bottom: 5px;
+            }
+        }
+        
+    }
+
 }
 

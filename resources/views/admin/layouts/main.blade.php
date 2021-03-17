@@ -28,10 +28,18 @@
 
         <aside class="container_ms">
             <header>
-                <h1>Ciao {{ Auth::user()->name }}</h1>
+
+                <div class="flex_ms">
+                    <img src="{{ asset('images/logo.png') }}" alt="">
+                     <h1>{{ Auth::user()->name }}</h1>
+                </div>
 
                 @yield('aside')                
-                <a href="{{ route('admin.restaurants.create') }}"> <i class="fas fa-plus plus_ms"></i> Aggiungi un ristorante</a>  
+                <a href="{{ route('admin.restaurants.create') }}"> 
+                    <i class="fas fa-plus plus_ms"> 
+                        <span>Aggiungi un ristorante</span>
+                    </i>
+                </a>  
                 <h2>I tuo ristoranti</h2> 
             </header>
 
