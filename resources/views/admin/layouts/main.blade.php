@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Spartan:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    {{-- Fontawesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -24,38 +27,45 @@
     <section class="flex_ms">
 
         <aside class="container_ms">
-            <div>
-
+            <header>
                 <h1>Ciao {{ Auth::user()->name }}</h1>
 
                 @yield('aside')                
+                <a href="{{ route('admin.restaurants.create') }}"> <i class="fas fa-plus plus_ms"></i> Aggiungi un ristorante</a>  
+                <h2>I tuo ristoranti</h2> 
+            </header>
 
-                @foreach ($restaurants as $restaurant)                    
-                    <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
-                        <h3 class="mt-5">{{$restaurant->name}}</h3>
-                    </a>
-                    {{-- <ul>
-                        @foreach ($restaurant->categories as $category)
-                        <h3>{{$category->name}}</h3>
-                        @endforeach
-                    </ul> --}}
-                    <div class="menu_ms flex_ms">
-                        <a href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
-                            <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
-                            Vedi Menù
+            <main>
+                <div>
+                    
+                    @foreach ($restaurants as $restaurant)                    
+                        <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
+                            <h3>{{$restaurant->name}}</h3>
                         </a>
-                    </div>
-                @endforeach
+                        <div class="menu_ms flex_ms">
+                            <a href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
+                                <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
+                                Vedi Menù
+                            </a>
+                        </div>
+                        
+                    @endforeach
+    
+                </div>
+            </main>
 
-            </div>
-            <a class="btn_logout" href="{{ route('logout') }}"
+            <footer>
+                <a class="btn_logout" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
+                </a>
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
             </form>
+            </footer>
+            
+            
         </aside>
 
         <main class="main_ms">

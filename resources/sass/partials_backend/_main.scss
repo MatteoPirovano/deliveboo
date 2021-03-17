@@ -1,7 +1,9 @@
 .main_ms{
     width: calc(100% - 300px);
     height: 100vh;
-    background: linear-gradient(to bottom right, #0C233F, #2A5788);
+    // background: linear-gradient(to bottom right, #0C233F, #2A5788);
+    background-color: #EBECF1;
     color: white;
+    box-shadow: inset 47px 0px 70px -44px rgba(0,0,0,1);
 }
 
