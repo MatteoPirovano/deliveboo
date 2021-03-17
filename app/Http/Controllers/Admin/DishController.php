@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Dish;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -39,8 +40,9 @@ class DishController extends Controller
     public function index($slug)
     {   
         $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
         // $dishes = Dish::where('restaurant_id', $restaurant->id)->orderBy('name')->get();
-        return view('admin.dishes.index', compact('restaurant'));
+        return view('admin.dishes.index', compact('restaurant', 'restaurants'));
     }
 
     /**
@@ -91,8 +93,9 @@ class DishController extends Controller
     public function show($slug, $dish_slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
         $dish = Dish::where('slug', $dish_slug)->first();
-        return view('admin.dishes.show', compact('dish', 'restaurant'));
+        return view('admin.dishes.show', compact('dish', 'restaurant', 'restaurants'));
     }
 
     /**

@@ -1,6 +1,10 @@
-@extends('layouts.app')
+@extends('admin.layouts.main')
 
-@section('content')
+@section('aside')
+    
+@endsection
+
+@section('main')
 <div class="container">
     @if (session('message'))
     <div class="alert alert-success mt-2 ml-2">
@@ -14,8 +18,8 @@
         @foreach ($restaurant->dishes->sortBy('name') as $dish)
         <div style="max-width: 300px" class="card m-2 d-flex justify-content-end">
             <h2 style="word-break: normal">{{$dish->name}}</h2>
-            {{-- <img src="{{asset('images/' . $restaurant->img)}}" alt="IMMAGINE"> --}}
-                <img class="img-thumbnail max-width: 100%" src="{{asset('images/placeholder.png')}}" alt="IMMAGINE">
+            <img src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+                {{-- <img class="img-thumbnail max-width: 100%" src="{{asset('images/placeholder.png')}}" alt="IMMAGINE"> --}}
             <a class="btn btn-info" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>
         </div>
         @endforeach
