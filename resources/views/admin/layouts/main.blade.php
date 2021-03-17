@@ -13,8 +13,8 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Spartan:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -32,34 +32,30 @@
 
                 @foreach ($restaurants as $restaurant)                    
                     <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
-                        <h2 class="bg-white mt-5">{{$restaurant->name}}</h2>
+                        <h3 class="mt-5">{{$restaurant->name}}</h3>
                     </a>
-                    <ul>
+                    {{-- <ul>
                         @foreach ($restaurant->categories as $category)
                         <h3>{{$category->name}}</h3>
                         @endforeach
-                    </ul>
-                    <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger float-right">Elimina</button>
-                    </form>
-                    <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">Modifica</a>
-                    {{-- <a class="btn btn-dark" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">Mostra</a> --}}
-                    <a class="btn btn-info" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">Vedi Menù</a>
+                    </ul> --}}
+                    <div class="menu_ms flex_ms">
+                        <a href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
+                            <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
+                            Vedi Menù
+                        </a>
+                    </div>
                 @endforeach
 
-                {{-- <a href="{{ route('logout') }}">LOG OUT :)</a> --}}
-                <a class="btn btn-secondary mt-5" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
-                </a>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
             </div>
+            <a class="btn_logout" href="{{ route('logout') }}"
+                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                {{ __('Logout') }}
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </aside>
 
         <main class="main_ms">
