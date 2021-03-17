@@ -9,6 +9,11 @@ main {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      h2 {
+        padding: 5px 15px;
+        background-color: rgba(0,100,0, 0.8);
+        color: white;
+      }
       h3 {
         display: inline-block;
         margin-bottom: 60px;

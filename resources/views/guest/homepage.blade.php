@@ -33,10 +33,8 @@
   {{-- header --}}
   <header>
     <div class="nav_bar">
+      <img src="{{ asset('images/logo.png') }}" alt="logo">
       <ul>
-        <li>
-          <img src="{{ asset('images/logo.png') }}" alt="logo">
-        </li>
         <li>
           <a href="#">Home</a>
         </li>
@@ -47,28 +45,28 @@
           <a href="#register">Lavora con noi</a>
         </li>
         <li>
-         {{--  <a href="">Scegli cosa mangiare</a> --}}
-         <select v-model="category" v-on:change="filterCategory()">
-            <option value="" disabled>Scegli la categoria</option>
-            <option v-for="category in categories" :value="category.name">@{{category.name}}</option>
-        </select>
+          <a href="#categories">Categorie</a>
         </li>
       </ul>
     </div>
 
     <div class="container_top" data-aos="zoom-out">
       <div class="col_left">
+        <h1>I più famosi <br> I più buoni <br> I preferiti</h1>
+        <h3>Non vuoi prepararti la cena ma hai voglia di mangiare qualcosa che non hai mai provato fino ad ora? Con <span>Deliveboo</span> ordini dai migliori ristoranti della tua città in maniera semplice</h3>
       </div>
       <div class="col_right">
       </div>
     </div>   
-    
+    <a id="categories"></a>
     <div class="container_bottom" data-aos="zoom-in-up">
       <div class="col_left_btm" style="background-image: url({{asset('images/del-rider.jpg')}})">
 
       </div>
       <div class="col_right_btm">
-
+        <h2>Dicono di noi...</h2>
+        <p>"L'amore per un figlio è una cosa meravigliosa. <br> Ma anche quello per il rider che suona con un pacco <span>Deliveboo</span> non scherza."</p>
+        <p>"Ormai non aspetto più Romeo, ma la consegna di <span>Deliveboo</span>."</p>
       </div>
     </div>
     
@@ -78,12 +76,17 @@
   {{-- main --}}
   <main>
     <div class="container_main">
+      
       <div class="title_cont" data-aos="fade-down"
           data-aos-easing="linear"
-          data-aos-duration="1200" v-if="!category == '' "
+          data-aos-duration="1200" {{-- v-if="!category == '' " --}}
         >
-        <h2>LA TUA SCELTA</h2>
-        <h3 style="text-transform: uppercase">@{{ category }}</h3>
+        <h2>SCEGLI COSA ORDINARE</h2>
+        <select v-model="category" v-on:change="filterCategory()" class="btn">
+            <option value="" disabled>SCIEGLI COSA ORDINARE</option>
+            <option v-for="category in categories" :value="category.name">@{{category.name}}</option>
+        </select>
+       {{--  <h3 style="text-transform: uppercase">@{{ category }}</h3> --}}
       </div>
 
       {{-- Sezione card --}}

@@ -1,29 +1,39 @@
 header {
   .nav_bar {
-    padding: 10px 50px;
+    padding: 15px 50px;
     width: 100%;
     display: flex;
     align-items: center;
     position: fixed;
-    background-color: white;
+    background-color: rgba(255,255,255,0.9);
     z-index: 99;
+    img {
+      margin-right: 20px;
+      width: 70px;
+    }
     ul {
+      margin: 0;
       display: flex;
       align-items: center;
       li {
         margin: 0 20px;
+        padding: 10px 20px;
         font-size: 24px;
+        transition: 0.3s;
+        &:hover {
+          transform: scale(1.2);
+          background-color: $darkRed ;
+        }
+        &:hover a {
+          color: white;
+        }
         a {
           color: black;
           transition: 0.3s;
           &:hover {
             text-decoration: none;
-            color: $darkRed;
           }
         }
-      }
-      img {
-      width: 70px;
       }
     }
     
@@ -32,9 +42,7 @@ header {
     position: relative;
     display: flex;
     width: 100%;
-     /* background: url('https://res.cloudinary.com/sanitarium/image/fetch/q_auto/https://www.sanitarium.com.au/getmedia%2Fae51f174-984f-4a70-ad3d-3f6b517b6da1%2Ffruits-vegetables-healthy-fats.jpg%3Fwidth%3D1180%26height%3D524%26ext%3D.jpg'); */
       background: url('https://images.pexels.com/photos/3758133/pexels-photo-3758133.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
-     /* background-image: url("../images/food.jpg"); */
      background-size: cover;
      background-attachment: fixed;
     .col_left, .col_right {
@@ -43,11 +51,29 @@ header {
       height: 100vh;
     }
     .col_left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 100px;
       background-color: $darkRed;
+      h1 {
+        margin-bottom: 30px;
+        color: white;
+        font-size: 50px;
+        line-height: 70px;
+      }
+      h3 {
+        padding-right: 150px;
+        font-weight: 300;
+        color: white;
+        font-size: 25px;
+        span {
+          color: $goldeFizz;
+          font-weight: 400;
+        }
+      }
     }
-    .col_right {
-  
-    }
+    
   }
 
   .container_bottom {
@@ -63,10 +89,25 @@ header {
       background-size: cover;
     }
     .col_right_btm {
+      
+      padding: 75px;
       height: 400px;
       width: 50%;
       background-color: $softYellow;
-
+      h2 {
+        margin-bottom: 20px;
+        color: $blue;
+      }
+      p {
+        margin-bottom: 30px;
+        color: navy;
+        font-weight: 300;
+        font-size: 20px;
+        span {
+          font-weight: 400;
+          color: $orange;
+        }
+      }
     }
   }
 }
