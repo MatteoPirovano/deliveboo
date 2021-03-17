@@ -21,15 +21,19 @@
     <div class="d-flex flex-wrap position_card_index_ms">
         @foreach ($restaurant->dishes->sortBy('name') as $dish)
         <div style="max-width: 300px" class="shadow_card_ms card m-2 d-flex justify-content-end">
+
             <div class="position_card_index_img_ms">
                 <img class="img_ms" src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
             </div>
+
             <div class="position_card_index_h2_ms">
                 <h2 style="word-break: normal">{{$dish->name}}</h2>
             </div>
+
             <div class="position_card_index_a_ms">
                 <a class="btn btn-info" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>
             </div>
+            
         </div>
         @endforeach
     </div>
