@@ -14,7 +14,7 @@
 <body>
     <div id="app" class="container">
         <select v-model="category" v-on:change="filterCategory()">
-            <option value="" disabled style="color: lightgrey;">Scegli la categoria</option>
+            <option value="" disabled">Scegli la categoria</option>
             <option v-for="category in categories" :value="category.name">@{{category.name}}</option>
         </select>
         <div v-for="restaurant in restaurants">@{{restaurant.name}}</div>
