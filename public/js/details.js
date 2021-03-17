@@ -49629,20 +49629,66 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.component('example-component', __webpac
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app',
   data: {
-    order: []
+    order: [],
+    total: 0
   },
   mounted: function mounted() {},
   methods: {
-    chart: function chart(name) {
-      var dish = {
-        'name': name,
-        'count': 1
-      };
+    chart: function chart(name, price) {
+      var dish = [name, 1, price];
+      console.log(dish);
 
-      if (!app.order.includes(dish)) {
+      if (app.order.length == 0) {
         app.order.push(dish);
-        console.log(app.order);
-      } else dish.count++;
+      } else {
+        var filtered = app.order.filter(function (element) {
+          return element[0] == dish[0];
+        });
+
+        if (filtered.length == 0) {
+          app.order.push(dish);
+          filtered = false;
+        }
+      }
+
+      if (app.order.length > 0) {
+        app.totalPrice();
+      }
+    },
+    addDish: function addDish(name) {
+      var filtered = app.order.filter(function (element) {
+        return element[0] == name;
+      });
+      app.order = app.order.map(function (element) {
+        if (element[0] == filtered[0][0]) {
+          var dish_name = element[0];
+          var dish_count = element[1] + 1;
+          var dish_price = element[2] + element[2] / element[1];
+          return element = [dish_name, dish_count, dish_price];
+        } else return element;
+      });
+      app.totalPrice();
+    },
+    leaveDish: function leaveDish(name) {
+      var filtered = app.order.filter(function (element) {
+        return element[0] == name;
+      });
+      app.order = app.order.map(function (element) {
+        if (element[0] == filtered[0][0]) {
+          var dish_name = element[0];
+          var dish_count = element[1] - 1;
+          var dish_price = element[2] - element[2] / element[1];
+          return element = [dish_name, dish_count, dish_price];
+        } else return element;
+      });
+      app.totalPrice();
+    },
+    totalPrice: function totalPrice() {
+      var total = 0;
+      app.order.forEach(function (element) {
+        total = total + element[2];
+      });
+      app.total = total;
     }
   }
 });

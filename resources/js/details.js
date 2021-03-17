@@ -29,19 +29,80 @@ import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
-        order: []
+        order: [],
+        total: 0
     },
     mounted() {
         
     },
     methods: {
-        chart(name) {
-            var dish = { 'name': name, 'count': 1}
-            if(!app.order.includes(dish)) {
+        chart(name,price) {
+            var dish = [name, 1, price];
+            console.log(dish);
+            if (app.order.length == 0) {
                 app.order.push(dish);
-                console.log(app.order);
-            } else dish.count++;
-            
+            } else {
+                var filtered = app.order.filter(
+                    (element) => {
+                        return element[0] == dish[0];
+                    }); 
+                if(filtered.length == 0) {
+                    app.order.push(dish);
+                    filtered = false;
+                }
+            }
+            if(app.order.length > 0) {
+                app.totalPrice();
+            }
+        },
+        addDish(name) {
+            var filtered = app.order.filter(
+                element => {
+                    return element[0] == name;
+                });
+                
+            app.order = app.order.map(
+                element=> {
+                    if(element[0] == filtered[0][0]) {
+                        var dish_name = element[0];
+                        var dish_count = element[1]+1;
+                        var dish_price = element[2]+(element[2] / element[1]);
+
+                        return element = [dish_name, dish_count, dish_price];
+                    } else return element;
+                    
+                }
+            );
+            app.totalPrice();
+        },
+        leaveDish(name) {
+            var filtered = app.order.filter(
+                element => {
+                    return element[0] == name;
+                });
+                
+            app.order = app.order.map(
+                element=> {
+                    if(element[0] == filtered[0][0]) {
+                        var dish_name = element[0];
+                        var dish_count = element[1]-1;
+                        var dish_price = element[2]-(element[2] / element[1]);
+
+                        return element = [dish_name, dish_count, dish_price];
+                    } else return element;
+                    
+                }
+            );
+            app.totalPrice();
+        },
+        totalPrice() {
+            var total = 0;
+            app.order.forEach(
+                element => {
+                    total = total+element[2];
+                }
+            );  
+            app.total = total;
         }
     }
 });
