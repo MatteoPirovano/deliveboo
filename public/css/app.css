@@ -84,6 +84,10 @@
   padding: 50px 40px;
   display: flex;
   align-items: center;
+  overflow-y: scroll;
+}
+.main_ms::-webkit-scrollbar {
+  display: none;
 }
 .main_ms .card_h_ms {
   max-width: 500px;

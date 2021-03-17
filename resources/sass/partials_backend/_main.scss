@@ -9,7 +9,10 @@
     padding: 50px 40px;
     display: flex;
     align-items: center;
-    
+    overflow-y: scroll;
+         &::-webkit-scrollbar {
+                display: none;
+            }
     .card_h_ms{
         max-width: 500px;
         

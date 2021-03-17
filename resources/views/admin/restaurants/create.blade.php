@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('admin.layouts.main')
 
-@section('content')
+@section('main')
     
   
-    <div class="container">
+    <div class="container create_ms">
       <h1 class="mb-5">Crea il tuo ristorante</h1>
         {{-- Div in caso di errori di compilazioni del form --}}
         @if ($errors->any())
