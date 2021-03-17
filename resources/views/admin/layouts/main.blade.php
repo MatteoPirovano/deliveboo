@@ -24,7 +24,7 @@
 </head>
 <body>
 
-    <section class="flex_ms">
+    <section class="flex_ms ">
 
         <aside class="container_ms">
             <header>

@@ -1,5 +1,4 @@
 .main_ms{
-    background-color: lightsalmon;
     width: calc(100% - 300px);
     height: 100vh;
     // background: linear-gradient(to bottom right, #0C233F, #2A5788);
@@ -8,16 +7,23 @@
     box-shadow: inset 47px 0px 70px -44px black;
     padding: 50px 40px;
     display: flex;
-    align-items: center;
     overflow-y: scroll;
          &::-webkit-scrollbar {
                 display: none;
             }
+
+    .img_ms{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        object-position: center;
+    }
+
     .card_h_ms{
         max-width: 500px;
         
         img{
-            width: 100%;
+            max-width: 500px;
         }    
         
         
@@ -31,6 +37,19 @@
             }
         }
         
+    }
+    .plate_ms {
+        color: $fontColor;
+        text-decoration: none;
+        font-size: 18px;
+
+        span{
+            font-family: 'Lato', sans-serif;
+        }
+
+        &:hover{
+            color: #2e6b3d;
+        }
     }
 
 }
