@@ -214,13 +214,14 @@
 }
 .main_ms .position_card_index_ms .position_card_index_a_ms .btn-info {
   color: white;
-  background-color: #F39200;
+  background-color: #A51B0B;
   border: 1px solid black;
+  font-size: 15px;
 }
 .main_ms .position_card_index_ms .position_card_index_a_ms .btn-info:hover {
-  color: #F39200;
-  background-color: #A51B0B;
-  border: 1px solid #F39200;
+  color: white;
+  background-color: #F39200;
+  border: 1px solid black;
 }
 .main_ms .position_card_index_ms .position_card_index_a_ms a {
   width: 100%;
