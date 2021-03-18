@@ -1909,14 +1909,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   data: {
     restaurants: "",
     category: '',
-    categories: [],
-    name: ""
+    categories: []
   },
   mounted: function mounted() {
-    if (localStorage.name) {
-      this.name = localStorage.name;
-    }
-
     axios.get("http://127.0.0.1:8000/api/categories/", {}).then(function (response) {
       app.categories = response.data;
     });
@@ -1926,11 +1921,6 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       axios.get("http://127.0.0.1:8000/api/restaurants/" + app.category, {}).then(function (response) {
         app.restaurants = response.data;
       });
-    }
-  },
-  watch: {
-    name: function name(newName) {
-      localStorage.name = newName;
     }
   }
 });

@@ -32,13 +32,9 @@ const app = new Vue({
     data: {
         restaurants: "",
         category: '',
-        categories: [],
-        name: ""
+        categories: []
     },
     mounted() {
-        if (localStorage.name) {
-            this.name = localStorage.name;
-          }
         axios.get("http://127.0.0.1:8000/api/categories/", {
       }).then(
         (response) => {
@@ -52,11 +48,6 @@ const app = new Vue({
             (response) => {
                 app.restaurants = response.data;
             });
-        }
-    },
-    watch: {
-        name(newName) {
-            localStorage.name = newName;
         }
     }
 });

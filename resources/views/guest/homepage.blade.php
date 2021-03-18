@@ -97,11 +97,7 @@
           <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title">@{{restaurant.name}}</h2>
-<<<<<<< Updated upstream
             <a :href="restaurant.slug" class="btn btn-success">Menu</a>
-=======
-            <a :href="" class="btn btn-success">Menu</a>
->>>>>>> Stashed changes
           </div>
         </div>
 
