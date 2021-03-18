@@ -18,7 +18,7 @@
                     <div class="card_restaurant_info_ms">
                         <h2 class="card-title">{{$restaurant->name}}</h2>
                         <p class="card-text">Partita IVA: {{$restaurant->p_iva}}</p>
-                        <p class="card-text">Partita IVA: {{$restaurant->address}}</p>
+                        <p class="card-text">Indirizzo: {{$restaurant->address}}</p>
                     </div>
 
                     <div class="card_restaurant_bnt_ms">
