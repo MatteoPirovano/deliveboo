@@ -49633,13 +49633,14 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     total: 0,
     orderStorage: []
   },
-  mounted: function mounted() {// if (localStorage.total) {
-    //     this.total = localStorage.total;
-    //   }
-    //   this.order = JSON.parse(localStorage.getItem(this.order));
-    //   console.log(this.order);
-    // localStorage.setItem("order", JSON.stringify(app.order));
-    // app.orderStorage = JSON.parse(localStorage.getItem("order"));
+  mounted: function mounted() {
+    if (localStorage.total) {
+      this.total = localStorage.total;
+    }
+
+    if (localStorage.getItem('order')) {
+      this.order = JSON.parse(localStorage.getItem('order'));
+    }
   },
   methods: {
     chart: function chart(name, price) {
@@ -49711,18 +49712,19 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     },
     deleteOrder: function deleteOrder() {
       app.total = 0;
+      app.order = [];
     }
   },
-  watch: {// total(newtotal) {
-    //     localStorage.total = newtotal;
-    // },
-    // orders: {
-    //     handler() {
-    //         console.log('Fuck');
-    //         localStorage.setItem(this.order, JSON.stringify(this.order));
-    //       },
-    //       deep: true
-    // }
+  watch: {
+    total: function total(newtotal) {
+      localStorage.total = newtotal;
+    },
+    order: {
+      handler: function handler() {
+        localStorage.setItem('order', JSON.stringify(this.order));
+      },
+      deep: true
+    }
   }
 });
 })();

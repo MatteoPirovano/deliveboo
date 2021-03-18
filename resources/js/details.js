@@ -34,15 +34,12 @@ const app = new Vue({
         orderStorage: []
     },
     mounted() {
-        // if (localStorage.total) {
-        //     this.total = localStorage.total;
-        //   }
-        //   this.order = JSON.parse(localStorage.getItem(this.order));
-        //   console.log(this.order);
-        // localStorage.setItem("order", JSON.stringify(app.order));
-        
-        // app.orderStorage = JSON.parse(localStorage.getItem("order"));
-        
+        if (localStorage.total) {
+            this.total = localStorage.total;
+        }
+        if(localStorage.getItem('order')) {
+            this.order = JSON.parse(localStorage.getItem('order'));
+        }
     },
     methods: {
         chart(name,price) {
@@ -125,18 +122,18 @@ const app = new Vue({
         },
         deleteOrder() {
             app.total = 0;
+            app.order = [];
         }
     },
     watch: {
-        // total(newtotal) {
-        //     localStorage.total = newtotal;
-        // },
-        // orders: {
-        //     handler() {
-        //         console.log('Fuck');
-        //         localStorage.setItem(this.order, JSON.stringify(this.order));
-        //       },
-        //       deep: true
-        // }
+        total(newtotal) {
+            localStorage.total = newtotal;
+        },
+        order: {
+            handler() {
+                localStorage.setItem('order', JSON.stringify(this.order));
+            },
+            deep: true
+        }
     }
 });
