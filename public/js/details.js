@@ -49630,19 +49630,30 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app',
   data: {
     order: [],
-    total: 0
+    total: 0,
+    orderStorage: []
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {// if (localStorage.total) {
+    //     this.total = localStorage.total;
+    //   }
+    //   this.order = JSON.parse(localStorage.getItem(this.order));
+    //   console.log(this.order);
+    // localStorage.setItem("order", JSON.stringify(app.order));
+    // app.orderStorage = JSON.parse(localStorage.getItem("order"));
+  },
   methods: {
     chart: function chart(name, price) {
-      var dish = [name, 1, price];
-      console.log(dish);
+      var dish = {
+        name: name,
+        count: 1,
+        price: price
+      };
 
       if (app.order.length == 0) {
         app.order.push(dish);
       } else {
         var filtered = app.order.filter(function (element) {
-          return element[0] == dish[0];
+          return element['name'] == dish['name'];
         });
 
         if (filtered.length == 0) {
@@ -49657,28 +49668,36 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     },
     addDish: function addDish(name) {
       var filtered = app.order.filter(function (element) {
-        return element[0] == name;
+        return element['name'] == name;
       });
       app.order = app.order.map(function (element) {
-        if (element[0] == filtered[0][0]) {
-          var dish_name = element[0];
-          var dish_count = element[1] + 1;
-          var dish_price = element[2] + element[2] / element[1];
-          return element = [dish_name, dish_count, dish_price];
+        if (element['name'] == filtered[0]['name']) {
+          var dish_name = element['name'];
+          var dish_count = element['count'] + 1;
+          var dish_price = element['price'] + element['price'] / element['count'];
+          return element = {
+            name: dish_name,
+            count: dish_count,
+            price: dish_price
+          };
         } else return element;
       });
       app.totalPrice();
     },
     leaveDish: function leaveDish(name) {
       var filtered = app.order.filter(function (element) {
-        return element[0] == name;
+        return element['name'] == name;
       });
       app.order = app.order.map(function (element) {
-        if (element[0] == filtered[0][0]) {
-          var dish_name = element[0];
-          var dish_count = element[1] - 1;
-          var dish_price = element[2] - element[2] / element[1];
-          return element = [dish_name, dish_count, dish_price];
+        if (element['name'] == filtered[0]['name']) {
+          var dish_name = element['name'];
+          var dish_count = element['count'] - 1;
+          var dish_price = element['price'] - element['price'] / element['count'];
+          return element = {
+            name: dish_name,
+            count: dish_count,
+            price: dish_price
+          };
         } else return element;
       });
       app.totalPrice();
@@ -49686,10 +49705,24 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     totalPrice: function totalPrice() {
       var total = 0;
       app.order.forEach(function (element) {
-        total = total + element[2];
+        total = total + element['price'];
       });
       app.total = total;
+    },
+    deleteOrder: function deleteOrder() {
+      app.total = 0;
     }
+  },
+  watch: {// total(newtotal) {
+    //     localStorage.total = newtotal;
+    // },
+    // orders: {
+    //     handler() {
+    //         console.log('Fuck');
+    //         localStorage.setItem(this.order, JSON.stringify(this.order));
+    //       },
+    //       deep: true
+    // }
   }
 });
 })();

@@ -76,6 +76,8 @@
   {{-- main --}}
   <main>
     <div class="container_main">
+
+      <input type="text" v-model=name>
       
       <div class="title_cont" data-aos="fade-down"
           data-aos-easing="linear"

@@ -20,21 +20,22 @@
         <div v-if="total > 0" style="position: fixed; top: 200px; right: 200px; width: 400px; padding:30px; background-color: lightgrey;">
             <div v-for="ordered_dish in order" class="d-flex justify-content-between align-items-center mb-3">
                 <div>
-                    <span>@{{ordered_dish[0]}}  x</span>
-                    <span>@{{ordered_dish[1]}}</span>
+                    <span>@{{ordered_dish.name}}  x</span>
+                    <span>@{{ordered_dish.count}}</span>
                 </div>
                 <div class="d-flex justify-content-between align-items-center" style="width:100px">
                     <div>
-                        <button  class="btn btn-light btn-sm" v-on:click="addDish(ordered_dish[0])">+</button>
-                        <button class="btn btn-light btn-sm" v-if="ordered_dish[1] > 1" v-on:click="leaveDish(ordered_dish[0])">-</button>
+                        <button  class="btn btn-light btn-sm" v-on:click="addDish(ordered_dish.name)">+</button>
+                        <button class="btn btn-light btn-sm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)">-</button>
                     </div>
-                    <span>@{{ordered_dish[2]}}€</span>
+                    <span>@{{ordered_dish.price}}€</span>
                 </div>
             </div>
             <hr v-if="total > 0">
             <div v-if="total > 0" class="float-right">
                 <span>Total: </span>
                 <span >@{{total}}€</span>
+                <button v-on:click="deleteOrder()">Delete</button>
             </div>
         </div>
 

@@ -30,21 +30,33 @@ const app = new Vue({
     el: '#app',
     data: {
         order: [],
-        total: 0
+        total: 0,
+        orderStorage: []
     },
     mounted() {
+        // if (localStorage.total) {
+        //     this.total = localStorage.total;
+        //   }
+        //   this.order = JSON.parse(localStorage.getItem(this.order));
+        //   console.log(this.order);
+        // localStorage.setItem("order", JSON.stringify(app.order));
+        
+        // app.orderStorage = JSON.parse(localStorage.getItem("order"));
         
     },
     methods: {
         chart(name,price) {
-            var dish = [name, 1, price];
-            console.log(dish);
+            var dish = {
+                name: name,
+                count: 1,
+                price: price
+            };
             if (app.order.length == 0) {
                 app.order.push(dish);
             } else {
                 var filtered = app.order.filter(
                     (element) => {
-                        return element[0] == dish[0];
+                        return element['name'] == dish['name'];
                     }); 
                 if(filtered.length == 0) {
                     app.order.push(dish);
@@ -58,17 +70,20 @@ const app = new Vue({
         addDish(name) {
             var filtered = app.order.filter(
                 element => {
-                    return element[0] == name;
+                    return element['name'] == name;
                 });
                 
             app.order = app.order.map(
                 element=> {
-                    if(element[0] == filtered[0][0]) {
-                        var dish_name = element[0];
-                        var dish_count = element[1]+1;
-                        var dish_price = element[2]+(element[2] / element[1]);
+                    if(element['name'] == filtered[0]['name']) {
+                        var dish_name = element['name'];
+                        var dish_count = element['count']+1;
+                        var dish_price = element['price']+(element['price'] / element['count']);
 
-                        return element = [dish_name, dish_count, dish_price];
+                        return element = {
+                            name: dish_name,
+                            count: dish_count,
+                            price: dish_price};
                     } else return element;
                     
                 }
@@ -78,17 +93,21 @@ const app = new Vue({
         leaveDish(name) {
             var filtered = app.order.filter(
                 element => {
-                    return element[0] == name;
+                    return element['name'] == name;
                 });
                 
             app.order = app.order.map(
                 element=> {
-                    if(element[0] == filtered[0][0]) {
-                        var dish_name = element[0];
-                        var dish_count = element[1]-1;
-                        var dish_price = element[2]-(element[2] / element[1]);
+                    if(element['name'] == filtered[0]['name']) {
+                        var dish_name = element['name'];
+                        var dish_count = element['count']-1;
+                        var dish_price = element['price']-(element['price'] / element['count']);
 
-                        return element = [dish_name, dish_count, dish_price];
+                        return element = {
+                            name: dish_name,
+                            count: dish_count,
+                            price: dish_price
+                        }
                     } else return element;
                     
                 }
@@ -99,10 +118,25 @@ const app = new Vue({
             var total = 0;
             app.order.forEach(
                 element => {
-                    total = total+element[2];
+                    total = total + element['price'];
                 }
             );  
             app.total = total;
+        },
+        deleteOrder() {
+            app.total = 0;
         }
+    },
+    watch: {
+        // total(newtotal) {
+        //     localStorage.total = newtotal;
+        // },
+        // orders: {
+        //     handler() {
+        //         console.log('Fuck');
+        //         localStorage.setItem(this.order, JSON.stringify(this.order));
+        //       },
+        //       deep: true
+        // }
     }
 });
