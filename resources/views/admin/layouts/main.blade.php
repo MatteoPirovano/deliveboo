@@ -58,7 +58,7 @@
                         </a>
                         <div class="menu_ms flex_ms container_btn_menu_ms">
                             <a class="menu_detail_ms" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
-                                <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
+                                <i class="far fa-calendar-minus"></i>
                                 Vedi Menù
                             </a>
                         </div>
@@ -71,8 +71,9 @@
             <footer>
                 <a class="btn_logout" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
-                                document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
+                document.getElementById('logout-form').submit();">
+                    <i class="fas fa-door-open"></i>
+                    {{ __('Logout') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
