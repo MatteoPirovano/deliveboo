@@ -24,7 +24,7 @@
 }
 .container_ms header h2 {
   margin-top: 40px;
-  color: #F39200;
+  color: #F96332;
 }
 .container_ms header a {
   color: white;
@@ -53,7 +53,7 @@
 }
 .container_ms main .container_btn_menu_ms .menu_detail_ms {
   padding: 3px 20px;
-  border: 1px solid #F39200;
+  border: 1px solid #F96332;
   border-radius: 7px;
   background-color: white;
 }
@@ -61,7 +61,7 @@
   padding: 5px 30px;
   transition: padding 0.3s;
   transition-timing-function: ease-in-out;
-  border: 1px solid #F39200;
+  border: 1px solid #F96332;
   border-radius: 7px;
 }
 .container_ms footer {
@@ -92,10 +92,11 @@
   bottom: 20px;
   left: 50%;
   padding: 3px 20px;
-  border: 1px solid #F39200;
+  border: 1px solid #F96332;
   border-radius: 7px;
 }
 .btn_logout:hover {
+  color: #F96332;
   text-decoration: none;
 }
 
