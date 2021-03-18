@@ -58,16 +58,23 @@
                 text-decoration: none;
             }                      
         }
-        .menu_detail_ms:hover{
-            border: 1px solid #F39200;
-            border-radius: 7px;  
-            padding: 5px 30px;  
-            transition: padding 0.3s;
-            transition-timing-function: ease-in-out;     
-        }
-
+        
         h3 {
             margin-top: 15px; 
+        }
+        
+        .container_btn_menu_ms{
+            
+            // &:hover{
+            // }
+                
+            .menu_detail_ms:hover{
+                padding: 5px 30px;  
+                transition: padding 0.3s;
+                transition-timing-function: ease-in-out; 
+                border: 1px solid #F39200;
+                border-radius: 7px;  
+            }
         }
     }
 

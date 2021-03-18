@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('admin.layouts.main')
 
-@section('content')
+@section('main')
     
   
     <div class="container z_index5_ms">

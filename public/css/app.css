@@ -48,15 +48,15 @@
   color: #F39200;
   text-decoration: none;
 }
-.container_ms main .menu_detail_ms:hover {
-  border: 1px solid #F39200;
-  border-radius: 7px;
+.container_ms main h3 {
+  margin-top: 15px;
+}
+.container_ms main .container_btn_menu_ms .menu_detail_ms:hover {
   padding: 5px 30px;
   transition: padding 0.3s;
   transition-timing-function: ease-in-out;
-}
-.container_ms main h3 {
-  margin-top: 15px;
+  border: 1px solid #F39200;
+  border-radius: 7px;
 }
 .container_ms footer {
   height: 10%;

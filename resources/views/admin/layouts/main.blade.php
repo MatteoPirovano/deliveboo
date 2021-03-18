@@ -54,7 +54,7 @@
                         <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
                             <h3>{{$restaurant->name}}</h3>
                         </a>
-                        <div class="menu_ms flex_ms">
+                        <div class="menu_ms flex_ms container_btn_menu_ms">
                             <a class="menu_detail_ms" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
                                 <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
                                 Vedi Menù
