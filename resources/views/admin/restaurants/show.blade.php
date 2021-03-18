@@ -25,7 +25,7 @@
                         <a class="btn btn-dark" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}">Crea Piatto</a>
                         <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">Modifica</a>
 
-                        <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST">
+                        <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Elimina</button>
