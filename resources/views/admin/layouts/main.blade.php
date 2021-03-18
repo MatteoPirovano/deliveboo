@@ -24,13 +24,19 @@
 </head>
 <body>
 
-    <section class="flex_ms ">
+    <section class="flex_ms">  
+        
+        <div class="back_img">
+            <img class="back_img_det_ms" src="{{asset('images/statistics2.jpg') }}" alt="Analytics">
+        </div>
 
         <aside class="container_ms">
             <header>
 
                 <div class="flex_ms">
-                    <img src="{{ asset('images/logo.png') }}" alt="">
+                    <a href="{{ route('homepage') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="">
+                    </a>
                      <h1>{{ Auth::user()->name }}</h1>
                 </div>
 
@@ -40,26 +46,26 @@
                         <span>Aggiungi un ristorante</span>
                     </i>
                 </a>  
-                <h2>I tuo ristoranti</h2> 
+                <h2>I tuoi ristoranti:</h2> 
             </header>
 
             <main>
-                <div>
-                    
+
+                <div>                    
                     @foreach ($restaurants as $restaurant)                    
                         <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
                             <h3>{{$restaurant->name}}</h3>
                         </a>
-                        <div class="menu_ms flex_ms">
-                            <a href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
+                        <div class="menu_ms flex_ms container_btn_menu_ms">
+                            <a class="menu_detail_ms" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
                                 <img src="{{ asset('images/menu.png') }}" alt="Icona Menu">     
                                 Vedi Menù
                             </a>
                         </div>
                         
-                    @endforeach
-    
+                    @endforeach    
                 </div>
+
             </main>
 
             <footer>
@@ -68,9 +74,10 @@
                                 document.getElementById('logout-form').submit();">
                 {{ __('Logout') }}
                 </a>
-             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-            </form>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                </form>
             </footer>
             
             

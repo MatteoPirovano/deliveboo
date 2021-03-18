@@ -4,7 +4,7 @@
   width: 300px;
   height: 100vh;
   background: #a51b0b;
-  color: #F39200;
+  color: white;
   padding: 20px;
   position: relative;
 }
@@ -16,17 +16,18 @@
   margin: 0 15px 15px 0;
 }
 .container_ms header .plus_ms {
-  color: #F39200;
+  color: white;
   margin-right: 5px;
 }
 .container_ms header .plus_ms:hover {
   color: yellow;
 }
 .container_ms header h2 {
-  margin-top: 30px;
+  margin-top: 40px;
+  color: #F39200;
 }
 .container_ms header a {
-  color: #F39200;
+  color: white;
   text-decoration: none;
 }
 .container_ms header a span {
@@ -40,14 +41,22 @@
   display: none;
 }
 .container_ms main a {
-  color: #F39200;
+  color: white;
+  display: block;
 }
 .container_ms main a:hover {
-  color: white;
+  color: #F39200;
   text-decoration: none;
 }
 .container_ms main h3 {
-  margin-top: 10px;
+  margin-top: 15px;
+}
+.container_ms main .container_btn_menu_ms .menu_detail_ms:hover {
+  padding: 5px 30px;
+  transition: padding 0.3s;
+  transition-timing-function: ease-in-out;
+  border: 1px solid #F39200;
+  border-radius: 7px;
 }
 .container_ms footer {
   height: 10%;
@@ -57,7 +66,7 @@
 }
 .container_ms .menu_ms {
   padding-bottom: 30px;
-  border-bottom: 1px solid #F39200;
+  border-bottom: 1px solid white;
 }
 .container_ms .menu_ms a {
   line-height: 35px;
@@ -74,12 +83,48 @@
   left: 50%;
 }
 
+.back_img {
+  width: calc(100% - 300px);
+  height: 350px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 0;
+  box-shadow: 16px 10px 33px 3px rgba(0, 0, 0, 0.75);
+}
+.back_img img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
+  max-height: 100%;
+}
+
+.z_index5_ms {
+  padding-top: 30px;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+  z-index: 5;
+  background-color: #EBECF1;
+  border-radius: 7px;
+  border: 1px solid gray;
+  box-shadow: 5px 6px 23px 3px rgba(0, 0, 0, 0.75);
+  overflow-y: scroll;
+}
+.z_index5_ms::-webkit-scrollbar {
+  display: none;
+}
+.z_index5_ms form {
+  padding-bottom: 30px;
+}
+
 .main_ms {
   width: calc(100% - 300px);
   height: 100vh;
   background-color: #EBECF1;
   color: black;
-  box-shadow: inset 47px 0px 70px -44px black;
+  box-shadow: inset 19px 0px 65px -20px black;
   padding: 50px 40px;
   display: flex;
   overflow-y: scroll;
@@ -96,29 +141,123 @@
      object-position: center;
 }
 .main_ms .card_h_ms {
-  max-width: 500px;
+  margin-top: 110px;
+  max-width: 400px;
 }
 .main_ms .card_h_ms img {
-  max-width: 500px;
+  width: 398px;
 }
-.main_ms .card_h_ms .delete_ms {
-  position: relative;
+.main_ms .card_h_ms .card {
+  height: 500px;
 }
-.main_ms .card_h_ms .delete_ms button {
-  position: absolute;
-  right: 5px;
-  bottom: 5px;
+.main_ms .statistics_restaurant_ms {
+  width: 500px;
+  height: 499px;
+  margin-top: 110px;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 2;
+}
+.main_ms .statistics_restaurant_ms img {
+  max-width: 100%;
+  height: 100%;
 }
 .main_ms .plate_ms {
-  color: #F39200;
+  color: white;
   text-decoration: none;
   font-size: 18px;
+  position: absolute;
+  left: 320px;
+  top: 15px;
 }
 .main_ms .plate_ms span {
   font-family: "Lato", sans-serif;
 }
 .main_ms .plate_ms:hover {
-  color: #2e6b3d;
+  color: #F39200;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_img_ms {
+  height: 270px;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_img_ms img {
+  height: 100%;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms {
+  height: 150px;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms {
+  height: 50px;
+  position: relative;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms button {
+  position: absolute;
+  right: 0px;
+  bottom: 14px;
+}
+.main_ms .position_card_index_ms {
+  margin-top: 150px;
+  padding-bottom: 40px;
+}
+.main_ms .position_card_index_ms .shadow_card_ms {
+  box-shadow: 16px 10px 33px -18px rgba(0, 0, 0, 0.75);
+}
+.main_ms .position_card_index_ms .position_card_index_img_ms {
+  height: 200px;
+}
+.main_ms .position_card_index_ms .position_card_index_h2_ms {
+  height: 150px;
+  padding: 10px 20px;
+}
+.main_ms .position_card_index_ms .position_card_index_a_ms {
+  height: 50px;
+  padding: 0 20px;
+}
+.main_ms .position_card_index_ms .position_card_index_a_ms .btn-info {
+  color: white;
+  background-color: #A51B0B;
+  border: 1px solid black;
+  font-size: 15px;
+}
+.main_ms .position_card_index_ms .position_card_index_a_ms .btn-info:hover {
+  color: white;
+  background-color: #F39200;
+  border: 1px solid black;
+}
+.main_ms .position_card_index_ms .position_card_index_a_ms a {
+  width: 100%;
+}
+.main_ms .dishes_show_container_ms {
+  z-index: 2;
+  padding: 40px;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 7px 7px 23px -10px rgba(0, 0, 0, 0.75);
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms {
+  width: 55%;
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms h1 {
+  margin-bottom: 20px;
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms p:last-of-type {
+  margin-bottom: 30px;
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms h2 {
+  margin-bottom: 20px;
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms h3 {
+  margin-bottom: 50px;
+}
+.main_ms .dishes_show_container_ms .right_dishes_show_container_ms {
+  width: 45%;
+  padding: 10px;
+}
+.main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
+  margin-top: 100px;
+  margin-left: 40px;
+  max-width: 340px;
+  border-radius: 7px;
+  box-shadow: 5px 3px 55px -13px rgba(0, 0, 0, 0.75);
 }
 
 * {

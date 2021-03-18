@@ -3,7 +3,7 @@
 @section('main')
     
   
-    <div class="container create_ms">
+    <div class="container create_ms z_index5_ms">
       <h1 class="mb-5">Crea il tuo ristorante</h1>
         {{-- Div in caso di errori di compilazioni del form --}}
         @if ($errors->any())
@@ -38,22 +38,7 @@
         <div class="form-group">
           <label for="address" class="form-label">Indirizzo</label>
           <input type="text" class="form-control" name="address" id="address" placeholder="Inserisci indirizzo" src="">
-        </div>
-
-        
-
-        {{-- Images --}}
-       {{--  <h5 class="mt-4 mb-2">Immagini</h5>
-        @foreach ($images as $image)
-          <div class="form-check d-flex align-items-stretch">
-            <input class="form-check-input" type="checkbox" value="{{ $image->id }}" id="image-{{ $image->id }}" name="images[]">
-            <label class="form-check-label" for="image-{{ $image->id }}">
-              {{ $image->alt}}
-            </label>
-            <img src="{{ $image->link }}" alt="{{ $image->alt }}" style="width: 50px" class="m-2">
-          </div>
-        @endforeach --}}
-        {{-- /Images --}}
+        </div>       
 
         {{-- Categorie --}}
         @if (count($categories) > 0)

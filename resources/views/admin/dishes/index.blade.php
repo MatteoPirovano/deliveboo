@@ -5,7 +5,7 @@
 @endsection
 
 @section('main')
-<div class="container">
+<div class="container" style="z-index: 2">
     @if (session('message'))
     <div class="alert alert-success mt-2 ml-2">
         {{ session('message') }}
@@ -18,13 +18,22 @@
         </i>
     </a>
     {{-- <a class="btn btn-secondary float-right" href="{{ route('admin.restaurants.index') }}">Indietro</a> --}}
-    <div class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap position_card_index_ms">
         @foreach ($restaurant->dishes->sortBy('name') as $dish)
-        <div style="max-width: 300px" class="card m-2 d-flex justify-content-end">
-            <img class="img_ms" src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
-            <h2 style="word-break: normal">{{$dish->name}}</h2>
-                {{-- <img class="img-thumbnail max-width: 100%" src="{{asset('images/placeholder.png')}}" alt="IMMAGINE"> --}}
-            <a class="btn btn-info" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>
+        <div style="max-width: 300px" class="shadow_card_ms card m-2 d-flex justify-content-end">
+
+            <div class="position_card_index_img_ms">
+                <img class="img_ms" src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+            </div>
+
+            <div class="position_card_index_h2_ms">
+                <h2 style="word-break: normal">{{$dish->name}}</h2>
+            </div>
+
+            <div class="position_card_index_a_ms">
+                <a class="btn btn-info" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>
+            </div>
+            
         </div>
         @endforeach
     </div>

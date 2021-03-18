@@ -1,14 +1,47 @@
+.back_img{
+    width: calc(100% - 300px);
+    height: 350px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 0;
+    box-shadow: 16px 10px 33px 3px rgba(0,0,0,0.75);
+
+    img{
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        max-height: 100%;
+    }
+}
+.z_index5_ms{
+    padding-top: 30px;
+    padding-right: 30px !important;
+    padding-left: 30px !important;
+    z-index: 5;
+    background-color: #EBECF1;
+    border-radius: 7px;
+    border: 1px solid gray; 
+    box-shadow: 5px 6px 23px 3px rgba(0,0,0,0.75);   
+    overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    form{
+        padding-bottom: 30px;
+    }
+}
+
 .main_ms{
     width: calc(100% - 300px);
     height: 100vh;
-    // background: linear-gradient(to bottom right, #0C233F, #2A5788);
     background-color: #EBECF1;
     color: black;
-    box-shadow: inset 47px 0px 70px -44px black;
+    box-shadow: inset 19px 0px 65px -20px black;
     padding: 50px 40px;
     display: flex;
     overflow-y: scroll;
-         &::-webkit-scrollbar {
+            &::-webkit-scrollbar {
                 display: none;
             }
 
@@ -20,37 +53,141 @@
     }
 
     .card_h_ms{
-        max-width: 500px;
-        
+        margin-top: 110px;
+        max-width: 400px;        
         img{
-            max-width: 500px;
-        }    
-        
-        
-        .delete_ms{
-            position: relative;
-            
-            button{
-                position: absolute;
-                right: 5px;
-                bottom: 5px;
-            }
-        }
-        
+            width: 398px;
+        }         
+        .card{
+            height: 500px;
+        }       
     }
+
+    .statistics_restaurant_ms{
+        // background: green;
+        width: 500px;
+        height: 499px;
+        margin-top: 110px;
+        border-radius: 5px;
+        overflow: hidden;
+        z-index: 2;
+
+        img{
+            max-width: 100%;
+            height: 100%;
+        }        
+    }
+
     .plate_ms {
         color: $fontColor;
         text-decoration: none;
         font-size: 18px;
+        position: absolute;
+        left: 320px;
+        top: 15px;
 
         span{
             font-family: 'Lato', sans-serif;
         }
 
         &:hover{
-            color: #2e6b3d;
+            color: #F39200;
+        }
+    }
+
+    .card_restaurant_show_ms{
+
+        .card_restaurant_img_ms{
+            height: 270px;
+            img{
+                height: 100%;
+            }
+        }
+        .card_restaurant_info_ms{
+            height: 150px;
+        }
+        .card_restaurant_bnt_ms{
+            height: 50px;
+            position: relative;            
+            
+            button{
+                position: absolute;
+                right: 0px;
+                bottom: 14px;
+            }        
+        }
+    }
+
+    .position_card_index_ms{
+        margin-top: 150px;
+        padding-bottom: 40px;
+
+        .shadow_card_ms{
+            box-shadow: 16px 10px 33px -18px rgba(0,0,0,0.75);
+        }
+
+        .position_card_index_img_ms{
+            height: 200px;
+        }
+        .position_card_index_h2_ms{
+            height: 150px;
+            padding: 10px 20px;
+        }
+        .position_card_index_a_ms{
+            height: 50px;
+            padding: 0 20px;
+
+            .btn-info {
+                color: $fontColor;
+                background-color: #A51B0B;
+                border: 1px solid black;
+                font-size: 15px;
+
+                &:hover{
+                    color: $fontColor;
+                    background-color: #F39200;
+                    border: 1px solid black;
+                }
+            }            
+            a{
+                width: 100%;
+            }
+        }
+    }
+
+    .dishes_show_container_ms{
+        z-index: 2;
+        padding: 40px;
+        background-color: white;
+        border-radius: 7px; 
+        box-shadow: 7px 7px 23px -10px rgba(0,0,0,0.75);       
+
+        .left_dishes_show_container_ms{
+            width: 55%;
+            h1{
+                margin-bottom: 20px;
+            }
+            p:last-of-type{
+                margin-bottom: 30px;
+            }
+            h2{
+                margin-bottom: 20px;
+            }
+            h3{
+                margin-bottom: 50px;
+            }
+        }
+        .right_dishes_show_container_ms{
+            width: 45%;
+            padding: 10px;
+            img{
+                margin-top: 100px;
+                margin-left: 40px;
+                max-width: 340px;
+                border-radius: 7px;
+                box-shadow: 5px 3px 55px -13px rgba(0,0,0,0.75);
+            }
         }
     }
 
 }
-

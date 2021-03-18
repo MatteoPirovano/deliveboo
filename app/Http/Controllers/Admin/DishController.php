@@ -108,11 +108,12 @@ class DishController extends Controller
     public function edit($slug, $dish_slug)
     {
         $restaurant = Restaurant::where('slug', $slug)->first();
+        $restaurants = Restaurant::where('user_id', Auth::id())->get();
         $dish = Dish::where('slug', $dish_slug)->get()->first();
         $courses = $this->courses;
         if(empty($dish)){
             return view('404.error');
-        } else return view('admin.dishes.edit', compact('dish', 'restaurant', 'courses'));
+        } else return view('admin.dishes.edit', compact('dish', 'restaurant', 'restaurants', 'courses'));
     }
 
     /**

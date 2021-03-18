@@ -3,7 +3,7 @@
 @section('main')
     
   
-    <div class="container">
+    <div class="container z_index5_ms">
       <h1 class="mb-5">Modifica il tuo ristorante</h1>
         {{-- Div in caso di errori di compilazioni del form --}}
         @if ($errors->any())

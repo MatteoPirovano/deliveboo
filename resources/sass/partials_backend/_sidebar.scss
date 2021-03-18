@@ -7,68 +7,84 @@
     position: relative;
     // box-shadow: inset -12px 12px 34px -10px rgba(255,255,255,1);
 
-     header {
+    header {
+
+         height: 170px;
 
         img{
             max-width: 60px;
             margin: 0 15px 15px 0;
         }
 
-         height: 170px;
-        //  background-color: blue;
-            .plus_ms {
-                color: $fontColor;
-                margin-right: 5px;
+        .plus_ms {
+            color: $fontColor;
+            margin-right: 5px;
 
-                &:hover{
-                    color: yellow;
-                }
+            &:hover{
+                color: yellow;
             }
-            h2 {
-                margin-top: 30px;
-            }
+        }
+
+        h2 {
+            margin-top: 40px;
+            color: #F39200;
+        }
+
         a {
             color: $fontColor;
             text-decoration: none;
 
             span{
                 font-family: 'Lato', sans-serif;
-            }
-
-            
+            }            
         }
-        }
+    }
 
-     main {
-         height: calc(90% - 170px);
-        //  background-color: red;
-        //  overflow: scroll;
+    main {
+         
+        height: calc(90% - 170px);
          overflow-y: scroll;
-         &::-webkit-scrollbar {
+
+        &::-webkit-scrollbar {
                 display: none;
             }
-            a{    
-                color: $fontColor;
-            
-                &:hover{
-                    color: white;
-                    text-decoration: none;
-                }
-        
-             
-            }
-            h3 {
-                margin-top: 10px; 
-            }
-        }
 
-        footer {
-            height: 10%;
-            a {
-                color: #143153; 
+        a{    
+            color: $fontColor;
+            display: block;
+        
+            &:hover{
+                color: #F39200;
+                text-decoration: none;
+            }                      
+        }
+        
+        h3 {
+            margin-top: 15px; 
+        }
+        
+        .container_btn_menu_ms{
+            
+            // &:hover{
+            // }
+                
+            .menu_detail_ms:hover{
+                padding: 5px 30px;  
+                transition: padding 0.3s;
+                transition-timing-function: ease-in-out; 
+                border: 1px solid #F39200;
+                border-radius: 7px;  
             }
         }
-    
+    }
+
+    footer {
+        height: 10%;
+
+        a {
+            color: #143153; 
+        }
+    }    
 
     .menu_ms{
         padding-bottom: 30px;
@@ -80,12 +96,9 @@
                 margin-right: 5px;
                 
             }
-        }
-        
+        }        
     }
 }
-
-
 
 .btn_logout{
     position: absolute;
