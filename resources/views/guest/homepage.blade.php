@@ -195,7 +195,7 @@ s
 
       <div class="footer_right" data-aos="flip-right">
         <h3>LAVORA CON NOI</h3>
-        <a href="" class="btn btn-success">Registrati</a>
+        <a href="{{route('login')}}" class="btn btn-success">Registrati</a>
       </div>
 
     </div>
