@@ -10,7 +10,7 @@
     <div class="left_dishes_show_container_ms">
         <h1>{{$dish->name}}</h1>        
         <p><strong>Ingredienti:</strong> {{$dish->ingredients}}</p>
-        <p><strong>Descrizione:</strong>Descrizione: {{$dish->description}}</p>
+        <p><strong>Descrizione:</strong> {{$dish->description}}</p>
         <h2><strong>Prezzo:</strong> {{$dish->price}}€</h2>
         <h3><strong>Disponibilità: </strong>
             @if ($dish->visibility)

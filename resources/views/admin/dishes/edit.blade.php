@@ -4,7 +4,7 @@
     
   
     <div class="container z_index5_ms">
-      <h1 class="mb-5">Aggiungi il tuo piatto</h1>
+      <h1 class="mb-5">Modifica {{$dish->name}}</h1>
         {{-- Div in caso di errori di compilazioni del form --}}
         @if ($errors->any())
         <div class="alert alert-danger">

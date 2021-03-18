@@ -95,8 +95,8 @@
 .back_img img {
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: bottom;
+     object-position: bottom;
   width: 100%;
   max-height: 100%;
 }
@@ -163,7 +163,7 @@
   height: 100%;
 }
 .main_ms .plate_ms {
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 18px;
   position: absolute;
