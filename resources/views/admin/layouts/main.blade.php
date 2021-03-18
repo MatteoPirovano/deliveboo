@@ -34,7 +34,9 @@
             <header>
 
                 <div class="flex_ms">
-                    <img src="{{ asset('images/logo.png') }}" alt="">
+                    <a href="{{ route('homepage') }}">
+                        <img src="{{ asset('images/logo.png') }}" alt="">
+                    </a>
                      <h1>{{ Auth::user()->name }}</h1>
                 </div>
 
