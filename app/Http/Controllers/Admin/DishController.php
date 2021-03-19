@@ -15,7 +15,7 @@ class DishController extends Controller
 {
     private $validation = [
         'name'=> 'required|max:100',
-        'img'=> 'mimes:jpeg,jpg,bmp,png',
+        'img'=> 'mimes:jpeg,jpg,bmp,png,webp',
         'ingredients'=> 'required|max:1000',
         'courses'=> 'required',
         'description'=> 'required|max:1500',

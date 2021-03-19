@@ -91,9 +91,11 @@
       {{-- Sezione card --}}
       <div class="container d-flex justify-content-center flex-wrap" data-aos="fade-down-right">
         <div class="card" v-for="restaurant in restaurants">
-          <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
+      
+          <img src="" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title">@{{restaurant.name}}</h2>
+            @dd(restaurant.name)
             <a :href="restaurant.slug" class="btn btn-success">Menu</a>
           </div>
         </div>

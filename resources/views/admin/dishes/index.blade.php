@@ -28,6 +28,7 @@
 
             <div class="position_card_index_h2_ms">
                 <h2 style="word-break: normal">{{$dish->name}}</h2>
+                <h3 style="word-break: normal; color: orange">{{$dish->courses}}</h3>
             </div>
 
             <div class="position_card_index_a_ms">

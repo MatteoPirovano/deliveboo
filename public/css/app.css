@@ -8,9 +8,6 @@
   padding: 20px;
   position: relative;
 }
-.container_ms header {
-  height: 170px;
-}
 .container_ms header img {
   max-width: 60px;
   margin: 0 15px 15px 0;
