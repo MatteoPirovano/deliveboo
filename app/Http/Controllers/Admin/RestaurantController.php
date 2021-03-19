@@ -63,7 +63,11 @@ class RestaurantController extends Controller
         $restaurant->fill($data);
         $restaurant->slug = Str::slug($restaurant->name, '-');
         $restaurant->user_id = Auth::id();
-        $restaurant['img'] = Storage::disk('public')->put('immages', $restaurant['img']);
+
+        if(!empty($data["img"])) {
+            $restaurant['img'] = Storage::disk('public')->put('immages', $restaurant['img']);
+        }
+
         $restaurant_result = $restaurant->save();
 
         $data['restaurant_id'] = $restaurant->id;

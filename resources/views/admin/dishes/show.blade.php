@@ -29,7 +29,12 @@
             @method('DELETE')
             <button type="submit" class="btn btn-danger">Elimina</button>
         </form>
-        <img src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+        
+        @if(!empty($dish->img))
+            <img src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+        @else
+            <img src="{{ asset('images/placeholder.png') }}" alt="PLACEHOLDER">
+        @endif
         
     </div>
     

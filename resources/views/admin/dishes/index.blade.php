@@ -23,7 +23,11 @@
         <div style="max-width: 300px" class="shadow_card_ms card m-2 d-flex justify-content-end">
 
             <div class="position_card_index_img_ms">
-                <img class="img_ms" src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+                @if(!empty($dish->img))
+                    <img class="img_ms" src="{{asset('storage/' . $dish->img)}}" alt="PIATTO">
+                @else
+                    <img class="img_ms" src="{{ asset('images/placeholder.png') }}" alt="PLACEHOLDER">
+                @endif
             </div>
 
             <div class="position_card_index_h2_ms">

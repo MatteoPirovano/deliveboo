@@ -10,7 +10,11 @@
             <div class="card card_restaurant_show_ms">
 
                 <div class="card_restaurant_img_ms">
-                    <img class="card-img-top" src="{{asset('storage/' . $restaurant->img)}}" alt="IMMAGINE">
+                    @if(!empty($restaurant->img))
+                        <img class="card-img-top" src="{{asset('storage/' . $restaurant->img)}}" alt="RISTORANTE">
+                    @else
+                        <img class="card-img-top" src="{{ asset('images/placeholder.png') }}" alt="PLACEHOLDER">
+                    @endif
                 </div>
 
                 <div class="card-body">
