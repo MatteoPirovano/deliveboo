@@ -55,6 +55,7 @@ class DishController extends Controller
         $restaurant = Restaurant::where('slug', $slug)->first();
         $restaurants = Restaurant::where('user_id', Auth::id())->get();
         $courses = $this->courses;
+
         return view ('admin.dishes.create', compact('restaurant', 'courses', 'restaurants'));
     }
 
@@ -76,8 +77,8 @@ class DishController extends Controller
         $dish->slug = Str::slug($dish->name, '-');
         $restaurant = Restaurant::where('slug', $slug)->first();
         // dd($restaurant->id);
-        $dish->restaurant_id = $restaurant->id;
-        $dish['img'] = Storage::disk('public')->put('immages', $dish['img']);
+        $dish->restaurant_id = $restaurant->id;        
+
         $dish_result = $dish->save();
 
         return redirect()
