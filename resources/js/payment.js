@@ -20,7 +20,10 @@ const app = new Vue({
         }
     },
     methods: {
-        
+        deleteOrder() {
+            localStorage.total = "";
+            localStorage.order = "";
+        }
     },
     watch: {
         total(newtotal) {

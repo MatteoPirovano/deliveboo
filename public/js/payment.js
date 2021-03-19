@@ -49620,7 +49620,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       this.order = JSON.parse(localStorage.getItem('order'));
     }
   },
-  methods: {},
+  methods: {
+    deleteOrder: function deleteOrder() {
+      localStorage.total = "";
+      localStorage.order = "";
+    }
+  },
   watch: {
     total: function total(newtotal) {
       localStorage.total = newtotal;

@@ -22,32 +22,27 @@
                     Riepilogo dell'ordine:
                   </h1>
                 </div>
-                <div class="separate-summary input-group-prepend" v-for="dish in order">
+                <div class="separate-summary input-group-prepend" v-for="(dish,index) in order">
                     
-                    <input type="text" class="form-control" name="dish_name" :value="dish.name" readonly>
+                    <input type="text" class="form-control" :name="'dish_name['+index+']'" :value="dish.name" readonly>
                   
                     
-                    <input type="text" class="form-control" name="dish_count" :value="dish.count" readonly>
+                    <input type="text" class="form-control" :name="'dish_count['+index+']'" :value="dish.count" readonly>
                   
                     
-                    <input type="text" class="form-control" name="dish_price" :value="dish.price" readonly>
+                    <input type="text" class="form-control" :name="'dish_price['+index+']'" :value="dish.price" readonly>
                   
                 </div>
                 
                 <div class="separate-summary">
-                    <input type="text" class="form-control" name="total" :value="total" readonly>
+                    <input type="text" class="form-control" name="price" :value="total" readonly>
                 </div>
               </div>
         </div>
         <div class="order-pay-container container">
 
             <div class="cont-marg-left">
-        
-        
                   <div id="order-summary">
-        
-                    
-        
                     <div class="content pay-box">
         
                       <form class="container" method="POST" id="payment-form"
@@ -60,20 +55,24 @@
                         
                             <div class="form-group">
                                 <label class="form-label" for="name">Nome</label>
-                                <input class="form-control" type="text" id="name" name="name" value="" placeholder="Inserisci nome">
+                                <input class="form-control" type="text" id="name" name="client_name" value="" placeholder="Inserisci nome">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="surname">Cognome</label>
-                                <input class="form-control" id="surname" type="text" name="surname" value="" placeholder="Inserisci cognome">
+                                <input class="form-control" id="surname" type="text" name="client_surname" value="" placeholder="Inserisci cognome">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="email">Email</label>
-                                <input class="form-control" type="text" id="email" name="email" value="" placeholder="Inserisci email">
+                                <input class="form-control" type="email" id="email" name="client_mail" value="" placeholder="Inserisci email">
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="address">Indirizzo</label>
-                                <input class="form-control" type="text" id="address" name="address" value="" placeholder="Inserisci indirizzo">
+                                <input class="form-control" type="text" id="address" name="client_address" value="" placeholder="Inserisci indirizzo">
                             </div>
+                            <div class="form-group">
+                              <label class="form-label" for="order_date">Data Ordine</label>
+                              <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="" placeholder="Inserisci la data di ordinazione">
+                          </div>
                         </section>
         
                         <div class="bt-drop-in-wrapper">
@@ -81,7 +80,7 @@
                         </div>
         
                         <input type="hidden" id="nonce" name="payment_method_nonce" type="text" readonly />
-                        <button id="pay-button" class="button" type="submit"><span>Effettua il Pagamento</span></button>
+                        <button id="pay-button" class="button" type="submit" v-on:click="deleteOrder()"><span>Effettua il Pagamento</span></button>
                     </form>
 
                     
