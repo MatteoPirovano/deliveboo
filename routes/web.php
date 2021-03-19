@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/payment', 'PaymentsController@pay')->name('payment');
 
 Auth::routes();
 
@@ -39,3 +38,7 @@ Route::prefix('admin')       // prefisso delle rotte
         });
     }
   );
+
+  Route::post('/prova', 'PaymentsController@prova')->name('prova');
+
+  Route::post('/result', 'PaymentsController@result')->name('result');

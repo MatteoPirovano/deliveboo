@@ -36,6 +36,7 @@
                 <span>Total: </span>
                 <span >@{{total}}€</span>
                 <button v-on:click="deleteOrder()">Delete</button>
+                <a class="btn btn-success" href="{{route('payment')}}">Conferma</a>
             </div>
         </div>
 
