@@ -70,7 +70,7 @@ class DishController extends Controller
         $data = $request->all();
         // dd($data);
         $request->validate($this->validation);
-
+        
         $dish = new Dish();
         $dish->fill($data);
         $dish->slug = Str::slug($dish->name, '-');
@@ -131,6 +131,16 @@ class DishController extends Controller
         $data['slug'] = Str::slug($data['name'], '-');
 
         $request->validate($this->validation);
+
+        if(!empty($data["img"])) {
+            // verifico se è presente un'immagine precedente, se si devo cancellarla
+            if(!empty($dish->img)) {
+                Storage::disk('public')->delete($dish->img);
+            }
+
+            $data["img"] = Storage::disk('public')->put('immages', $data["img"]);
+        }
+
         $dish->update($data);
 
         return redirect()

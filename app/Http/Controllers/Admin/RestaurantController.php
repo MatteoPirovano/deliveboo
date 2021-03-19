@@ -128,6 +128,16 @@ class RestaurantController extends Controller
         $data['slug'] = Str::slug($data['name'], '-');
 
         $request->validate($this->validation);
+
+        if(!empty($data["img"])) {
+            // verifico se è presente un'immagine precedente, se si devo cancellarla
+            if(!empty($restaurant->img)) {
+                Storage::disk('public')->delete($restaurant->img);
+            }
+
+            $data["img"] = Storage::disk('public')->put('immages', $data["img"]);
+        }
+
         $restaurant->update($data);
 
         if(empty($data['categories'])) {
