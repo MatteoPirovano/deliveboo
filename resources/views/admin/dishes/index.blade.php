@@ -15,7 +15,7 @@
     {{-- <a class="btn btn-secondary float-right" href="{{ route('admin.restaurants.index') }}">Indietro</a> --}}
     <div class="d-flex flex-wrap position_card_index_ms">
         @foreach ($restaurant->dishes->sortBy('name') as $dish)
-        <div style="max-width: 300px" class="shadow_card_ms card m-2 d-flex justify-content-end">
+        <div class="shadow_card_ms card m-2 d-flex justify-content-end">
 
             <div class="position_card_index_img_ms">
                 @if(!empty($dish->img))

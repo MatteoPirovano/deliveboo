@@ -127,6 +127,7 @@
 
         .shadow_card_ms{
             box-shadow: 16px 10px 33px -18px rgba(0,0,0,0.75);
+            max-width: 300px;
         }
 
         .position_card_index_img_ms{
@@ -212,6 +213,21 @@
                 }
             }
         }
+    }
+
+}
+
+
+
+
+// QUERIES_____________________________________________________________________________________________________
+@media screen and (min-width: 1180px) and (max-width: 1919px) {
+
+    .main_ms .position_card_index_ms .shadow_card_ms {
+        max-width: 240px;
+    }
+    .position_card_index_h2_ms h2{
+        font-size: 1.5rem;
     }
 
 }
