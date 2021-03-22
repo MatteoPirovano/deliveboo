@@ -30,8 +30,7 @@ const app = new Vue({
     el: '#app',
     data: {
         order: [],
-        total: 0,
-        orderStorage: []
+        total: 0
     },
     mounted() {
         if (localStorage.total) {
@@ -121,8 +120,10 @@ const app = new Vue({
             app.total = total;
         },
         deleteOrder() {
-            app.total = 0;
+            app.total = "";
             app.order = [];
+            localStorage.total = "";
+            localStorage.order = "";
         }
     },
     watch: {

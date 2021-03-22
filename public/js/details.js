@@ -49630,8 +49630,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app',
   data: {
     order: [],
-    total: 0,
-    orderStorage: []
+    total: 0
   },
   mounted: function mounted() {
     if (localStorage.total) {
@@ -49711,8 +49710,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       app.total = total;
     },
     deleteOrder: function deleteOrder() {
-      app.total = 0;
+      app.total = "";
       app.order = [];
+      localStorage.total = "";
+      localStorage.order = "";
     }
   },
   watch: {
