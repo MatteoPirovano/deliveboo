@@ -95,7 +95,6 @@
           <img src="" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title">@{{restaurant.name}}</h2>
-            @dd(restaurant.name)
             <a :href="restaurant.slug" class="btn btn-success">Menu</a>
           </div>
         </div>

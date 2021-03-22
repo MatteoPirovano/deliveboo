@@ -1,37 +1,17 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
         order: [],
         total: 0,
-        orderStorage: []
+        count: 0,
+        chartVisibility: 'hidden'
     },
     mounted() {
         if (localStorage.total) {
@@ -120,9 +100,41 @@ const app = new Vue({
             );  
             app.total = total;
         },
+        totalCount() {
+            var count = 0;
+            app.order.forEach(
+                element => {
+                    count = count + element['count'];
+                }
+            );  
+            app.count = count;
+        },
         deleteOrder() {
             app.total = 0;
             app.order = [];
+        },
+        deleteDishOrder(name) {
+            app.order.forEach(element => {
+                if(element['name'] == name) {
+                    element['count'] = 0;
+                    element['price'] = 0;
+                }
+            app.totalPrice();
+            });
+        },
+        inOrder(name) {
+            var filtered = this.order.filter(
+                (element) => {
+                    return element['name'] == name;
+                }); 
+            if(filtered.length == 0) {
+                return false;
+            } else return true;
+        },
+        changeVisibility() {
+            if(app.chartVisibility == 'hidden') {
+                app.chartVisibility = 'visible';
+            } else app.chartVisibility = 'hidden';
         }
     },
     watch: {
