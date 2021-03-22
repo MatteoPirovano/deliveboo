@@ -77,7 +77,7 @@ class DishController extends Controller
         $dish->slug = Str::slug($dish->name, '-');
         $restaurant = Restaurant::where('slug', $slug)->first();
         // dd($restaurant->id);
-        $dish->restaurant_id = $restaurant->id;        
+        $dish->restaurant_id = $restaurant->id;
 
         $dish_result = $dish->save();
 

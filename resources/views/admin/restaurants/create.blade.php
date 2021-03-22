@@ -32,7 +32,7 @@
 
         <div class="form-group">
           <label for="p_iva" class="form-label">Partita Iva</label>
-          <input type="text" min="0" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" placeholder="Inserisci partita iva" value="{{old('p_iva')}}">
+          <input type="text" maxlength="11" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" placeholder="Inserisci partita iva" value="{{old('p_iva')}}">
         </div>
 
         <div class="form-group">

@@ -16,7 +16,7 @@ class RestaurantController extends Controller
     private $validation = [
         'name'=> 'required|max:100',
         'img'=> 'mimes:jpeg,jpg,bmp,png',
-        'p_iva'=> 'required|size:11',
+        'p_iva'=> 'required|unique:restaurants|digits:11',
         'address'=> 'required|max:100'
     ];
     /**
