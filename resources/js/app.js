@@ -32,22 +32,37 @@ const app = new Vue({
     data: {
         restaurants: "",
         category: '',
-        categories: []
+        categories: [],
+        restaurants: [],
     },
     mounted() {
         axios.get("http://127.0.0.1:8000/api/categories/", {
       }).then(
         (response) => {
+          //console.log(response.data);
             app.categories = response.data;
+            
         });
+
+        axios.get("http://127.0.0.1:8000/api/restaurants")
+        .then((response) => {
+          app.restaurants = response.data;
+        });
+        
     },
     methods: {
-        filterCategory: function() {
-            axios.get("http://127.0.0.1:8000/api/restaurants/" + app.category, {
+        filterCategory: function(category) {
+
+          app.restaurants = [];
+
+            axios.get("http://127.0.0.1:8000/api/restaurants/" + category, {
         }).then(
             (response) => {
+              console.log(response.data);
                 app.restaurants = response.data;
             });
         }
+
     }
+
 });

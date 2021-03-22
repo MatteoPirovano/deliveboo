@@ -32,132 +32,68 @@
 
   {{-- header --}}
   <header>
-    <div class="nav_bar">
-      <img src="{{ asset('images/logo.png') }}" alt="logo">
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#contact">Contatti</a>
-        </li>
-        <li>
-          <a href="#register">Lavora con noi</a>
-        </li>
-        <li>
-          <a href="#categories">Categorie</a>
-        </li>
-      </ul>
-    </div>
-
-    <div class="container_top" data-aos="zoom-out">
-      <div class="col_left">
-        <h1>I più famosi <br> I più buoni <br> I preferiti</h1>
-        <h3>Non vuoi prepararti la cena ma hai voglia di mangiare qualcosa che non hai mai provato fino ad ora? Con <span>Deliveboo</span> ordini dai migliori ristoranti della tua città in maniera semplice</h3>
-      </div>
-      <div class="col_right">
-      </div>
-    </div>   
-    <a id="categories"></a>
-    <div class="container_bottom" data-aos="zoom-in-up">
-      <div class="col_left_btm" style="background-image: url({{asset('images/del-rider.jpg')}})">
-
-      </div>
-      <div class="col_right_btm">
-        <h2>Dicono di noi...</h2>
-        <p>"L'amore per un figlio è una cosa meravigliosa. <br> Ma anche quello per il rider che suona con un pacco <span>Deliveboo</span> non scherza."</p>
-        <p>"Ormai non aspetto più Romeo, ma la consegna di <span>Deliveboo</span>."</p>
-      </div>
-    </div>
     
+    <div class="nav_bar">
+      
+      <div class="cont_img mb-2">
+        <img src="{{ asset('images/logo.png') }}" alt="logo">
+      </div>
+
+      <div class="cont_list">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#contact">Contatti</a>
+          </li>
+          <li>
+            <a href="#register">Lavora con noi</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="layover">
+      <h1>Tutto quello di cui hai bisogno <br> in un click</h1>
+    </div>
   </header>
   {{-- /header --}}
 
   {{-- main --}}
   <main>
-    <div class="container_main">      
-      <div class="title_cont" data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="1200" {{-- v-if="!category == '' " --}}
-        >
-        <h2>SCEGLI COSA ORDINARE</h2>
-        <select v-model="category" v-on:change="filterCategory()" class="btn">
-            <option value="" disabled>SCIEGLI COSA ORDINARE</option>
-            <option v-for="category in categories" :value="category.name">@{{category.name}}</option>
-        </select>
-       {{--  <h3 style="text-transform: uppercase">@{{ category }}</h3> --}}
-      </div>
+    <div class="container_main">  
+      {{-- Categories --}} 
+      <div class="row_categories">
+        <div class="icons" v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
+          <h5>@{{ category.name }}</h5>
+        </div>
+      </div>   
+      {{-- Categories --}} 
 
-      {{-- Sezione card --}}
-      <div class="container d-flex justify-content-center flex-wrap" data-aos="fade-down-right">
-        <div class="card" v-for="restaurant in restaurants">
-      
-          <img src="" class="card-img-top" alt="...">
+      {{-- all restaurants --}}
+      <div class="container d-flex justify-content-center flex-wrap" v-if="restaurants.lenght > 0">
+        <div class="card" v-for="restaurant in restaurants">      
+          <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title">@{{restaurant.name}}</h2>
-            <a :href="restaurant.slug" class="btn btn-success">Menu</a>
+            <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
           </div>
-        </div>
-
-        {{-- <div class="card">
-          <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">Dal Cinese</h2>
-            <a href="#" class="btn btn-success">Menu</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">Dal Cinese</h2>
-            <a href="#" class="btn btn-success">Menu</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">Dal Cinese</h2>
-            <a href="#" class="btn btn-success">Menu</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">Dal Cinese</h2>
-            <a href="#" class="btn btn-success">Menu</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="{{ asset('images/food.jpg') }}" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">Dal Cinese</h2>
-            <a href="#" class="btn btn-success">Menu</a>
-          </div>
-        </div> --}}
-      </div>
-      {{-- /Sezione card --}}
-
-      {{-- /Sezione fine main --}}
-      <div class="container_main_bottom">
-        <div class="img_phone" data-aos="zoom-in">
-          <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
-        </div>
-        <div class="download_app">
-          <h3>Sempre al tuo fianco</h3>
-          <p>Scarica l'app e scegli subito cosa mangiare</p>
-          <div class="seach_app">
-            <img src="{{ asset('images/android.png') }}" alt="ios-app" style="width: 50px; height:50px">
-            <img src="{{ asset('images/ios.png') }}" alt="ios-app" style="width: 50px; height: 50px">
-          </div>
-        </div>
-        <div class="img_rider" data-aos="zoom-in">
         </div>
       </div>
-      {{-- /Sezione fine main --}}
+      {{-- /all restaurants --}}
+
+      {{-- Restaurants --}}
+      <div class="container d-flex justify-content-center flex-wrap">
+        <div class="card" v-for="restaurant in restaurants">      
+          <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h2 class="card-title">@{{restaurant.name}}</h2>
+            <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+          </div>
+        </div>
+      </div>
+      {{-- Restaurants --}}
     </div>
   </main>
   {{-- /main --}}
@@ -169,11 +105,11 @@
 
 
     <div class="container_footer" >
-      <div class="footer_left" data-aos="flip-right">
-s
+      <div class="footer_left">
+        <img src="{{asset('images/del-rider.jpg')}}" alt="">
       </div>
 
-      <div class="footer_center" data-aos="flip-left">
+      <div class="footer_center">
         <h3>TEAM DI SVILUPPO</h3>
         <ul>
           <li>
@@ -194,9 +130,8 @@ s
         </ul>
       </div>
 
-      <div class="footer_right" data-aos="flip-right">
-        <h3>LAVORA CON NOI</h3>
-        <a href="{{route('login')}}" class="btn btn-success">Registrati</a>
+      <div class="footer_right">
+        <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
       </div>
 
     </div>

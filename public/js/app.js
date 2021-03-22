@@ -1878,6 +1878,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -1906,19 +1908,25 @@ vue__WEBPACK_IMPORTED_MODULE_0__.default.component('example-component', __webpac
 
 var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   el: '#app',
-  data: {
+  data: _defineProperty({
     restaurants: "",
     category: '',
     categories: []
-  },
+  }, "restaurants", []),
   mounted: function mounted() {
     axios.get("http://127.0.0.1:8000/api/categories/", {}).then(function (response) {
+      //console.log(response.data);
       app.categories = response.data;
+    });
+    axios.get("http://127.0.0.1:8000/api/restaurants").then(function (response) {
+      app.restaurants = response.data;
     });
   },
   methods: {
-    filterCategory: function filterCategory() {
-      axios.get("http://127.0.0.1:8000/api/restaurants/" + app.category, {}).then(function (response) {
+    filterCategory: function filterCategory(category) {
+      app.restaurants = [];
+      axios.get("http://127.0.0.1:8000/api/restaurants/" + category, {}).then(function (response) {
+        console.log(response.data);
         app.restaurants = response.data;
       });
     }
