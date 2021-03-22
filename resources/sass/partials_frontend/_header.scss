@@ -5,20 +5,31 @@ header {
     display: flex;
     align-items: center;
     position: fixed;
-    background-color: rgba(255,255,255,0.9);
+    background-color: $black;
     z-index: 99;
+    .menu {
+      width: 100%;
+    }
+    .hamburger_menu {
+      font-size: 30px;
+      color: lightgray;
+      display: none;
+      
+    }
+  
     img {
       margin-right: 20px;
       width: 70px;
     }
-    ul {
+    ul { 
       margin: 0;
       display: flex;
-      align-items: center;
+      justify-content: flex-end;
       li {
-        margin: 0 20px;
-        padding: 10px 20px;
-        font-size: 24px;
+        margin: 0 15px;
+        padding: 5px 10px;
+        font-size: 20px;
+        
         transition: 0.3s;
         &:hover {
           transform: scale(1.2);
@@ -28,7 +39,7 @@ header {
           color: white;
         }
         a {
-          color: black;
+          color: white;
           transition: 0.3s;
           &:hover {
             text-decoration: none;
@@ -36,8 +47,35 @@ header {
         }
       }
     }
+
+    @media only screen and (max-width: 768px) {
+
+      .hamburger_menu {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        font-size: 40px;
+        color: #F39201;
+      }
+
+      .menu {
+        display: none;
+      }
+
+      .active {
+        display: block;
+        color: white;
+        background-image: linear-gradient($softYellow, orange);
+      }
+    }
+
+
     
   }
+ 
+
+
+
   .container_top {
     position: relative;
     display: flex;
@@ -51,22 +89,19 @@ header {
       height: 100vh;
     }
     .col_left {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       padding: 100px;
-      background-color: $darkRed;
+      background-color: #965a37d1;
       h1 {
         margin-bottom: 30px;
         color: white;
-        font-size: 50px;
+        font-size: 200px;
         line-height: 70px;
       }
-      h3 {
+      h2 {
         padding-right: 150px;
         font-weight: 300;
         color: white;
-        font-size: 25px;
+        font-size: 150px;
         span {
           color: $goldeFizz;
           font-weight: 400;
@@ -77,37 +112,44 @@ header {
   }
 
   .container_bottom {
-    position: absolute;
-    bottom: -250px;
     width: 100%;
    
     padding: 0 100px;
-    display: flex;
-    .col_left_btm {
-      width: 50%;
-      height: 400px;
-      background-size: cover;
-    }
-    .col_right_btm {
-      
-      padding: 75px;
-      height: 400px;
-      width: 50%;
-      background-color: $softYellow;
-      h2 {
-        margin-bottom: 20px;
-        color: $blue;
-      }
-      p {
-        margin-bottom: 30px;
-        color: navy;
-        font-weight: 300;
-        font-size: 20px;
-        span {
-          font-weight: 400;
-          color: $orange;
+      .container_inner_bottom {
+        display: flex;
+        position: relative;
+        bottom: 150px;
+
+        .col_left_btm {
+          width: 50%;
+          height: 400px;
+          background-size: cover;
+        }
+
+        .col_right_btm {
+          padding: 75px;
+          height: 400px;
+          width: 50%;
+          background-color: #965a37d1;
+          h2 {
+            margin-bottom: 20px;
+            color: $blue;
+          }
+          p {
+            margin-bottom: 30px;
+            color: navy;
+            font-weight: 300;
+            font-size: 20px;
+            span {
+              font-weight: 400;
+              color: $orange;
+            }
+          }
         }
       }
-    }
   }
 }
+
+
+// ---MEDIA QUERIES---
+

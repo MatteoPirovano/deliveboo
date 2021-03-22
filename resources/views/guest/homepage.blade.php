@@ -17,6 +17,9 @@
     <!-- Aos library - scroll effects -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    {{-- Media Queries --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Styles -->
     <link href="{{ asset('css/app2.css') }}" rel="stylesheet">
     <title>Home Page Deliveboo</title>
@@ -34,7 +37,7 @@
   <header>
     <div class="nav_bar">
       <img src="{{ asset('images/logo.png') }}" alt="logo">
-      <ul>
+      <ul class="menu">
         <li>
           <a href="#">Home</a>
         </li>
@@ -48,26 +51,48 @@
           <a href="#categories">Categorie</a>
         </li>
       </ul>
+      <div class="hamburger_menu">
+        <div class="menu_container">
+          <i class="fas fa-hamburger" v-on:click="getActive()"></i>
+          <ul class="menu_hidden" :class="{active: isActive}">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#contact">Contatti</a>
+            </li>
+            <li>
+              <a href="#register">Lavora con noi</a>
+            </li>
+            <li>
+              <a href="#categories">Categorie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <div class="container_top" data-aos="zoom-out">
+    <div class="container_top">
       <div class="col_left">
-        <h1>I più famosi <br> I più buoni <br> I preferiti</h1>
-        <h3>Non vuoi prepararti la cena ma hai voglia di mangiare qualcosa che non hai mai provato fino ad ora? Con <span>Deliveboo</span> ordini dai migliori ristoranti della tua città in maniera semplice</h3>
+        <h2>DELIVE</h2>
+        <h1>boo</h1>
       </div>
       <div class="col_right">
       </div>
     </div>   
     <a id="categories"></a>
-    <div class="container_bottom" data-aos="zoom-in-up">
-      <div class="col_left_btm" style="background-image: url({{asset('images/del-rider.jpg')}})">
+    <div class="container_bottom">
+      <div class="container_inner_bottom">
+        <div class="col_left_btm" style="background-image: url({{asset('images/del-rider.jpg')}})">
 
+        </div>
+        <div class="col_right_btm">
+          <h2>Dicono di noi...</h2>
+          <p>"L'amore per un figlio è una cosa meravigliosa. <br> Ma anche quello per il rider che suona con un pacco <span>Deliveboo</span> non scherza."</p>
+          <p>"Ormai non aspetto più Romeo, ma la consegna di <span>Deliveboo</span>."</p>
+        </div>
       </div>
-      <div class="col_right_btm">
-        <h2>Dicono di noi...</h2>
-        <p>"L'amore per un figlio è una cosa meravigliosa. <br> Ma anche quello per il rider che suona con un pacco <span>Deliveboo</span> non scherza."</p>
-        <p>"Ormai non aspetto più Romeo, ma la consegna di <span>Deliveboo</span>."</p>
-      </div>
+     
     </div>
     
   </header>
@@ -76,9 +101,7 @@
   {{-- main --}}
   <main>
     <div class="container_main">      
-      <div class="title_cont" data-aos="fade-down"
-          data-aos-easing="linear"
-          data-aos-duration="1200" {{-- v-if="!category == '' " --}}
+      <div class="title_cont" {{-- v-if="!category == '' " --}}
         >
         <h2>SCEGLI COSA ORDINARE</h2>
         <select v-model="category" v-on:change="filterCategory()" class="btn">
@@ -89,13 +112,13 @@
       </div>
 
       {{-- Sezione card --}}
-      <div class="container d-flex justify-content-center flex-wrap" data-aos="fade-down-right">
+      <div class="container d-flex justify-content-center flex-wrap">
         <div class="card" v-for="restaurant in restaurants">
       
           <img src="" class="card-img-top" alt="...">
           <div class="card-body">
             <h2 class="card-title">@{{restaurant.name}}</h2>
-            @dd(restaurant.name)
+            {{-- @dd(restaurant.name) --}}
             <a :href="restaurant.slug" class="btn btn-success">Menu</a>
           </div>
         </div>
@@ -144,7 +167,7 @@
 
       {{-- /Sezione fine main --}}
       <div class="container_main_bottom">
-        <div class="img_phone" data-aos="zoom-in">
+        <div class="img_phone">
           <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
         </div>
         <div class="download_app">
@@ -155,7 +178,7 @@
             <img src="{{ asset('images/ios.png') }}" alt="ios-app" style="width: 50px; height: 50px">
           </div>
         </div>
-        <div class="img_rider" data-aos="zoom-in">
+        <div class="img_rider">
         </div>
       </div>
       {{-- /Sezione fine main --}}
@@ -170,11 +193,12 @@
 
 
     <div class="container_footer" >
-      <div class="footer_left" data-aos="flip-right">
-s
+      <div class="footer_left">
+        {{-- data-aos="flip-right" --}}
       </div>
 
-      <div class="footer_center" data-aos="flip-left">
+      <div class="footer_center">
+        {{-- data-aos="flip-left" --}}
         <h3>TEAM DI SVILUPPO</h3>
         <ul>
           <li>
@@ -195,7 +219,8 @@ s
         </ul>
       </div>
 
-      <div class="footer_right" data-aos="flip-right">
+      <div class="footer_right">
+        {{-- data-aos="flip-right" --}}
         <h3>LAVORA CON NOI</h3>
         <a href="{{route('login')}}" class="btn btn-success">Registrati</a>
       </div>

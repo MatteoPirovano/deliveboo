@@ -32,7 +32,8 @@ const app = new Vue({
     data: {
         restaurants: "",
         category: '',
-        categories: []
+        categories: [],
+        isActive: false
     },
     mounted() {
         axios.get("http://127.0.0.1:8000/api/categories/", {
@@ -48,6 +49,10 @@ const app = new Vue({
             (response) => {
                 app.restaurants = response.data;
             });
+        },
+
+        getActive: function() {
+            this.isActive = !this.isActive;
         }
     }
 });

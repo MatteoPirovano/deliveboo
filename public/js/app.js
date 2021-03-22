@@ -1909,7 +1909,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   data: {
     restaurants: "",
     category: '',
-    categories: []
+    categories: [],
+    isActive: false
   },
   mounted: function mounted() {
     axios.get("http://127.0.0.1:8000/api/categories/", {}).then(function (response) {
@@ -1921,6 +1922,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       axios.get("http://127.0.0.1:8000/api/restaurants/" + app.category, {}).then(function (response) {
         app.restaurants = response.data;
       });
+    },
+    getActive: function getActive() {
+      this.isActive = !this.isActive;
     }
   }
 });

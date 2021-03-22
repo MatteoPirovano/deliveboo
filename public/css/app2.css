@@ -9,6 +9,10 @@ body {
   font-family: "Spartan", sans-serif;
 }
 
+#app {
+  background-image: linear-gradient(#fbfe4f, orange);
+}
+
 ul {
   list-style: none;
 }
@@ -24,8 +28,16 @@ header .nav_bar {
   display: flex;
   align-items: center;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #000000;
   z-index: 99;
+}
+header .nav_bar .menu {
+  width: 100%;
+}
+header .nav_bar .hamburger_menu {
+  font-size: 30px;
+  color: lightgray;
+  display: none;
 }
 header .nav_bar img {
   margin-right: 20px;
@@ -34,12 +46,12 @@ header .nav_bar img {
 header .nav_bar ul {
   margin: 0;
   display: flex;
-  align-items: center;
+  justify-content: flex-end;
 }
 header .nav_bar ul li {
-  margin: 0 20px;
-  padding: 10px 20px;
-  font-size: 24px;
+  margin: 0 15px;
+  padding: 5px 10px;
+  font-size: 20px;
   transition: 0.3s;
 }
 header .nav_bar ul li:hover {
@@ -50,11 +62,28 @@ header .nav_bar ul li:hover a {
   color: white;
 }
 header .nav_bar ul li a {
-  color: black;
+  color: white;
   transition: 0.3s;
 }
 header .nav_bar ul li a:hover {
   text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+  header .nav_bar .hamburger_menu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 40px;
+    color: #F39201;
+  }
+  header .nav_bar .menu {
+    display: none;
+  }
+  header .nav_bar .active {
+    display: block;
+    color: white;
+    background-image: linear-gradient(#fbfe4f, orange);
+  }
 }
 header .container_top {
   position: relative;
@@ -70,66 +99,60 @@ header .container_top .col_left, header .container_top .col_right {
   height: 100vh;
 }
 header .container_top .col_left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   padding: 100px;
-  background-color: #a51b0b;
+  background-color: #965a37d1;
 }
 header .container_top .col_left h1 {
   margin-bottom: 30px;
   color: white;
-  font-size: 50px;
+  font-size: 200px;
   line-height: 70px;
 }
-header .container_top .col_left h3 {
+header .container_top .col_left h2 {
   padding-right: 150px;
   font-weight: 300;
   color: white;
-  font-size: 25px;
+  font-size: 150px;
 }
-header .container_top .col_left h3 span {
+header .container_top .col_left h2 span {
   color: #f6f84f;
   font-weight: 400;
 }
 header .container_bottom {
-  position: absolute;
-  bottom: -250px;
   width: 100%;
   padding: 0 100px;
-  display: flex;
 }
-header .container_bottom .col_left_btm {
+header .container_bottom .container_inner_bottom {
+  display: flex;
+  position: relative;
+  bottom: 150px;
+}
+header .container_bottom .container_inner_bottom .col_left_btm {
   width: 50%;
   height: 400px;
   background-size: cover;
 }
-header .container_bottom .col_right_btm {
+header .container_bottom .container_inner_bottom .col_right_btm {
   padding: 75px;
   height: 400px;
   width: 50%;
-  background-color: #fbfe4f;
+  background-color: #965a37d1;
 }
-header .container_bottom .col_right_btm h2 {
+header .container_bottom .container_inner_bottom .col_right_btm h2 {
   margin-bottom: 20px;
   color: #0000ff;
 }
-header .container_bottom .col_right_btm p {
+header .container_bottom .container_inner_bottom .col_right_btm p {
   margin-bottom: 30px;
   color: navy;
   font-weight: 300;
   font-size: 20px;
 }
-header .container_bottom .col_right_btm p span {
+header .container_bottom .container_inner_bottom .col_right_btm p span {
   font-weight: 400;
   color: #ff4b02;
 }
 
-main {
-  margin: 200px 0 0 0;
-  padding: 100px 0 50px 0;
-  background-color: white;
-}
 main .container_main {
   /* height: 500px; */
 }
@@ -214,7 +237,7 @@ main .container_main_bottom .img_rider {
 }
 
 footer {
-  margin-top: 25px;
+  margin-top: 10px;
 }
 footer .container_footer {
   display: flex;

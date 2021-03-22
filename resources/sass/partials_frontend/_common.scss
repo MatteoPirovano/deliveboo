@@ -8,6 +8,12 @@ body {
   font-family: 'Spartan', sans-serif;
 }
 
+#app {
+  // background-color: #4fb3ab;
+  // background-color:  $softYellow;
+  background-image: linear-gradient($softYellow, orange);
+}
+
 ul {
   list-style: none;
 }
