@@ -57,9 +57,10 @@
                             <h3>{{$restaurant->name}}</h3>
                         </a>
                         <div class="menu_ms flex_ms container_btn_menu_ms">
-                            <a class="menu_detail_ms" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}}">
-                                <i class="far fa-calendar-minus"></i>
-                                Vedi Menù
+                            <a class="menu_detail_ms" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}">
+                                <i class="fas fa-plus plus_ms"> 
+                                </i>
+                                <span>Crea Piatto</span> 
                             </a>
                         </div>
                         

@@ -22,7 +22,7 @@
         @method('POST')
         <div class="form-group">
           <label for="name" class="form-label">Nome</label>
-          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Inserisci nome">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" placeholder="Inserisci nome" value="{{old('name')}}">
         </div>
 
         <div class="form-group">
@@ -32,12 +32,12 @@
 
         <div class="form-group">
           <label for="p_iva" class="form-label">Partita Iva</label>
-          <input type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" placeholder="Inserisci partita iva">
+          <input type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" placeholder="Inserisci partita iva" value="{{old('p_iva')}}">
         </div>
 
         <div class="form-group">
           <label for="address" class="form-label">Indirizzo</label>
-          <input type="text" class="form-control" name="address" id="address" placeholder="Inserisci indirizzo" src="">
+          <input type="text" class="form-control" name="address" id="address" placeholder="Inserisci indirizzo" src="" value="{{old('address')}}">
         </div>       
 
         {{-- Categorie --}}
@@ -53,7 +53,7 @@
           @endforeach
         @endif
           
-        <button type="submit" class="btn btn-primary mt-4">Salva</button>
+        <button type="submit" class="btn btn-success mt-4">Salva</button>
         <a href="{{ route('admin.restaurants.index') }}" class="btn btn-secondary mt-4">Home</a>
       </form>
     </div>

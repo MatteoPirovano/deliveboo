@@ -40,6 +40,7 @@ class RestaurantController extends Controller
     {
       $categories = Category::all();
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
+    //   $restaurant = Restaurant::where('slug', $slug)->first();
 
       return view('admin.restaurants.create', compact('categories', 'restaurants'));
     }

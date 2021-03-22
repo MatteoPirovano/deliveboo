@@ -12,11 +12,6 @@
     </div>
     @endif
     
-    <a class="plate_ms" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}"> 
-        <i class="fas fa-plus plus_ms">
-            <span> Crea Piatto </span>
-        </i>
-    </a>
     {{-- <a class="btn btn-secondary float-right" href="{{ route('admin.restaurants.index') }}">Indietro</a> --}}
     <div class="d-flex flex-wrap position_card_index_ms">
         @foreach ($restaurant->dishes->sortBy('name') as $dish)

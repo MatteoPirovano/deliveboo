@@ -66,7 +66,7 @@
                 No
             </label>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">Salva</button>
+        <button type="submit" class="btn btn-success mt-4">Salva</button>
         <a href="{{ route('admin.restaurants.dishes.index', $restaurant->slug) }}" class="btn btn-secondary mt-4">Home</a>
       </form>
     </div>
