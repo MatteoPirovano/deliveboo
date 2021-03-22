@@ -170,7 +170,8 @@
         padding: 40px;
         background-color: white;
         border-radius: 7px; 
-        box-shadow: 7px 7px 23px -10px rgba(0,0,0,0.75);       
+        box-shadow: 7px 7px 23px -10px rgba(0,0,0,0.75);
+        overflow-y: scroll;       
 
         .left_dishes_show_container_ms{
             width: 55%;
@@ -188,6 +189,9 @@
             }
             i{
                 padding-right: 10px;
+            }
+            .btn-dark,.btn-info {
+                margin-bottom: 30px;
             }
         }
         .right_dishes_show_container_ms{
@@ -241,4 +245,8 @@
         max-width: 269px;
     }
 
+}
+
+@media screen and (max-width: 576px) {
+    
 }

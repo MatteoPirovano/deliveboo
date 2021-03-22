@@ -256,6 +256,7 @@
   background-color: white;
   border-radius: 7px;
   box-shadow: 7px 7px 23px -10px rgba(0, 0, 0, 0.75);
+  overflow-y: scroll;
 }
 .main_ms .dishes_show_container_ms .left_dishes_show_container_ms {
   width: 55%;
@@ -274,6 +275,9 @@
 }
 .main_ms .dishes_show_container_ms .left_dishes_show_container_ms i {
   padding-right: 10px;
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms .btn-dark, .main_ms .dishes_show_container_ms .left_dishes_show_container_ms .btn-info {
+  margin-bottom: 30px;
 }
 .main_ms .dishes_show_container_ms .right_dishes_show_container_ms {
   width: 45%;
