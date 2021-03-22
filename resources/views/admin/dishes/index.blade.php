@@ -25,10 +25,14 @@
                 @endif
             </div>
 
-            <div class="position_card_index_h2_ms">
-                <h2 style="word-break: normal">{{$dish->name}}</h2>
-                <h3 style="word-break: normal; color: orange">{{$dish->courses}}</h3>
+            <div class="position_card_index_category_ms">
+                <h4>{{$dish->courses}}</h4>
             </div>
+            <div class="position_card_index_h2_ms">
+                <h2>{{$dish->name}}</h2>
+
+            </div>
+
 
             <div class="position_card_index_a_ms">
                 <a class="btn btn-info" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>

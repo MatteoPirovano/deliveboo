@@ -68,7 +68,7 @@
         @endif
           
         <button type="submit" class="btn btn-success mt-4">Salva</button>
-        <a href="{{ route('admin.restaurants.index') }}" class="btn btn-secondary mt-4">Home</a>
+        <a href="{{ route('admin.restaurants.show', $restaurant->slug) }}" class="btn btn-secondary mt-4">Annulla</a>
       </form>
     </div>
   

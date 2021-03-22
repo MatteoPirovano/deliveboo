@@ -134,8 +134,14 @@
             height: 200px;
         }
         .position_card_index_h2_ms{
-            height: 150px;
-            padding: 10px 20px;
+            height: 100px;
+            padding: 0px 20px 0;
+            word-break: normal;
+        }
+        .position_card_index_category_ms{
+            padding: 10px 20px 0;
+            word-break: normal; 
+            color: orange;
         }
         .position_card_index_a_ms{
             height: 50px;
@@ -228,6 +234,11 @@
     }
     .position_card_index_h2_ms h2{
         font-size: 1.5rem;
+    }
+
+    .main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
+        margin-left: 25px;
+        max-width: 269px;
     }
 
 }
