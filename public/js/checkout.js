@@ -1,8 +1,4 @@
 /******/ (() => { // webpackBootstrap
-<<<<<<< HEAD
-/******/ 	"use strict";
-var __webpack_exports__ = {};
-=======
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/axios/index.js":
@@ -49621,6 +49617,5 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
 });
 })();
 
->>>>>>> Nicola3
 /******/ })()
 ;
