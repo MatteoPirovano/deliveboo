@@ -19,7 +19,7 @@ class DishController extends Controller
         'ingredients'=> 'required|max:1000',
         'courses'=> 'required',
         'description'=> 'required|max:1500',
-        'price'=> 'required|numeric',
+        'price'=> 'required|numeric|max:9999',
         'visibility'=> 'required'
     ];
 

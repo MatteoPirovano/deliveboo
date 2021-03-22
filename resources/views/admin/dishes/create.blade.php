@@ -51,7 +51,7 @@
 
         <div class="form-group">
             <label for="price" class="form-label">Prezzo</label>
-            <input type="number" min="0" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Inserisci il prezzo" value="{{ old('price') }}">
+            <input type="number" maxlength="6" min="0" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" placeholder="Inserisci il prezzo" value="{{ old('price') }}">
         </div>
         <div>Visibilità</div>
         <div class="form-check">
