@@ -49621,6 +49621,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     if (localStorage.getItem('order')) {
       this.order = JSON.parse(localStorage.getItem('order'));
     }
+
+    if (localStorage.count) {
+      this.count = localStorage.count;
+    }
   },
   methods: {
     chart: function chart(name, price) {
@@ -49645,6 +49649,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
 
       if (app.order.length > 0) {
         app.totalPrice();
+        app.totalCount();
       }
     },
     addDish: function addDish(name) {
@@ -49664,6 +49669,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
         } else return element;
       });
       app.totalPrice();
+      app.totalCount();
     },
     leaveDish: function leaveDish(name) {
       var filtered = app.order.filter(function (element) {
@@ -49682,6 +49688,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
         } else return element;
       });
       app.totalPrice();
+      app.totalCount();
     },
     totalPrice: function totalPrice() {
       var total = 0;
@@ -49709,6 +49716,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
         }
 
         app.totalPrice();
+        app.totalCount();
       });
     },
     inOrder: function inOrder(name) {
@@ -49735,6 +49743,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
         localStorage.setItem('order', JSON.stringify(this.order));
       },
       deep: true
+    },
+    counter: function counter(newCount) {
+      localStorage.count = newCount;
     }
   }
 });

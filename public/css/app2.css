@@ -19,11 +19,11 @@ select {
 }
 
 .hidden {
-  opacity: 0;
+  display: none;
 }
 
 .visible {
-  opacity: 1;
+  display: block;
 }
 
 header .nav_bar {
@@ -176,7 +176,8 @@ main .card .card-img-top {
   border-radius: 0;
 }
 main .card .btn {
-  background-color: #027610;
+  background-color: #a51b0b;
+  color: white;
   border-radius: 0;
 }
 main .container_main_bottom {

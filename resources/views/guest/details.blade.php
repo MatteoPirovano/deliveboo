@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <!-- Styles -->
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <title>Details</title>
@@ -28,8 +28,11 @@
                   </li>
                 </ul>
                 <div class="chart" v-if="total > 0" v-on:click="changeVisibility()">
-                    <div v-if="total > 0">
-                        @{{total}}€
+                    <div v-if="total > 0" class="d-flex justify-content-between align-items-center">
+                      <i class="fas fa-shopping-cart"></i>
+                      <span>@{{count}}</span>
+                      <span>|</span>
+                      <span>@{{total}}€</span>
                     </div>
                 </div>
               </div>
@@ -57,7 +60,12 @@
                     </div>
                 </div>
             @endforeach
-            <div class="chart" :class="chartVisibility" v-if="total > 0" style="position: fixed; top: 200px; right: 200px; width: 400px; padding:30px; background-color: lightgrey;">
+            <div class="chart" :class="chartVisibility" v-if="total > 0">
+                <div class="chart_header d-flex justify-content-between align-items-center">
+                  <img src="{{asset('images/logo.png')}}" alt="LOGO">
+                  <button class="btn" v-on:click="deleteOrder()">Cancella Ordine</button>
+                  <button class="btn" v-on:click="deleteOrder()">Conferma Ordine</button>
+                </div>
                 <div v-for="ordered_dish in order" class="d-flex justify-content-between align-items-center mb-3" v-if="ordered_dish.count > 0">
                     <div>
                         <span>@{{ordered_dish.name}}  x</span>
@@ -75,7 +83,6 @@
                 <div v-if="total > 0" class="float-right">
                     <span>Total: </span>
                     <span >@{{total}}€</span>
-                    <button v-on:click="deleteOrder()">Delete</button>
                 </div>
             </div>
         </main>
@@ -86,7 +93,6 @@
         
             <div class="container_footer" >
               <div class="footer_left" data-aos="flip-right">
-        s
               </div>
         
               <div class="footer_center" data-aos="flip-left">

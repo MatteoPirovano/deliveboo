@@ -19,11 +19,11 @@ select {
 }
 
 .hidden {
-  opacity: 0;
+  display: none;
 }
 
 .visible {
-  opacity: 1;
+  display: block;
 }
 
 header .nav_bar {
@@ -176,7 +176,8 @@ main .card .card-img-top {
   border-radius: 0;
 }
 main .card .btn {
-  background-color: #027610;
+  background-color: #a51b0b;
+  color: white;
   border-radius: 0;
 }
 main .container_main_bottom {
@@ -10284,8 +10285,8 @@ h3 {
   }
 }
 header .chart {
-  width: 100px;
-  background-color: #027610;
+  width: 150px;
+  background-color: #a51b0b;
   position: absolute;
   padding: 10px;
   right: 20px;
@@ -10322,6 +10323,26 @@ main img {
 }
 main .chart {
   transition: 0.5s;
+  position: fixed;
+  top: 90px;
+  right: 0;
+  height: calc(100vh - 90px);
+  width: 400px;
+  padding: 30px;
+  color: white;
+  background-color: #a51b0b;
+}
+main .chart .chart_header {
+  width: 100%;
+  height: 50px;
+}
+main .chart .chart_header img {
+  height: 40px;
+  width: auto;
+}
+main .chart .chart_header .btn {
+  border-color: #F39200;
+  color: #F39200;
 }
 
 footer {

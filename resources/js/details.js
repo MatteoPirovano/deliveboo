@@ -20,6 +20,9 @@ const app = new Vue({
         if(localStorage.getItem('order')) {
             this.order = JSON.parse(localStorage.getItem('order'));
         }
+        if (localStorage.count) {
+            this.count = localStorage.count;
+        }
     },
     methods: {
         chart(name,price) {
@@ -42,6 +45,7 @@ const app = new Vue({
             }
             if(app.order.length > 0) {
                 app.totalPrice();
+                app.totalCount();
             }
         },
         addDish(name) {
@@ -66,6 +70,7 @@ const app = new Vue({
                 }
             );
             app.totalPrice();
+            app.totalCount();
         },
         leaveDish(name) {
             var filtered = app.order.filter(
@@ -90,6 +95,7 @@ const app = new Vue({
                 }
             );
             app.totalPrice();
+            app.totalCount();
         },
         totalPrice() {
             var total = 0;
@@ -120,6 +126,7 @@ const app = new Vue({
                     element['price'] = 0;
                 }
             app.totalPrice();
+            app.totalCount();
             });
         },
         inOrder(name) {
@@ -146,6 +153,9 @@ const app = new Vue({
                 localStorage.setItem('order', JSON.stringify(this.order));
             },
             deep: true
+        },
+        counter(newCount) {
+            localStorage.count = newCount;
         }
     }
 });
