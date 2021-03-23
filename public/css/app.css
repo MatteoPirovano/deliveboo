@@ -61,9 +61,6 @@
   border: 1px solid #F96332;
   border-radius: 7px;
 }
-.container_ms footer {
-  height: 8%;
-}
 .container_ms footer a {
   font-size: 16px;
 }
@@ -372,6 +369,11 @@
 
   .main_ms {
     width: calc(100% - 180px);
+  }
+
+  .main_ms .position_card_index_ms .shadow_card_ms {
+    box-shadow: 16px 10px 33px -18px rgba(0, 0, 0, 0.75);
+    max-width: 260px;
   }
 }
 * {
