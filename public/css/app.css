@@ -486,6 +486,14 @@
   }
   .dishes_show_container_ms .smartphone_dishes_show_container_ms .btn-dark, .dishes_show_container_ms .smartphone_dishes_show_container_ms .btn-info, .dishes_show_container_ms .smartphone_dishes_show_container_ms button {
     width: 80%;
+    display: block;
+    margin: 0 auto 15px;
+  }
+  .dishes_show_container_ms .smartphone_dishes_show_container_ms form {
+    padding-bottom: 20px;
+  }
+  .dishes_show_container_ms .smartphone_dishes_show_container_ms .float-right {
+    float: none !important;
   }
 }
 * {

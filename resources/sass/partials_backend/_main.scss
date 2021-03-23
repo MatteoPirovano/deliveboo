@@ -374,6 +374,14 @@
             }
             .btn-dark, .btn-info, button{
                 width: 80%;
+                display: block;
+                margin: 0 auto 15px;
+            }
+            form{
+                padding-bottom: 20px;
+            }
+            .float-right {
+                float: none !important;
             }       
         }
     }
