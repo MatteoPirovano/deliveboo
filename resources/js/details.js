@@ -9,13 +9,9 @@ const app = new Vue({
     el: '#app',
     data: {
         order: [],
-<<<<<<< HEAD
-        total: 0
-=======
         total: 0,
         count: 0,
         chartVisibility: 'hidden'
->>>>>>> Nicola4
     },
     mounted() {
         if (localStorage.total) {
