@@ -27,15 +27,13 @@
                   <li>
                     <a href="#register">Lavora con noi</a>
                   </li>
-                </ul>
-                <div class="chart" v-if="total > 0" v-on:click="changeVisibility()">
-                    <div v-if="total > 0" class="d-flex justify-content-between align-items-center">
+                  <li class="chart d-flex justify-content-between align-items-center" v-if="total > 0" v-on:click="changeVisibility()">
                       <i class="fas fa-shopping-cart"></i>
                       <span>@{{count}}</span>
                       <span>|</span>
                       <span>@{{total.toFixed(2)}}€</span>
-                    </div>
-                </div>
+                  </li>
+                </ul>
               </div>
         </header>
         <div class="jumbotron" style="background-image: url({{asset('storage/' . $restaurant->img)}})">
@@ -63,10 +61,13 @@
                 </div>
             @endforeach
             <div class="chart" :class="chartVisibility" v-if="total > 0">
+              <div class="listDishes">
                 <div class="chart_header d-flex justify-content-between align-items-center">
                   <img src="{{asset('images/logo.png')}}" alt="LOGO">
-                  <button class="btn" v-on:click="deleteOrder()">Cancella Ordine</button>
-                  <a href="{{route('payment')}}" class="btn">Conferma Ordine</a>
+                  <div>
+                    <button class="btn" v-on:click="deleteOrder()">Annulla</button>
+                    <a href="{{route('payment')}}" class="btn">Conferma</a>
+                  </div>
                 </div>
                 <hr>
                 <div v-for="ordered_dish in order" class="order mb-3" v-if="ordered_dish.count > 0">
@@ -84,10 +85,12 @@
                     </div>
                 </div>
                 <hr v-if="total > 0">
-                <div v-if="total > 0" class="float-right">
-                    <span>Total: </span>
+                <div v-if="total > 0" class="total">
+                    <span>Totale: </span>
                     <span >@{{total.toFixed(2)}}€</span>
                 </div>
+              </div>
+                
             </div>
 
             {{-- <hr v-if="total > 0"> --}}

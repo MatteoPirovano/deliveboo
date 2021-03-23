@@ -10343,12 +10343,13 @@ h3 {
 header .chart {
   width: 150px;
   background-color: #a51b0b;
-  position: absolute;
   padding: 10px;
-  right: 20px;
   color: white;
   cursor: pointer;
   transition: all 0.5s;
+}
+header .chart span {
+  font-size: 15px;
 }
 
 .jumbotron {
@@ -10387,6 +10388,10 @@ main .chart {
   padding: 30px;
   color: white;
   background-color: #a51b0b;
+  border-top: 0.5px solid #F39200;
+}
+main .chart .listDishes {
+  overflow-y: auto;
 }
 main .chart .chart_header {
   width: 100%;
@@ -10415,6 +10420,11 @@ main .chart .delete:hover {
 }
 main .chart .info > * {
   width: calc(100% / 3);
+}
+main .chart .total {
+  text-align: right;
+  padding-right: 20px;
+  font-size: 20px;
 }
 
 footer {
