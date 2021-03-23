@@ -18,6 +18,7 @@ select {
   outline: none;
 }
 
+<<<<<<< HEAD
 .hidden {
   display: none;
 }
@@ -49,142 +50,120 @@ select {
     top: 90px;
     right: -400px;
   }
+=======
+header {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 70vh;
+  background: url("https://static.ohga.it/wp-content/uploads/sites/24/2019/03/cibo-nei-fast-food-qualit%C3%A0-peggiorata.jpg");
+  /* background: url('https://s1.1zoom.me/b3832/395/Vegetables_Cow_Tomatoes_Creative_White_background_514375_1920x1080.jpg'); */
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+header .layover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+header .layover h1 {
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 60px;
+  text-transform: uppercase;
+>>>>>>> HomepageRivista
 }
 header .nav_bar {
-  padding: 15px 50px;
+  height: 90px;
+  padding: 10px 0 5px 10px;
   width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
+<<<<<<< HEAD
   top: 0;
   left: 0;
   background-color: rgba(255, 255, 255, 0.9);
+=======
+  /* background-color: rgba(255,255,255,0.9); */
+  background-color: #a51b0b;
+>>>>>>> HomepageRivista
   z-index: 99;
 }
 header .nav_bar img {
-  margin-right: 20px;
+  margin-left: 50px;
   width: 70px;
 }
 header .nav_bar ul {
-  margin: 0;
   display: flex;
-  align-items: center;
+  margin: 0;
 }
 header .nav_bar ul li {
+  display: flex;
+  align-items: center;
   margin: 0 20px;
   padding: 10px 20px;
   font-size: 24px;
   transition: 0.3s;
 }
 header .nav_bar ul li:hover {
-  transform: scale(1.2);
-  background-color: #a51b0b;
+  background-color: #ffa500;
 }
 header .nav_bar ul li:hover a {
   color: white;
 }
 header .nav_bar ul li a {
-  color: black;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
   transition: 0.3s;
 }
 header .nav_bar ul li a:hover {
   text-decoration: none;
 }
-header .container_top {
-  position: relative;
-  display: flex;
-  width: 100%;
-  background: url("https://images.pexels.com/photos/3758133/pexels-photo-3758133.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-size: cover;
-  background-attachment: fixed;
-}
-header .container_top .col_left, header .container_top .col_right {
-  padding: 25px;
-  width: 50%;
-  height: 100vh;
-}
-header .container_top .col_left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 100px;
-  background-color: #a51b0b;
-}
-header .container_top .col_left h1 {
-  margin-bottom: 30px;
-  color: white;
-  font-size: 50px;
-  line-height: 70px;
-}
-header .container_top .col_left h3 {
-  padding-right: 150px;
-  font-weight: 300;
-  color: white;
-  font-size: 25px;
-}
-header .container_top .col_left h3 span {
-  color: #f6f84f;
-  font-weight: 400;
-}
-header .container_bottom {
-  position: absolute;
-  bottom: -250px;
-  width: 100%;
-  padding: 0 100px;
-  display: flex;
-}
-header .container_bottom .col_left_btm {
-  width: 50%;
-  height: 400px;
-  background-size: cover;
-}
-header .container_bottom .col_right_btm {
-  padding: 75px;
-  height: 400px;
-  width: 50%;
-  background-color: #fbfe4f;
-}
-header .container_bottom .col_right_btm h2 {
-  margin-bottom: 20px;
-  color: #0000ff;
-}
-header .container_bottom .col_right_btm p {
-  margin-bottom: 30px;
-  color: navy;
-  font-weight: 300;
-  font-size: 20px;
-}
-header .container_bottom .col_right_btm p span {
-  font-weight: 400;
-  color: #ff4b02;
-}
 
 main {
-  margin: 200px 0 0 0;
-  padding: 100px 0 50px 0;
-  background-color: white;
+  padding-bottom: 100px;
+  background-color: #e5e5e5;
+  background-size: cover;
 }
-main .container_main {
-  /* height: 500px; */
-}
-main .container_main .title_cont {
+main .container_main .row_categories {
   display: flex;
-  flex-direction: column;
+  margin-bottom: 50px;
+  box-shadow: #bfbfbf 0px 13px 17px -3px;
+  position: sticky;
+  top: 90px;
+  z-index: 990;
+}
+main .container_main .row_categories .icons {
+  display: flex;
   justify-content: center;
   align-items: center;
+  padding: 15px 5px;
+  width: calc(100% / 10);
+  background-color: white;
+  transition: 0.7s;
+  cursor: pointer;
 }
-main .container_main .title_cont h2 {
-  padding: 5px 15px;
-  background-color: rgba(0, 100, 0, 0.8);
+main .container_main .row_categories .icons:hover {
+  background-color: #ffa500;
+}
+main .container_main .row_categories .icons:hover h5 {
   color: white;
 }
-main .container_main .title_cont h3 {
-  display: inline-block;
-  margin-bottom: 60px;
-  padding: 10px 25px;
-  background-color: #027610;
-  color: white;
-  font-weight: 400;
+main .container_main .row_categories .icons h5 {
+  color: #ffa500;
+  text-transform: uppercase;
+  font-size: 19px;
+}
+main .container_main .row_categories .ham_off {
+  display: none;
 }
 main .card {
   margin: 15px;
@@ -198,9 +177,21 @@ main .card:hover {
 }
 main .card .card-img-top {
   border-radius: 0;
+  height: 200px;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
+<<<<<<< HEAD
 main .card .btn {
   background-color: #a51b0b;
+=======
+main .card .btn_orange {
+  background-color: #ffa500;
+  font-weight: 700;
+>>>>>>> HomepageRivista
   color: white;
   border-radius: 0;
 }
@@ -208,6 +199,7 @@ main .container_main_bottom {
   display: flex;
   margin-top: 100px;
   height: 350px;
+  box-shadow: #A3A3A3 0px -5px 24px -2px;
 }
 main .container_main_bottom .img_phone, main .container_main_bottom .download_app {
   width: 30%;
@@ -220,36 +212,65 @@ main .container_main_bottom .img_phone img, main .container_main_bottom .downloa
      object-fit: cover;
 }
 main .container_main_bottom .download_app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #a51b0b;
-}
-main .container_main_bottom .download_app h3 {
-  text-transform: uppercase;
-  color: #f6f84f;
-}
-main .container_main_bottom .download_app h5 {
-  color: white;
-}
-main .container_main_bottom .download_app p {
-  margin: 30px 0 20px 0;
-  color: white;
-}
-main .container_main_bottom .download_app .search_app {
-  display: flex;
-  align-items: center;
+  background: url("https://images.pexels.com/photos/4393668/pexels-photo-4393668.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-size: cover;
+  background-position: center;
 }
 main .container_main_bottom .img_rider {
   width: 40%;
   height: 100%;
-  background: url("https://images.pexels.com/photos/4114066/pexels-photo-4114066.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-size: cover;
+}
+main .container_main_bottom .img_rider img {
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
+@media screen and (max-width: 1200px) {
+  #categ_name {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #categ_name {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #icon_row {
+    display: none;
+  }
+
+  .row_categories {
+    background-color: white;
+  }
+  .row_categories #ham_on {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: 100%;
+    margin-right: 20px;
+    padding: 5px;
+    position: relative;
+    color: #ffa500;
+  }
+  .row_categories #ham_on h3 {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .row_categories #ham_on #ham_category {
+    border: 1px solid black;
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    background-color: white;
+    width: 140px;
+    padding: 10px;
+  }
+}
 footer {
-  margin-top: 25px;
+  box-shadow: #A3A3A3 0px -5px 24px -2px;
 }
 footer .container_footer {
   display: flex;
@@ -258,9 +279,12 @@ footer .container_footer {
 footer .container_footer .footer_left {
   width: 40%;
   height: 100%;
-  background: url("https://images.pexels.com/photos/1640775/pexels-photo-1640775.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
-  background-size: cover;
-  background-position: center;
+}
+footer .container_footer .footer_left img {
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 footer .container_footer .footer_center, footer .container_footer .footer_right {
   width: 30%;
@@ -290,20 +314,11 @@ footer .container_footer .footer_center ul li i {
 footer .container_footer .footer_center ul li:hover {
   transform: translateX(20px);
 }
-footer .container_footer .footer_right {
-  padding: 20px;
-  border-top: 1px solid black;
-  background: url("https://static.vecteezy.com/ti/foto-gratuito/p1/1970870-smartphone-mock-up-su-uno-sfondo-bianco-gratuito-foto.JPG");
-  background-size: cover;
-}
-footer .container_footer .footer_right h3 {
-  margin-bottom: 10px;
-}
-footer .container_footer .footer_right a {
-  font-size: 18px;
-}
-footer .btn {
-  border-radius: 0;
+footer .container_footer .footer_right img {
+  max-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 /*!
