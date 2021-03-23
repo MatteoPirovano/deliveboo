@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+
     <!-- Aos library - scroll effects -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
@@ -36,13 +40,9 @@
   {{-- header --}}
   <header>
     
-    <div class="nav_bar">
-      
-      <div class="cont_img mb-2">
+    <div class="nav_bar">     
+      <div class="cont_img">
         <img src="{{ asset('images/logo.png') }}" alt="logo">
-      </div>
-
-      <div class="cont_list">
         <ul>
           <li>
             <a href="#">Home</a>
@@ -50,15 +50,30 @@
           <li>
             <a href="#contact">Contatti</a>
           </li>
-          <li>
-            <a href="#register">Lavora con noi</a>
-          </li>
         </ul>
       </div>
 
+      <div class="cont_list">
+        
+            <div class="dropdown">
+              <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Lavora con noi
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
+                <a class="dropdown-item" href="#">Registrati</a>
+              </div>
+            </div>
+
+          
+      </div>
     </div>
-    <div class="layover">
-      <h1>Tutto quello di cui hai bisogno <br> in un click</h1>
+
+    <div class="jumbotron">
+      <div class="layover">
+        <h1>Tutto il cibo che vuoi <br> quando vuoi <br> in un click </h1>
+      </div>
+
     </div>
   </header>
   {{-- /header --}}
