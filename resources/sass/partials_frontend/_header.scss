@@ -5,6 +5,8 @@ header {
     display: flex;
     align-items: center;
     position: fixed;
+    top: 0;
+    left: 0;
     background-color: rgba(255,255,255,0.9);
     z-index: 99;
     img {

@@ -1,36 +1,21 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
         order: [],
+<<<<<<< HEAD
         total: 0
+=======
+        total: 0,
+        count: 0,
+        chartVisibility: 'hidden'
+>>>>>>> Nicola4
     },
     mounted() {
         if (localStorage.total) {
@@ -38,6 +23,9 @@ const app = new Vue({
         }
         if(localStorage.getItem('order')) {
             this.order = JSON.parse(localStorage.getItem('order'));
+        }
+        if (localStorage.count) {
+            this.count = localStorage.count;
         }
     },
     methods: {
@@ -61,6 +49,7 @@ const app = new Vue({
             }
             if(app.order.length > 0) {
                 app.totalPrice();
+                app.totalCount();
             }
         },
         addDish(name) {
@@ -85,6 +74,7 @@ const app = new Vue({
                 }
             );
             app.totalPrice();
+            app.totalCount();
         },
         leaveDish(name) {
             var filtered = app.order.filter(
@@ -109,6 +99,7 @@ const app = new Vue({
                 }
             );
             app.totalPrice();
+            app.totalCount();
         },
         totalPrice() {
             var total = 0;
@@ -119,11 +110,53 @@ const app = new Vue({
             );  
             app.total = total;
         },
+        totalCount() {
+            var count = 0;
+            app.order.forEach(
+                element => {
+                    count = count + element['count'];
+                }
+            );  
+            app.count = count;
+        },
         deleteOrder() {
             app.total = "";
             app.order = [];
+<<<<<<< HEAD
             localStorage.total = "";
             localStorage.order = "";
+=======
+            localStorage.total = 0;
+            localStorage.order = [];
+        },
+        deleteDishOrder(name) {
+            app.order.forEach(element => {
+                if(element['name'] == name) {
+                    element['count'] = 0;
+                    element['price'] = 0;
+                    element['name'] = "";
+                    
+                }
+            app.totalPrice();
+            app.totalCount();
+            });
+        },
+        inOrder(name) {
+            var filtered = this.order.filter(
+                (element) => {
+                    return element['name'] == name;
+                }); 
+            if(filtered.length == 0) {
+                return false;
+            } else return true;
+        },
+        changeVisibility() {
+            if(app.chartVisibility == 'hidden' || app.chartVisibility == 'out') {
+                app.chartVisibility = 'animate__animated animate__bounceInRight';
+            } else {
+                app.chartVisibility = 'out';
+            }
+>>>>>>> Nicola4
         }
     },
     watch: {
@@ -135,6 +168,9 @@ const app = new Vue({
                 localStorage.setItem('order', JSON.stringify(this.order));
             },
             deep: true
+        },
+        counter(newCount) {
+            localStorage.count = newCount;
         }
     }
 });
