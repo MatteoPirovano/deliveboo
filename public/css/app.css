@@ -176,6 +176,10 @@
 .z_index5_ms form {
   padding-bottom: 30px;
 }
+.z_index5_ms img {
+  border-radius: 7px;
+  width: 100px;
+}
 
 .main_ms {
   width: calc(100% - 300px);
