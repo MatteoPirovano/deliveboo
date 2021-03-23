@@ -27,7 +27,7 @@
     <section class="flex_ms">  
         
         <div class="back_img">
-            <img class="back_img_det_ms" src="{{asset('images/stat.jpeg') }}" alt="Analytics">
+            <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
         </div>
 
         <aside class="container_ms">

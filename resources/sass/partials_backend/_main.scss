@@ -222,7 +222,7 @@
                     }
                 }
             }
-        }
+        }        
     }
 
 }
@@ -251,15 +251,98 @@
     
     .back_img {
         width: calc(100% - 180px);
-        height: 260px;
+        height: 100vh;
+        box-shadow: inset -33px 44px 164px -65px rgba(0,0,0,0.75);
+    }
+
+    .back_img img {
+        object-fit: cover;
+        object-position: bottom;
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .main_ms .statistics_restaurant_ms {
+        display: none;
     }
 
     .main_ms {
         width: calc(100% - 180px);
+        padding: 0;
     }
 
     .main_ms .position_card_index_ms .shadow_card_ms {
         box-shadow: 16px 10px 33px -18px rgb(0 0 0 / 75%);
         max-width: 260px;
     }
+
+    // prove card index restaurant
+    .main_ms .card_h_ms {
+        max-width: 100%;
+    }
+
+    .main_ms .card_h_ms img {
+        width: 100%;
+    }
+
+    .main_ms .card_restaurant_show_ms .card_restaurant_img_ms {
+        height: 190px;
+    }
+
+    .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms {
+        height: 130px;
+        position: relative;
+        bottom: -45px;
+
+        .btn-info, .btn-secondary, button {
+            width: 100%;            
+            margin-bottom: 5px;
+        }        
+    }
+    
+    .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms button {
+        bottom: 5px;
+    }
+
+    .main_ms .card_h_ms .card {
+        height: 550px;
+    }
+
+    // sezione show dishes
+    .right_dishes_show_container_ms, .left_dishes_show_container_ms{
+        display: none;
+    }
+
+    .main_ms .container{
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .dishes_show_container_ms{
+        .smartphone_dishes_show_container_ms{        
+            width: 90%;
+            h1{
+                margin-bottom: 20px;
+            }
+            p:last-of-type{
+                margin-bottom: 30px;
+            }
+            h2{
+                margin-bottom: 20px;
+            }
+            h3{
+                margin-bottom: 50px;
+            }
+            i{
+                padding-right: 10px;
+            }
+            .btn-dark,.btn-info {
+                margin-bottom: 30px;
+            } 
+            img{
+                max-width: 90%;
+            }       
+        }
+    }
+    
 }
