@@ -13,7 +13,7 @@
     @endif
     
     {{-- <a class="btn btn-secondary float-right" href="{{ route('admin.restaurants.index') }}">Indietro</a> --}}
-    <div class="d-flex flex-wrap position_card_index_ms">
+    <div class="d-flex flex-wrap justify-content-around position_card_index_ms">
         @foreach ($restaurant->dishes->sortBy('name') as $dish)
         <div class="shadow_card_ms card m-2 d-flex justify-content-end">
 
