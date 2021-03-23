@@ -515,9 +515,128 @@ body {
   flex-direction: row;
 }
 
-body {
+.btn_login_ms {
+  color: #fff;
+  background-color: #A51B0B !important;
+  border-color: #C04F13 !important;
+  width: 150px;
+  border-radius: 8px !important;
+}
+.btn_login_ms:hover {
+  background-color: #C04F13 !important;
+  border-color: #A51B0B !important;
+}
+
+.btn_register_ms {
+  background-color: white !important;
+  border-color: gray !important;
+  width: 150px;
+  border-radius: 8px !important;
+}
+.btn_register_ms:hover {
+  background-color: #C04F13 !important;
+  border-color: #A51B0B !important;
+  color: white;
+}
+
+.body_login_ms {
   height: 100vh;
-  background-image: radial-gradient(circle, #dcb603, #dfae00, #e1a700, #e39f00, #e59700, #e28b00, #de7e00, #d97202, #cd5e03, #c14a06, #b33409, #a51b0b);
+  background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #A51B0B;
+  font-family: "Lato", sans-serif !important;
+}
+.body_login_ms nav {
+  display: none !important;
+}
+.body_login_ms #app {
+  width: 70%;
+}
+.body_login_ms .card-header {
+  background-color: transparent;
+  border-bottom: none;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
+.body_login_ms .card {
+  background-color: transparent;
+  border: 2px solid #A51B0B;
+  border-radius: 10px;
+  position: relative;
+}
+.body_login_ms .card i {
+  color: #A51B0B;
+  position: absolute;
+}
+.body_login_ms .card .center_avatar_ms {
+  font-size: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -170px;
+  z-index: 2;
+  color: #83160A;
+}
+.body_login_ms .card .left_avatar_ms {
+  font-size: 95px;
+  left: 38%;
+  transform: translateX(-50%);
+  top: -145px;
+  z-index: 1;
+}
+.body_login_ms .card .right_avatar_ms {
+  font-size: 95px;
+  left: 62%;
+  transform: translateX(-50%);
+  top: -145px;
+  z-index: 1;
+}
+.body_login_ms .card .input_style_ms {
+  color: #A51B0B;
+  font-size: 20px;
+}
+.body_login_ms .card .input_style_ms .form-control {
+  height: 50px;
+  border: 2px solid #A51B0B;
+}
+.body_login_ms .card .input_style_ms .form-control:focus {
+  color: black;
+  background-color: white;
+  border-color: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.body_login_ms .card .input_style_ms .text-md-right {
+  line-height: 30px;
+}
+.body_login_ms .card .input_style_ms .text-md-right input:focus {
+  outline: none !important;
+}
+.body_login_ms .card .forgot_pwd_ms {
+  color: #A51B0B;
+}
+.body_login_ms .register_link_ms {
+  text-align: right;
+  padding: 20px 0;
+}
+.body_login_ms .register_link_ms a, .body_login_ms .register_link_ms p {
+  display: inline-block;
+  margin-bottom: 0;
+  padding: 0;
+  vertical-align: baseline !important;
+}
+.body_login_ms .register_link_ms p {
+  color: white;
+}
+.body_login_ms .register_link_ms a {
+  padding: 5px 10px;
+  margin-left: 20px;
+  color: #A51B0B;
+}
+.body_login_ms .register_link_ms a:hover {
+  color: white;
 }
 
 /*!

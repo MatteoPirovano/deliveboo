@@ -1,4 +1,115 @@
-body{
+.body_login_ms{
     height: 100vh;
-    background-image: radial-gradient(circle, #dcb603, #dfae00, #e1a700, #e39f00, #e59700, #e28b00, #de7e00, #d97202, #cd5e03, #c14a06, #b33409, #a51b0b);
+    background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $fontColorLogin;
+    font-family: $font-family-sans-serif !important;
+    
+    nav{
+        display: none !important;
+    }
+    #app{
+        width: 70%;
+    }
+    
+
+    .card-header {
+        background-color: transparent;
+        border-bottom: none;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .card{
+        background-color: transparent;
+        // border: 2px solid white;
+        border: 2px solid $colorLogin;
+        border-radius: 10px;
+        position: relative;
+        i{
+            color: #A51B0B;
+            position: absolute;
+        }
+        .center_avatar_ms{
+            font-size: 140px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: -170px;
+            z-index: 2;
+            color: #83160A;
+        }
+        .left_avatar_ms{
+            font-size: 95px;
+            left: 38%;
+            transform: translateX(-50%);
+            top: -145px;
+            z-index: 1;
+        }
+        .right_avatar_ms{
+            font-size: 95px;
+            left: 62%;
+            transform: translateX(-50%);
+            top: -145px;
+            z-index: 1;
+        }
+
+        // modifica colori e dimensioni input
+        .input_style_ms{
+            color: $fontColorLogin;
+            font-size: 20px;
+
+            .form-control{
+                height: 50px;
+                border: 2px solid $colorLogin;
+
+                &:focus {
+                    color: black;
+                    background-color: white;
+                    border-color: none !important;
+                    outline: none !important;
+                    box-shadow: none !important;
+                }
+            }
+            .text-md-right {
+                line-height: 30px;
+
+                input:focus {
+                    outline: none !important;
+                }
+            }
+        }
+
+        .forgot_pwd_ms{
+            color: $fontColorLogin;
+        }
+
+    }
+
+    .register_link_ms{
+        // background-color: white;
+        text-align: right;
+        padding: 20px 0;
+
+        a, p{
+            display: inline-block;
+            margin-bottom: 0;
+            padding: 0;
+            vertical-align: baseline !important; 
+        }
+        p{
+            color: white;
+        }
+        a{
+            padding: 5px 10px;
+            margin-left: 20px;
+            color: #A51B0B;
+            
+            &:hover{
+                color: white;
+            }
+        }
+    }
+    
 }
