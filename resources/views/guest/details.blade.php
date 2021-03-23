@@ -88,14 +88,14 @@
                     <span >@{{total.toFixed(2)}}€</span>
                 </div>
             </div>
-<<<<<<< HEAD
-            <hr v-if="total > 0">
-            <div v-if="total > 0" class="float-right">
+
+            {{-- <hr v-if="total > 0"> --}}
+            {{-- <div v-if="total > 0" class="float-right">
                 <span>Total: </span>
-                <span >@{{total}}€</span>
-                <button v-on:click="deleteOrder()">Delete</button>
-                <a class="btn btn-success" href="{{route('payment')}}">Conferma</a>
-=======
+                <span >@{{total}}€</span> --}}
+                {{-- <button v-on:click="deleteOrder()">Delete</button>
+                <a class="btn btn-success" href="{{route('payment')}}">Conferma</a> --}}
+
         </main>
         <footer>
             <a id="contact"></a>
@@ -132,7 +132,7 @@
                 <a href="{{route('login')}}" class="btn btn-success">Registrati</a>
               </div>
         
->>>>>>> Nicola4
+
             </div>
           </footer>
     <script src="{{asset('js/details.js')}}"></script>

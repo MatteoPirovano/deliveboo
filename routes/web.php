@@ -15,13 +15,13 @@ use Illuminate\Http\Request;
 |
 */
 
-<<<<<<< HEAD
+
 Route::get('/payment', 'PaymentsController@pay')->name('payment');
-=======
+
 Route::get('/', function () {
     return view('guest.homepage');
 });
->>>>>>> HomepageRivista
+
 
 Auth::routes();
 

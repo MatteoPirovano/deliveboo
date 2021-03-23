@@ -18,7 +18,6 @@ select {
   outline: none;
 }
 
-<<<<<<< HEAD
 .hidden {
   display: none;
 }
@@ -50,7 +49,7 @@ select {
     top: 90px;
     right: -400px;
   }
-=======
+}
 header {
   position: relative;
   display: flex;
@@ -76,7 +75,6 @@ header .layover h1 {
   font-weight: 500;
   font-size: 60px;
   text-transform: uppercase;
->>>>>>> HomepageRivista
 }
 header .nav_bar {
   height: 90px;
@@ -86,14 +84,8 @@ header .nav_bar {
   justify-content: space-between;
   align-items: center;
   position: fixed;
-<<<<<<< HEAD
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.9);
-=======
   /* background-color: rgba(255,255,255,0.9); */
   background-color: #a51b0b;
->>>>>>> HomepageRivista
   z-index: 99;
 }
 header .nav_bar img {
@@ -184,14 +176,9 @@ main .card .card-img-top {
   -o-object-position: center;
      object-position: center;
 }
-<<<<<<< HEAD
-main .card .btn {
-  background-color: #a51b0b;
-=======
 main .card .btn_orange {
   background-color: #ffa500;
   font-weight: 700;
->>>>>>> HomepageRivista
   color: white;
   border-radius: 0;
 }
