@@ -113,3 +113,28 @@
     }
     
 }
+
+
+// QUERIES_____________________________________________________________________________________
+
+@media screen and (min-width: 1200px) and (max-width: 1450px) {
+    .body_login_ms .card .right_avatar_ms {
+        left: 64%;
+    }
+    .body_login_ms .card .left_avatar_ms {
+        left: 36%;
+    }
+}
+
+@media screen and (min-width: 950px) and (max-width: 1199px) {
+    .body_login_ms .card .right_avatar_ms {
+        left: 68%;
+    }
+    .body_login_ms .card .left_avatar_ms {
+        left: 32%;
+    }
+}
+
+@media screen and (max-width: 830px) {
+
+}

@@ -545,7 +545,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #A51B0B;
+  color: white;
   font-family: "Lato", sans-serif !important;
 }
 .body_login_ms nav {
@@ -594,7 +594,7 @@ body {
   z-index: 1;
 }
 .body_login_ms .card .input_style_ms {
-  color: #A51B0B;
+  color: white;
   font-size: 20px;
 }
 .body_login_ms .card .input_style_ms .form-control {
@@ -615,7 +615,7 @@ body {
   outline: none !important;
 }
 .body_login_ms .card .forgot_pwd_ms {
-  color: #A51B0B;
+  color: white;
 }
 .body_login_ms .register_link_ms {
   text-align: right;
@@ -639,6 +639,24 @@ body {
   color: white;
 }
 
+@media screen and (min-width: 1200px) and (max-width: 1450px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 64%;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 36%;
+  }
+}
+@media screen and (min-width: 950px) and (max-width: 1199px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 68%;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 32%;
+  }
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
