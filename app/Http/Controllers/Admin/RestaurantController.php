@@ -132,7 +132,12 @@ class RestaurantController extends Controller
         // $data['restaurant_id'] = $restaurant->id;
         $data['slug'] = Str::slug($data['name'], '-');
 
-        $request->validate($this->validation);
+        $request->validate([
+            'name'=> 'required|max:100',
+            'img'=> 'mimes:jpeg,jpg,bmp,png',
+            'p_iva'=> 'required|digits:11',
+            'address'=> 'required|max:100'
+            ]);
 
         if(!empty($data["img"])) {
             // verifico se è presente un'immagine precedente, se si devo cancellarla
