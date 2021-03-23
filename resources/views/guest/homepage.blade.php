@@ -108,7 +108,7 @@
       {{-- Restaurants --}}
       <div class="container">
         <div class="row d-flex justify-content-center flex-wrap">
-          <div class="card col-lg-3 col-md-5 col-sm-10 col-10" v-for="restaurant in restaurants">      
+          <div class="card col-lg-3 col-md-5 col-sm-10 col-10 p-0" v-for="restaurant in restaurants">      
             <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
             <div class="card-body">
               <h2 class="card-title">@{{restaurant.name}}</h2>
@@ -129,12 +129,12 @@
     <a id="register"></a>
 
 
-    <div class="container_footer" >
+    <div class="container_footer" id="cont_footer_resp">
       <div class="footer_left">
         <img src="{{asset('images/del-rider.jpg')}}" alt="">
       </div>
 
-      <div class="footer_center">
+      <div class="footer_center" id="foot_cent_resp">
         <h3>TEAM DI SVILUPPO</h3>
         <ul>
           <li>

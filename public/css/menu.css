@@ -385,6 +385,40 @@ footer .container_footer .footer_right img {
      object-fit: cover;
 }
 
+@media screen and (max-width: 992px) {
+  #foot_cent_resp a {
+    font-size: 14px;
+  }
+  #foot_cent_resp a i {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #cont_footer_resp {
+    flex-direction: column;
+  }
+  #cont_footer_resp .footer_left {
+    width: 100%;
+  }
+  #cont_footer_resp .footer_left img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  #cont_footer_resp .footer_center {
+    width: 100%;
+  }
+  #cont_footer_resp .footer_right {
+    width: 100%;
+  }
+  #cont_footer_resp .footer_right img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: top;
+       object-position: top;
+  }
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
