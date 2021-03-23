@@ -95,7 +95,6 @@ main {
 }
 main .container_main .row_categories {
   display: flex;
-  align-items: center;
   margin-bottom: 50px;
   box-shadow: #bfbfbf 0px 13px 17px -3px;
   position: sticky;
@@ -106,7 +105,7 @@ main .container_main .row_categories .icons {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 15px 5px;
   width: calc(100% / 10);
   background-color: white;
   transition: 0.7s;
@@ -119,9 +118,12 @@ main .container_main .row_categories .icons:hover h5 {
   color: white;
 }
 main .container_main .row_categories .icons h5 {
-  margin: 0;
   color: #ffa500;
   text-transform: uppercase;
+  font-size: 19px;
+}
+main .container_main .row_categories .ham_off {
+  display: none;
 }
 main .card {
   margin: 15px;
@@ -180,6 +182,48 @@ main .container_main_bottom .img_rider img {
      object-fit: cover;
 }
 
+@media screen and (max-width: 1200px) {
+  #categ_name {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #categ_name {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #icon_row {
+    display: none;
+  }
+
+  .row_categories {
+    background-color: white;
+  }
+  .row_categories #ham_on {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: 100%;
+    margin-right: 20px;
+    padding: 5px;
+    position: relative;
+    color: #ffa500;
+  }
+  .row_categories #ham_on h3 {
+    font-size: 15px;
+    margin-right: 10px;
+  }
+  .row_categories #ham_on #ham_category {
+    border: 1px solid black;
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    background-color: white;
+    width: 140px;
+    padding: 10px;
+  }
+}
 footer {
   box-shadow: #A3A3A3 0px -5px 24px -2px;
 }

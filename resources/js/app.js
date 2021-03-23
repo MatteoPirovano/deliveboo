@@ -34,6 +34,7 @@ const app = new Vue({
         category: '',
         categories: [],
         restaurants: [],
+        show: false
     },
     mounted() {
         axios.get("http://127.0.0.1:8000/api/categories/", {
@@ -61,6 +62,10 @@ const app = new Vue({
               console.log(response.data);
                 app.restaurants = response.data;
             });
+        },
+
+        toggleShow() {
+          this.show = !this.show
         }
 
     }

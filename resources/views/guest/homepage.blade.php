@@ -17,6 +17,9 @@
     <!-- Aos library - scroll effects -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+    {{-- Media Queries --}}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+
     <!-- Styles -->
     <link href="{{ asset('css/app2.css') }}" rel="stylesheet">
     <title>Home Page Deliveboo</title>
@@ -65,8 +68,17 @@
     <div class="container_main">  
       {{-- Categories --}} 
       <div class="row_categories">
-        <div class="icons" v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
-          <h5>@{{ category.name }}</h5>
+        <div class="icons" id="icon_row" v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
+          <h5 id="categ_name">@{{ category.name }}</h5>
+        </div>
+        <div class="ham_off" id="ham_on">
+          <h3>Scegli categoria</h3> <i v-on:click="toggleShow()" class="fas fa-hamburger"></i>
+          
+          <div id="ham_category" v-show="show">
+            <div v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
+              <h5 id="categ_name">@{{ category.name }}</h5>
+            </div>
+          </div>
         </div>
       </div>   
       {{-- Categories --}} 
