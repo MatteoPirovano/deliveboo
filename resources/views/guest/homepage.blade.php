@@ -81,7 +81,7 @@
   <main>
     <div class="container_main">  
       {{-- Categories --}} 
-      <div class="row_categories">
+      <div class="row_categories" id="row_categories_resp">
         <ul class="icons">
           <li id="icon_row" v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
             <h5 id="categ_name">@{{ category.name }}</h5>
@@ -106,14 +106,17 @@
       {{-- /all restaurants --}}
 
       {{-- Restaurants --}}
-      <div class="container d-flex justify-content-center flex-wrap">
-        <div class="card" v-for="restaurant in restaurants">      
-          <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">@{{restaurant.name}}</h2>
-            <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+      <div class="container">
+        <div class="row d-flex justify-content-center flex-wrap">
+          <div class="card col-lg-3 col-md-5 col-sm-10 col-10" v-for="restaurant in restaurants">      
+            <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">@{{restaurant.name}}</h2>
+              <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+            </div>
           </div>
         </div>
+        
       </div>
       {{-- Restaurants --}}
     </div>

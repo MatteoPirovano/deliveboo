@@ -322,7 +322,10 @@ main .container_main_bottom .img_rider img {
   }
 }
 @media screen and (max-width: 768px) {
-  #icon_row {
+  #row_categories_resp {
+    top: 70px;
+  }
+  #row_categories_resp #icon_row {
     width: calc(100% / 5);
     display: flex;
     align-items: center;

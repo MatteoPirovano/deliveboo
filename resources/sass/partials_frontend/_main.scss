@@ -142,13 +142,19 @@ main {
 
 @media screen and (max-width: 768px) {
 
-  #icon_row {
-    width: calc(100% / 5);
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: center;
+  #row_categories_resp {
+    top: 70px;
+    #icon_row {
+      width: calc(100% / 5);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      
+    }
   }
+
+
 
   
 
