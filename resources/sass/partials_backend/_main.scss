@@ -247,6 +247,14 @@
 
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 830px) {
     
+    .back_img {
+        width: calc(100% - 180px);
+        height: 260px;
+    }
+
+    .main_ms {
+        width: calc(100% - 180px);
+    }
 }
