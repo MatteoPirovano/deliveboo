@@ -26,13 +26,13 @@
                     </div>
 
                     <div class="card_restaurant_bnt_ms">
-                        <a class="btn btn-dark" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}">Crea Piatto</a>
-                        <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}">Modifica</a>
+                        <a class="btn btn-info" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}} "><i class="far fa-calendar-minus"></i>Vedi Menù</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}"><i class="fas fa-pencil-alt"></i>Modifica</a>
 
                         <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?')">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Elimina</button>
+                            <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Elimina</button>
                         </form>
                     </div>
                     

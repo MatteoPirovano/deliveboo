@@ -16,7 +16,7 @@ class RestaurantController extends Controller
     private $validation = [
         'name'=> 'required|max:100',
         'img'=> 'mimes:jpeg,jpg,bmp,png',
-        'p_iva'=> 'required|size:11',
+        'p_iva'=> 'required|unique:restaurants|digits:11',
         'address'=> 'required|max:100'
     ];
     /**
@@ -40,6 +40,7 @@ class RestaurantController extends Controller
     {
       $categories = Category::all();
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
+    //   $restaurant = Restaurant::where('slug', $slug)->first();
 
       return view('admin.restaurants.create', compact('categories', 'restaurants'));
     }

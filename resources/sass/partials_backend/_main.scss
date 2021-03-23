@@ -114,6 +114,9 @@
                 position: absolute;
                 right: 0px;
                 bottom: 14px;
+            }
+            i {
+                padding-right: 10px;
             }        
         }
     }
@@ -124,14 +127,21 @@
 
         .shadow_card_ms{
             box-shadow: 16px 10px 33px -18px rgba(0,0,0,0.75);
+            max-width: 300px;
         }
 
         .position_card_index_img_ms{
             height: 200px;
         }
         .position_card_index_h2_ms{
-            height: 150px;
-            padding: 10px 20px;
+            height: 100px;
+            padding: 0px 20px 0;
+            word-break: normal;
+        }
+        .position_card_index_category_ms{
+            padding: 10px 20px 0;
+            word-break: normal; 
+            color: orange;
         }
         .position_card_index_a_ms{
             height: 50px;
@@ -160,7 +170,8 @@
         padding: 40px;
         background-color: white;
         border-radius: 7px; 
-        box-shadow: 7px 7px 23px -10px rgba(0,0,0,0.75);       
+        box-shadow: 7px 7px 23px -10px rgba(0,0,0,0.75);
+        overflow-y: scroll;       
 
         .left_dishes_show_container_ms{
             width: 55%;
@@ -176,6 +187,12 @@
             h3{
                 margin-bottom: 50px;
             }
+            i{
+                padding-right: 10px;
+            }
+            .btn-dark,.btn-info {
+                margin-bottom: 30px;
+            }
         }
         .right_dishes_show_container_ms{
             width: 45%;
@@ -187,7 +204,49 @@
                 border-radius: 7px;
                 box-shadow: 5px 3px 55px -13px rgba(0,0,0,0.75);
             }
+            .show_delete_ms{
+                display: none;
+                // visibility: hidden;
+            }
+            button{
+                // transition-timing-function: linear;
+                transition: visibility, color 2s;
+                &:hover  {
+                    // color: black;
+                    .show_delete_ms{
+                        // visibility: visible;
+                        display: inline-block;
+                    }
+                    i{
+                        padding-right: 10px;
+                    }
+                }
+            }
         }
     }
 
+}
+
+
+
+
+// QUERIES_____________________________________________________________________________________________________
+@media screen and (min-width: 1180px) and (max-width: 1919px) {
+
+    .main_ms .position_card_index_ms .shadow_card_ms {
+        max-width: 240px;
+    }
+    .position_card_index_h2_ms h2{
+        font-size: 1.5rem;
+    }
+
+    .main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
+        margin-left: 25px;
+        max-width: 269px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    
 }

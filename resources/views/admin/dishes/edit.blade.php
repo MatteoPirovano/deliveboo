@@ -51,7 +51,7 @@
 
         <div class="form-group">
             <label for="price" class="form-label">Prezzo</label>
-            <input type="number" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{$dish->price}}">
+            <input type="number" min="0" maxlength="6" step="0.01" class="form-control @error('price') is-invalid @enderror" name="price" id="price" value="{{$dish->price}}">
         </div>
         <div>Visibilità</div>
         <div class="form-check">
@@ -66,8 +66,8 @@
                 No
             </label>
         </div>
-        <button type="submit" class="btn btn-primary mt-4">Salva</button>
-        <a href="{{ route('admin.restaurants.dishes.index', $restaurant->slug) }}" class="btn btn-secondary mt-4">Home</a>
+        <button type="submit" class="btn btn-success mt-4">Salva</button>
+        <a href="{{ route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug]) }}" class="btn btn-secondary mt-4">Annulla</a>
       </form>
     </div>
   

@@ -62,7 +62,7 @@
   border-radius: 7px;
 }
 .container_ms footer {
-  height: 10%;
+  height: 8%;
 }
 .container_ms footer a {
   font-size: 16px;
@@ -97,6 +97,53 @@
   text-decoration: none;
 }
 
+@media screen and (max-width: 576px) {
+  .container_ms {
+    width: 180px;
+  }
+
+  .container_ms header div {
+    flex-direction: column;
+  }
+
+  .container_ms header h1 {
+    font-size: 2rem;
+  }
+
+  .container_ms header a i {
+    font-size: 11px;
+  }
+
+  .container_ms header h2 {
+    font-size: 1.2rem;
+    margin-top: 25px;
+  }
+
+  .container_ms main h3 {
+    margin-top: 5px;
+    font-size: 1.2rem;
+  }
+
+  .container_ms main .container_btn_menu_ms .menu_detail_ms {
+    width: 100%;
+  }
+
+  .container_ms .menu_ms a {
+    line-height: 0;
+  }
+  .container_ms .menu_ms a i {
+    font-size: 0.7rem;
+  }
+  .container_ms .menu_ms a span {
+    font-size: 0.8rem;
+  }
+
+  .container_ms footer a {
+    width: 80%;
+    text-align: center;
+    font-size: 13px;
+  }
+}
 .back_img {
   width: calc(100% - 300px);
   height: 350px;
@@ -208,19 +255,29 @@
   right: 0px;
   bottom: 14px;
 }
+.main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms i {
+  padding-right: 10px;
+}
 .main_ms .position_card_index_ms {
   margin-top: 150px;
   padding-bottom: 40px;
 }
 .main_ms .position_card_index_ms .shadow_card_ms {
   box-shadow: 16px 10px 33px -18px rgba(0, 0, 0, 0.75);
+  max-width: 300px;
 }
 .main_ms .position_card_index_ms .position_card_index_img_ms {
   height: 200px;
 }
 .main_ms .position_card_index_ms .position_card_index_h2_ms {
-  height: 150px;
-  padding: 10px 20px;
+  height: 100px;
+  padding: 0px 20px 0;
+  word-break: normal;
+}
+.main_ms .position_card_index_ms .position_card_index_category_ms {
+  padding: 10px 20px 0;
+  word-break: normal;
+  color: orange;
 }
 .main_ms .position_card_index_ms .position_card_index_a_ms {
   height: 50px;
@@ -246,6 +303,7 @@
   background-color: white;
   border-radius: 7px;
   box-shadow: 7px 7px 23px -10px rgba(0, 0, 0, 0.75);
+  overflow-y: scroll;
 }
 .main_ms .dishes_show_container_ms .left_dishes_show_container_ms {
   width: 55%;
@@ -262,6 +320,12 @@
 .main_ms .dishes_show_container_ms .left_dishes_show_container_ms h3 {
   margin-bottom: 50px;
 }
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms i {
+  padding-right: 10px;
+}
+.main_ms .dishes_show_container_ms .left_dishes_show_container_ms .btn-dark, .main_ms .dishes_show_container_ms .left_dishes_show_container_ms .btn-info {
+  margin-bottom: 30px;
+}
 .main_ms .dishes_show_container_ms .right_dishes_show_container_ms {
   width: 45%;
   padding: 10px;
@@ -273,7 +337,33 @@
   border-radius: 7px;
   box-shadow: 5px 3px 55px -13px rgba(0, 0, 0, 0.75);
 }
+.main_ms .dishes_show_container_ms .right_dishes_show_container_ms .show_delete_ms {
+  display: none;
+}
+.main_ms .dishes_show_container_ms .right_dishes_show_container_ms button {
+  transition: visibility, color 2s;
+}
+.main_ms .dishes_show_container_ms .right_dishes_show_container_ms button:hover .show_delete_ms {
+  display: inline-block;
+}
+.main_ms .dishes_show_container_ms .right_dishes_show_container_ms button:hover i {
+  padding-right: 10px;
+}
 
+@media screen and (min-width: 1180px) and (max-width: 1919px) {
+  .main_ms .position_card_index_ms .shadow_card_ms {
+    max-width: 240px;
+  }
+
+  .position_card_index_h2_ms h2 {
+    font-size: 1.5rem;
+  }
+
+  .main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
+    margin-left: 25px;
+    max-width: 269px;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;

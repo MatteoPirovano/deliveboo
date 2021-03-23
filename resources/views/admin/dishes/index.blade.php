@@ -12,15 +12,10 @@
     </div>
     @endif
     
-    <a class="plate_ms" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}"> 
-        <i class="fas fa-plus plus_ms">
-            <span> Crea Piatto </span>
-        </i>
-    </a>
     {{-- <a class="btn btn-secondary float-right" href="{{ route('admin.restaurants.index') }}">Indietro</a> --}}
     <div class="d-flex flex-wrap position_card_index_ms">
         @foreach ($restaurant->dishes->sortBy('name') as $dish)
-        <div style="max-width: 300px" class="shadow_card_ms card m-2 d-flex justify-content-end">
+        <div class="shadow_card_ms card m-2 d-flex justify-content-end">
 
             <div class="position_card_index_img_ms">
                 @if(!empty($dish->img))
@@ -30,10 +25,14 @@
                 @endif
             </div>
 
-            <div class="position_card_index_h2_ms">
-                <h2 style="word-break: normal">{{$dish->name}}</h2>
-                <h3 style="word-break: normal; color: orange">{{$dish->courses}}</h3>
+            <div class="position_card_index_category_ms">
+                <h4>{{$dish->courses}}</h4>
             </div>
+            <div class="position_card_index_h2_ms">
+                <h2>{{$dish->name}}</h2>
+
+            </div>
+
 
             <div class="position_card_index_a_ms">
                 <a class="btn btn-info" href="{{route('admin.restaurants.dishes.show', ['restaurant' => $restaurant->slug, 'dish' => $dish->slug])}}">Mostra</a>

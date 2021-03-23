@@ -31,7 +31,7 @@
 
         <div class="form-group">
           <label for="p_iva" class="form-label">Partita Iva</label>
-          <input type="text" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" value="{{$restaurant->p_iva}}">
+          <input type="text" maxlength="11" class="form-control @error('p_iva') is-invalid @enderror" name="p_iva" id="p_iva" value="{{$restaurant->p_iva}}">
         </div>
 
         <div class="form-group">
@@ -67,8 +67,8 @@
           @endforeach
         @endif
           
-        <button type="submit" class="btn btn-primary mt-4">Salva</button>
-        <a href="{{ route('admin.restaurants.index') }}" class="btn btn-secondary mt-4">Home</a>
+        <button type="submit" class="btn btn-success mt-4">Salva</button>
+        <a href="{{ route('admin.restaurants.show', $restaurant->slug) }}" class="btn btn-secondary mt-4">Annulla</a>
       </form>
     </div>
   

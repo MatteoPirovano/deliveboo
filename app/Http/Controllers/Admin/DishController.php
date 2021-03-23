@@ -19,7 +19,7 @@ class DishController extends Controller
         'ingredients'=> 'required|max:1000',
         'courses'=> 'required',
         'description'=> 'required|max:1500',
-        'price'=> 'required|numeric',
+        'price'=> 'required|numeric|max:9999',
         'visibility'=> 'required'
     ];
 
@@ -77,7 +77,7 @@ class DishController extends Controller
         $dish->slug = Str::slug($dish->name, '-');
         $restaurant = Restaurant::where('slug', $slug)->first();
         // dd($restaurant->id);
-        $dish->restaurant_id = $restaurant->id;        
+        $dish->restaurant_id = $restaurant->id;
 
         $dish_result = $dish->save();
 
