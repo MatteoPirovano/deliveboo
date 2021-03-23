@@ -19,11 +19,26 @@ select {
 }
 
 .hidden {
-  display: none;
+  display:none;
 }
 
-.visible {
-  display: block;
+.out {
+  animation: fadeout 0.5s linear;
+  animation-fill-mode: forwards;
 }
+
+@keyframes fadeout {
+    0% {
+      top: 90px;
+      right: 0;
+    }
+
+    100% {
+      top: 90px;
+      right: -400px;
+    }
+}
+
+
 
 

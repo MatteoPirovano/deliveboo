@@ -22,10 +22,34 @@ select {
   display: none;
 }
 
-.visible {
-  display: block;
+.out {
+  -webkit-animation: fadeout 0.5s linear;
+          animation: fadeout 0.5s linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
+@-webkit-keyframes fadeout {
+  0% {
+    top: 90px;
+    right: 0;
+  }
+  100% {
+    top: 90px;
+    right: -400px;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    top: 90px;
+    right: 0;
+  }
+  100% {
+    top: 90px;
+    right: -400px;
+  }
+}
 header .nav_bar {
   padding: 15px 50px;
   width: 100%;
@@ -10340,9 +10364,25 @@ main .chart .chart_header img {
   height: 40px;
   width: auto;
 }
-main .chart .chart_header .btn {
+main .chart .order {
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid #F39200;
+}
+main .chart .btn {
   border-color: #F39200;
   color: #F39200;
+}
+main .chart .delete {
+  font-size: 12px;
+  color: #F39200;
+  transition: 0.3s;
+  cursor: pointer;
+}
+main .chart .delete:hover {
+  font-size: 14px;
+}
+main .chart .info > * {
+  width: calc(100% / 3);
 }
 
 footer {

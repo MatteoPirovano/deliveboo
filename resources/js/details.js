@@ -118,12 +118,16 @@ const app = new Vue({
         deleteOrder() {
             app.total = 0;
             app.order = [];
+            localStorage.total = 0;
+            localStorage.order = [];
         },
         deleteDishOrder(name) {
             app.order.forEach(element => {
                 if(element['name'] == name) {
                     element['count'] = 0;
                     element['price'] = 0;
+                    element['name'] = "";
+                    
                 }
             app.totalPrice();
             app.totalCount();
@@ -139,9 +143,11 @@ const app = new Vue({
             } else return true;
         },
         changeVisibility() {
-            if(app.chartVisibility == 'hidden') {
-                app.chartVisibility = 'visible';
-            } else app.chartVisibility = 'hidden';
+            if(app.chartVisibility == 'hidden' || app.chartVisibility == 'out') {
+                app.chartVisibility = 'animate__animated animate__bounceInRight';
+            } else {
+                app.chartVisibility = 'out';
+            }
         }
     },
     watch: {

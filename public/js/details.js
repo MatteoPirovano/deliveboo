@@ -49707,12 +49707,15 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     deleteOrder: function deleteOrder() {
       app.total = 0;
       app.order = [];
+      localStorage.total = 0;
+      localStorage.order = [];
     },
     deleteDishOrder: function deleteDishOrder(name) {
       app.order.forEach(function (element) {
         if (element['name'] == name) {
           element['count'] = 0;
           element['price'] = 0;
+          element['name'] = "";
         }
 
         app.totalPrice();
@@ -49729,9 +49732,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       } else return true;
     },
     changeVisibility: function changeVisibility() {
-      if (app.chartVisibility == 'hidden') {
-        app.chartVisibility = 'visible';
-      } else app.chartVisibility = 'hidden';
+      if (app.chartVisibility == 'hidden' || app.chartVisibility == 'out') {
+        app.chartVisibility = 'animate__animated animate__bounceInRight';
+      } else {
+        app.chartVisibility = 'out';
+      }
     }
   },
   watch: {

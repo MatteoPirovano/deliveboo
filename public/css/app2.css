@@ -22,10 +22,34 @@ select {
   display: none;
 }
 
-.visible {
-  display: block;
+.out {
+  -webkit-animation: fadeout 0.5s linear;
+          animation: fadeout 0.5s linear;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
+@-webkit-keyframes fadeout {
+  0% {
+    top: 90px;
+    right: 0;
+  }
+  100% {
+    top: 90px;
+    right: -400px;
+  }
+}
+
+@keyframes fadeout {
+  0% {
+    top: 90px;
+    right: 0;
+  }
+  100% {
+    top: 90px;
+    right: -400px;
+  }
+}
 header .nav_bar {
   padding: 15px 50px;
   width: 100%;

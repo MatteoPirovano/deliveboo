@@ -7,6 +7,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- Styles -->
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <title>Details</title>
@@ -32,7 +33,7 @@
                       <i class="fas fa-shopping-cart"></i>
                       <span>@{{count}}</span>
                       <span>|</span>
-                      <span>@{{total}}€</span>
+                      <span>@{{total.toFixed(2)}}€</span>
                     </div>
                 </div>
               </div>
@@ -50,8 +51,8 @@
                             <p><strong>Ingredienti: </strong>{{$dish->ingredients}}</p>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
-                            <span><strong>Prezzo: </strong>{{$dish->price}}€</span>
-                            <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn-secondary" v-on:click="chart('{{$dish->name}}',{{$dish->price}})">Aggiungi al carrello</button>
+                            <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
+                            <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn-secondary" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
                             <div v-else>
                                 <button  class="btn btn-light btn-sm" v-on:click="addDish('{{$dish->name}}')">+</button>
                             </div>
@@ -64,25 +65,27 @@
                 <div class="chart_header d-flex justify-content-between align-items-center">
                   <img src="{{asset('images/logo.png')}}" alt="LOGO">
                   <button class="btn" v-on:click="deleteOrder()">Cancella Ordine</button>
-                  <button class="btn" v-on:click="deleteOrder()">Conferma Ordine</button>
+                  <a href="" class="btn">Conferma Ordine</a>
                 </div>
-                <div v-for="ordered_dish in order" class="d-flex justify-content-between align-items-center mb-3" v-if="ordered_dish.count > 0">
-                    <div>
-                        <span>@{{ordered_dish.name}}  x</span>
-                        <span>@{{ordered_dish.count}}</span>
+                <hr>
+                <div v-for="ordered_dish in order" class="order mb-3" v-if="ordered_dish.count > 0">
+                    <div class="mb-2">
+                        <span>@{{ordered_dish.name}}</span>
+                        <span class="float-right" v-on:click="deleteDishOrder(ordered_dish.name)"><i class="delete fas fa-trash-alt"></i></span>
                     </div>
-                    <div class="d-flex justify-content-between align-items-center" style="width:100px">
-                        <div>
-                            <button  class="btn btn-light btn-sm" v-on:click="addDish(ordered_dish.name)">+</button>
-                            <button class="btn btn-light btn-sm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)">-</button>
-                        </div>
-                        <span v-if="ordered_dish.count > 0">@{{ordered_dish.price}}€</span> <span class="btn" v-on:click="deleteDishOrder(ordered_dish.name)">Delete</span>
+                    <div class="d-flex justify-content-between align-items-center info">
+                      <div class="quantity">
+                        <button  class="btn btn-sm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-sm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
+                      </div>
+                      <div>n. @{{ordered_dish.count}}</div>
+                      <div v-if="ordered_dish.count > 0">Prezzo: @{{ordered_dish.price.toFixed(2)}}€</div>
                     </div>
                 </div>
                 <hr v-if="total > 0">
                 <div v-if="total > 0" class="float-right">
                     <span>Total: </span>
-                    <span >@{{total}}€</span>
+                    <span >@{{total.toFixed(2)}}€</span>
                 </div>
             </div>
         </main>
