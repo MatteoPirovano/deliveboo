@@ -13,95 +13,96 @@
     <title>Details</title>
 </head>
 <body>
-    <div id="app">
-        <header>
-            <div class="nav_bar">
-                <img src="{{ asset('images/logo.png') }}" alt="logo">
-                <ul>
-                  <li>
-                    <a href="#">Home</a>
-                  </li>
-                  <li>
-                    <a href="#contact">Contatti</a>
-                  </li>
-                  <li>
-                    <a href="#register">Lavora con noi</a>
-                  </li>
-                  <li class="chart d-flex justify-content-between align-items-center" v-if="total > 0" v-on:click="changeVisibility()">
-                      <i class="fas fa-shopping-cart"></i>
-                      <span>@{{count}}</span>
-                      <span>|</span>
-                      <span>@{{total.toFixed(2)}}€</span>
-                  </li>
-                </ul>
-              </div>
-        </header>
-        <div class="jumbotron" style="background-image: url({{asset('storage/' . $restaurant->img)}})">
-            <h1 class="float-right">{{$restaurant->name}}</h1>
+  <div id="app">
+    <header>
+      <div class="nav_bar d-flex justify-content-between align-items-center">
+        <div class="cont_img">
+          <img src="{{ asset('images/logo.png') }}" alt="logo">
+          <ul :class="navHidden">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#contact">Contatti</a>
+            </li>
+            <li>
+              <a href="#register">Registrati</a>
+            </li>
+            <li>
+              <a href="#register">Login</a>
+            </li>
+          </ul>
         </div>
-        <main class="container">
-            @foreach ($restaurant->dishes as $dish)
-                <div class="card">
-                    <img src="{{asset('storage/' . $dish->img)}}" class="card-img-top" alt="...">
-                    <div class="card-body d-flex flex-column justify-content-between">
-                        <div class="info">
-                            <h3 class="card-title">{{"$dish->name"}}</h2>
-                            <p><strong>Ingredienti: </strong>{{$dish->ingredients}}</p>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
-                            <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn-secondary" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
-                            <div v-else>
-                                <button class="btn btn-light btn-sm" v-on:click="addDish('{{$dish->name}}')">+</button>
-                                <button v-for="ordered_dish in order" v-if="ordered_dish.count > 0 && ordered_dish.name == '{{$dish->name}}'" class="btn btn-light btn-sm" v-on:click="leaveDish('{{$dish->name}}')">-</button>
-                            </div>
-                        </div>
-                      
+        <i class="fas fa-hamburger ml-4" v-on:click="showNavList()"></i>
+        <div class="chart d-flex justify-content-between align-items-center mr-4" v-if="total > 0" v-on:click="changeVisibility()">
+          <i class="fas fa-shopping-cart" v-on:click="changeVisibility()"></i>
+          <span class="chartCount">x @{{count}}</span>
+          <span class="pipe">|</span>
+          <span>@{{total.toFixed(2)}}€</span>
+        </div>
+      </div>
+    </header>
+    <div class="jumbotron" style="background-image: url({{asset('storage/' . $restaurant->img)}})">
+        <h1 class="float-right">{{$restaurant->name}}</h1>
+    </div>
+    <main class="container">
+      @foreach ($restaurant->dishes as $dish)
+        <div class="card">
+            <img src="{{asset('storage/' . $dish->img)}}" class="card-img-top" alt="...">
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div class="info">
+                    <h3 class="card-title">{{"$dish->name"}}</h2>
+                    <p><strong>Ingredienti: </strong>{{$dish->ingredients}}</p>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
+                    <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
+                    <div v-else>
+                        <button class="btn btn_orange btn-sm" v-on:click="addDish('{{$dish->name}}')">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                        <button v-for="ordered_dish in order" v-if="ordered_dish.count > 0 && ordered_dish.name == '{{$dish->name}}'" class="btn btn_orange btn-sm" v-on:click="leaveDish('{{$dish->name}}')">
+                          <i class="fas fa-minus"></i>
+                        </button>
                     </div>
                 </div>
-            @endforeach
-            <div class="chart" :class="chartVisibility" v-if="total > 0">
-              <div class="listDishes">
-                <div class="chart_header d-flex justify-content-between align-items-center">
-                  <img src="{{asset('images/logo.png')}}" alt="LOGO">
-                  <div>
-                    <button class="btn" v-on:click="deleteOrder()">Annulla</button>
-                    <a href="{{route('payment')}}" class="btn">Conferma</a>
-                  </div>
-                </div>
-                <hr>
-                <div v-for="ordered_dish in order" class="order mb-3" v-if="ordered_dish.count > 0">
-                    <div class="mb-2">
-                        <span>@{{ordered_dish.name}}</span>
-                        <span class="float-right" v-on:click="deleteDishOrder(ordered_dish.name)"><i class="delete fas fa-trash-alt"></i></span>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center info">
-                      <div class="quantity">
-                        <button  class="btn btn-sm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
-                        <button class="btn btn-sm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
-                      </div>
-                      <div>n. @{{ordered_dish.count}}</div>
-                      <div v-if="ordered_dish.count > 0">Prezzo: @{{ordered_dish.price.toFixed(2)}}€</div>
-                    </div>
-                </div>
-                <hr v-if="total > 0">
-                <div v-if="total > 0" class="total">
-                    <span>Totale: </span>
-                    <span >@{{total.toFixed(2)}}€</span>
-                </div>
-              </div>
-                
+              
             </div>
-
-            {{-- <hr v-if="total > 0"> --}}
-            {{-- <div v-if="total > 0" class="float-right">
-                <span>Total: </span>
-                <span >@{{total}}€</span> --}}
-                {{-- <button v-on:click="deleteOrder()">Delete</button>
-                <a class="btn btn-success" href="{{route('payment')}}">Conferma</a> --}}
-
-        </main>
-        <footer>
+        </div>
+      @endforeach
+      <div class="chart" :class="chartVisibility" v-if="total > 0">
+        <div class="listDishes">
+          <div class="chart_header d-flex justify-content-between align-items-center">
+            <img src="{{asset('images/logo.png')}}" alt="LOGO">
+            <div>
+              <button class="btn" v-on:click="deleteOrder()">Annulla</button>
+              <a href="{{route('payment')}}" class="btn">Conferma</a>
+            </div>
+          </div>
+          <hr>
+          <div v-for="ordered_dish in order" class="order mb-3" v-if="ordered_dish.count > 0">
+              <div class="mb-2">
+                  <span>@{{ordered_dish.name}}</span>
+                  <span class="float-right" v-on:click="deleteDishOrder(ordered_dish.name)"><i class="delete fas fa-trash-alt"></i></span>
+              </div>
+              <div class="d-flex justify-content-between align-items-center info">
+                <div class="quantity">
+                  <button  class="btn btn-sm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
+                  <button class="btn btn-sm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
+                </div>
+                <div>n. @{{ordered_dish.count}}</div>
+                <div v-if="ordered_dish.count > 0">Prezzo: @{{ordered_dish.price.toFixed(2)}}€</div>
+              </div>
+          </div>
+          <hr v-if="total > 0">
+          <div v-if="total > 0" class="total">
+              <span>Totale: </span>
+              <span >@{{total.toFixed(2)}}€</span>
+          </div>
+        </div>
+      </div>
+    </main>
+        {{-- <footer>
             <a id="contact"></a>
             <a id="register"></a>
         
@@ -138,7 +139,8 @@
         
 
             </div>
-          </footer>
-    <script src="{{asset('js/details.js')}}"></script>
+          </footer> --}}
+  </div>
+  <script src="{{asset('js/details.js')}}"></script>
 </body>
 </html>
