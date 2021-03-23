@@ -10,29 +10,34 @@ main {
       position: sticky;
       top: 90px;
       z-index: 990;
-      .icons {
+      width: 100%;
+      ul{
+        margin: 0;
+        width: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
-        padding: 15px 5px;
-        width: calc(100% / 10);
-        background-color: white;
-        transition: 0.7s;
-        cursor: pointer;
-        &:hover {
-          background-color: $softOrange;
-        }
-        &:hover h5 {
-          color: white;
-        }
-        h5 {
+        flex-wrap: wrap;
+        li {
+          text-align: center;
+          display: inline-block;
+          padding: 15px 10px;
+          width: calc(100% / 10);
+          background-color: white;
+          cursor: pointer;
+          transition: 0.5s;
+          &:hover {
+            background-color: $softOrange;
+          }
+          &:hover h5 {
+            color: white;
+          }
+          h5 {
+          margin: 0;
           color: $softOrange;
           text-transform: uppercase;
-          font-size: 19px;
+          font-size: 16px;
         }
-      }
-      .ham_off {
-        display: none;
+        }
       }
     }
 
@@ -58,9 +63,6 @@ main {
       object-fit: cover;
       object-position: center;
     }
-
-    // .btn {
-    //   background-color: $darkRed;
 
     .btn_orange {
       background-color: $softOrange;
@@ -110,15 +112,30 @@ main {
 @media screen and (max-width: 1200px) {
 
   #categ_name {
-    font-size: 16px;
+    font-size: 18px;
   }
-  
+   #icon_row {
+    width: calc(100% / 5);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 992px) {
-
+  #card_res {
+    width: calc(100% / 2 - 30px);
+  }
   #categ_name {
     font-size: 13px;
+  }
+   #icon_row {
+    width: calc(100% / 5);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
 }
@@ -126,36 +143,14 @@ main {
 @media screen and (max-width: 768px) {
 
   #icon_row {
-    display: none;
+    width: calc(100% / 5);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
-.row_categories {
-  background-color: white;
-  #ham_on {
-    display: flex; 
-    justify-content: flex-end;
-    align-content: center;
-    width: 100%;
-    margin-right: 20px;
-    padding: 5px;
-    position: relative;
-    color: $softOrange;
-    h3 {
-      font-size: 15px;
-      margin-right: 10px;
-    }
 
-
-    #ham_category {
-      border: 1px solid black;
-      position: absolute;
-      right: 30px;
-      top: 35px;
-      background-color: white;
-      width: 140px;
-      padding: 10px;
-    }
-  }
+  
 
 }
   
-}

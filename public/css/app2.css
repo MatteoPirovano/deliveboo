@@ -105,7 +105,19 @@ header .nav_bar .cont_img ul li a:hover {
 header .nav_bar .cont_img ul .dropdown div {
   background-color: #a51b0b;
 }
-header .cont_list .btn {
+header .nav_bar .cont_list {
+  display: flex;
+  align-items: center;
+  height: 90px;
+}
+header .nav_bar .cont_list #dropdown_id .dropdown-menu {
+  background-color: #ffa500;
+}
+header .nav_bar .cont_list #dropdown_id .dropdown-menu a {
+  color: white;
+  font-weight: 500;
+}
+header .nav_bar .cont_list #dropdown_id .btn {
   padding: 10px 20px;
   border-radius: 0;
   background-color: #ffa500;
@@ -114,13 +126,13 @@ header .cont_list .btn {
   font-weight: 500;
   outline: none;
 }
-header .cont_list .btn .dropdown button {
+header .nav_bar .cont_list #dropdown_id .btn .dropdown button {
   outline: none;
 }
-header .cont_list .btn .dropdown div {
+header .nav_bar .cont_list #dropdown_id .btn .dropdown div {
   background-color: #ffa500;
 }
-header .cont_list .btn .dropdown div a {
+header .nav_bar .cont_list #dropdown_id .btn .dropdown div a {
   color: white;
   font-weight: 600;
 }
@@ -150,6 +162,36 @@ header .jumbotron .layover h1 {
   font-family: "Train One", cursive;
 }
 
+@media screen and (max-width: 768px) {
+  #nav_bar_res {
+    height: 70px;
+  }
+  #nav_bar_res #cont_img_res {
+    height: 70px;
+  }
+  #nav_bar_res #cont_img_res img {
+    width: 50px;
+  }
+  #nav_bar_res #cont_img_res li {
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 18px;
+  }
+  #nav_bar_res #cont_img_res li a {
+    font-size: 18px;
+  }
+  #nav_bar_res #cont_list_res {
+    height: 70px;
+  }
+  #nav_bar_res #cont_list_res .btn {
+    padding: 5px 10px;
+    font-size: 18px;
+  }
+
+  #jumbotron_res h1 {
+    font-size: 40px;
+  }
+}
 main {
   padding-bottom: 100px;
   background-color: #e5e5e5;
@@ -162,30 +204,35 @@ main .container_main .row_categories {
   position: sticky;
   top: 90px;
   z-index: 990;
+  width: 100%;
 }
-main .container_main .row_categories .icons {
+main .container_main .row_categories ul {
+  margin: 0;
+  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 15px 5px;
+  flex-wrap: wrap;
+}
+main .container_main .row_categories ul li {
+  text-align: center;
+  display: inline-block;
+  padding: 15px 10px;
   width: calc(100% / 10);
   background-color: white;
-  transition: 0.7s;
   cursor: pointer;
+  transition: 0.5s;
 }
-main .container_main .row_categories .icons:hover {
+main .container_main .row_categories ul li:hover {
   background-color: #ffa500;
 }
-main .container_main .row_categories .icons:hover h5 {
+main .container_main .row_categories ul li:hover h5 {
   color: white;
 }
-main .container_main .row_categories .icons h5 {
+main .container_main .row_categories ul li h5 {
+  margin: 0;
   color: #ffa500;
   text-transform: uppercase;
-  font-size: 19px;
-}
-main .container_main .row_categories .ham_off {
-  display: none;
+  font-size: 16px;
 }
 main .card {
   margin: 15px;
@@ -246,44 +293,41 @@ main .container_main_bottom .img_rider img {
 
 @media screen and (max-width: 1200px) {
   #categ_name {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  #icon_row {
+    width: calc(100% / 5);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 992px) {
+  #card_res {
+    width: calc(100% / 2 - 30px);
+  }
+
   #categ_name {
     font-size: 13px;
+  }
+
+  #icon_row {
+    width: calc(100% / 5);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 @media screen and (max-width: 768px) {
   #icon_row {
-    display: none;
-  }
-
-  .row_categories {
-    background-color: white;
-  }
-  .row_categories #ham_on {
+    width: calc(100% / 5);
     display: flex;
-    justify-content: flex-end;
-    align-content: center;
-    width: 100%;
-    margin-right: 20px;
-    padding: 5px;
-    position: relative;
-    color: #ffa500;
-  }
-  .row_categories #ham_on h3 {
-    font-size: 15px;
-    margin-right: 10px;
-  }
-  .row_categories #ham_on #ham_category {
-    border: 1px solid black;
-    position: absolute;
-    right: 30px;
-    top: 35px;
-    background-color: white;
-    width: 140px;
-    padding: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 footer {
