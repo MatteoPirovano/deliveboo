@@ -49625,6 +49625,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     if (localStorage.count) {
       this.count = localStorage.count;
     }
+
+    this.totalPrice();
+    this.totalCount();
   },
   methods: {
     chart: function chart(name, price) {
@@ -49680,29 +49683,38 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
           var dish_name = element['name'];
           var dish_count = element['count'] - 1;
           var dish_price = element['price'] - element['price'] / element['count'];
-          return element = {
-            name: dish_name,
-            count: dish_count,
-            price: dish_price
-          };
+
+          if (dish_count == 0) {
+            return element = {
+              name: "",
+              count: dish_count,
+              price: 0
+            };
+          } else {
+            return element = {
+              name: dish_name,
+              count: dish_count,
+              price: dish_price
+            };
+          }
         } else return element;
       });
-      app.totalPrice();
-      app.totalCount();
+      this.totalPrice();
+      this.totalCount();
     },
     totalPrice: function totalPrice() {
       var total = 0;
-      app.order.forEach(function (element) {
+      this.order.forEach(function (element) {
         total = total + element['price'];
       });
-      app.total = total;
+      this.total = total;
     },
     totalCount: function totalCount() {
       var count = 0;
-      app.order.forEach(function (element) {
+      this.order.forEach(function (element) {
         count = count + element['count'];
       });
-      app.count = count;
+      this.count = count;
     },
     deleteOrder: function deleteOrder() {
       app.total = "";
@@ -49711,15 +49723,18 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       localStorage.order = [];
     },
     deleteDishOrder: function deleteDishOrder(name) {
-      app.order.forEach(function (element) {
+      var _this = this;
+
+      this.order.forEach(function (element) {
         if (element['name'] == name) {
           element['count'] = 0;
           element['price'] = 0;
           element['name'] = "";
         }
 
-        app.totalPrice();
-        app.totalCount();
+        _this.totalPrice();
+
+        _this.totalCount();
       });
     },
     inOrder: function inOrder(name) {

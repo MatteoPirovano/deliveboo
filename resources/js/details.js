@@ -23,6 +23,8 @@ const app = new Vue({
         if (localStorage.count) {
             this.count = localStorage.count;
         }
+        this.totalPrice();
+        this.totalCount();
     },
     methods: {
         chart(name,price) {
@@ -64,7 +66,8 @@ const app = new Vue({
                         return element = {
                             name: dish_name,
                             count: dish_count,
-                            price: dish_price};
+                            price: dish_price
+                        };
                     } else return element;
                     
                 }
@@ -85,35 +88,44 @@ const app = new Vue({
                         var dish_count = element['count']-1;
                         var dish_price = element['price']-(element['price'] / element['count']);
 
-                        return element = {
-                            name: dish_name,
-                            count: dish_count,
-                            price: dish_price
+                        if(dish_count == 0) {
+                            return element = {
+                                name: "",
+                                count: dish_count,
+                                price: 0
+                            }
+                        } else {
+                            return element = {
+                                name: dish_name,
+                                count: dish_count,
+                                price: dish_price
+                            }
                         }
+                       
                     } else return element;
                     
                 }
             );
-            app.totalPrice();
-            app.totalCount();
+            this.totalPrice();
+            this.totalCount();
         },
         totalPrice() {
             var total = 0;
-            app.order.forEach(
+            this.order.forEach(
                 element => {
                     total = total + element['price'];
                 }
             );  
-            app.total = total;
+            this.total = total;
         },
         totalCount() {
             var count = 0;
-            app.order.forEach(
+            this.order.forEach(
                 element => {
                     count = count + element['count'];
                 }
             );  
-            app.count = count;
+            this.count = count;
         },
         deleteOrder() {
             app.total = "";
@@ -122,15 +134,15 @@ const app = new Vue({
             localStorage.order = [];
         },
         deleteDishOrder(name) {
-            app.order.forEach(element => {
+            this.order.forEach(element => {
                 if(element['name'] == name) {
                     element['count'] = 0;
                     element['price'] = 0;
                     element['name'] = "";
                     
                 }
-            app.totalPrice();
-            app.totalCount();
+            this.totalPrice();
+            this.totalCount();
             });
         },
         inOrder(name) {
