@@ -65,7 +65,7 @@
                 <div class="chart_header d-flex justify-content-between align-items-center">
                   <img src="{{asset('images/logo.png')}}" alt="LOGO">
                   <button class="btn" v-on:click="deleteOrder()">Cancella Ordine</button>
-                  <a href="" class="btn">Conferma Ordine</a>
+                  <a href="{{route('payment')}}" class="btn">Conferma Ordine</a>
                 </div>
                 <hr>
                 <div v-for="ordered_dish in order" class="order mb-3" v-if="ordered_dish.count > 0">

@@ -118,10 +118,6 @@ const app = new Vue({
         deleteOrder() {
             app.total = "";
             app.order = [];
-<<<<<<< HEAD
-            localStorage.total = "";
-            localStorage.order = "";
-=======
             localStorage.total = 0;
             localStorage.order = [];
         },
@@ -152,7 +148,6 @@ const app = new Vue({
             } else {
                 app.chartVisibility = 'out';
             }
->>>>>>> Nicola4
         }
     },
     watch: {
