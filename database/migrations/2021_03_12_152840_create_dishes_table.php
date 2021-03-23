@@ -30,7 +30,8 @@ class CreateDishesTable extends Migration
           //relation
           $table->foreign('restaurant_id')
             ->references('id')
-            ->on('restaurants'); 
+            ->on('restaurants')
+            ->onDelete('cascade'); 
         });
     }
 
