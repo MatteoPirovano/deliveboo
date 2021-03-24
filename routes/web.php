@@ -25,32 +25,32 @@ Route::post('/checkout', function(Request $request) {
     'publicKey' => 'f7cmspf5s5779bpk',
     'privateKey' => '5d8ada5bd7f4a635c540fc7596f285f8'
   ]);
+
+  // $request->validate([
+  //   'client_name'=> 'required|max:100',
+  //   'client_surname'=> 'required|max:100',
+  //   'client_address'=> 'required|max:100',
+  //   'client_mail'=> 'required|max:100|email:rfc,dns',
+  //   'order_date'=> 'required'
+  // ]);
+
   $data = $request->all();
-    dd($data);
-        $request->validate([
-            'client_name'=> 'required|max:100',
-            'client_surname'=> 'required|max:100',
-            'client_address'=> 'required|max:100',
-            'client_mail'=> 'required|max:100|email:rfc,dns',
-            'order_date'=> 'required'
-        ]);
+  
+  $order = new Order();
+  $order->fill($data);
+  $order->price = $data['amount'];
+  $order->status="accepted";
+  $order_result = $order->save();
 
-        $order = new Order();
-        $order->fill($data);
-        $order->status="accepted";
-        $order_result = $order->save();
-
-        foreach($data['dish_name'] as $key => $slug) {
-            $slug = Str::slug($slug, '-');
-            $dishes[$key] = Dish::where('slug', $slug)->first();
-            if($order_result) {
-                if(!empty($dishes[$key])) {
-                    $dishes[$key]->orders()->attach($order->id);
-                }
-            }
-        }
-        
-
+  foreach($data['dish_name'] as $key => $slug) {
+      $slug = Str::slug($slug, '-');
+      $dishes[$key] = Dish::where('slug', $slug)->first();
+      if($order_result) {
+          if(!empty($dishes[$key])) {
+              $dishes[$key]->orders()->attach($order->id);
+          }
+      }
+  }
   $amount = $request->amount;
   $nonce = $request->payment_method_nonce;
   
@@ -101,7 +101,7 @@ Route::get('/payment', function() {
 Route::get('/payment_result', function() {
   return view('guest.prova');
 })->name('payment_result');
-// Route::get('/payments', 'PaymentsController@pay')->name('payments');
+
 
 Route::get('/', function () {
     return view('guest.homepage');
