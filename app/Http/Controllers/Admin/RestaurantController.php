@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Restaurant;
 use App\Category;
+use App\Dish;
+use App\Order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -175,4 +177,35 @@ class RestaurantController extends Controller
             ->route('admin.restaurants.index')
             ->with('message', "The restaurant has been deleted successfully");
     }
+
+    public function charts($slug) {
+
+      $restaurants = Restaurant::where('user_id', Auth::id())->get();
+      $restaurant = Restaurant::where('slug', $slug)->first();
+      
+      $months = [
+        '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
+      ];
+
+      foreach($months as $month) {
+
+        $orders[] = Order::whereMonth('order_date', $month)->sum('price');
+       
+      }
+        /* foreach ($orders as $order) {
+          foreach ($order->dishes as $dish) {
+            if ($dish->restaurant_id == $restaurant->id) {
+              $control = true;
+            } else $control = false;
+          }
+          if ($control == true) {
+            $order_true[] = $order;
+          }
+        } */
+
+      $dishes = Dish::all();
+      
+      return view('admin.restaurants.charts', compact('restaurants', 'restaurant', 'orders', 'dishes'));
+
+  }
 }
