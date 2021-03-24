@@ -26,7 +26,8 @@
         </div>
 
         <div class="form-group">
-          <label class="d-block" for="img">Aggungi immagine</label>
+          <img class="d-block" src="{{ asset('storage/' . $dish->img) }}" alt="Miniatura">
+          <label class="d-block" for="img">Modifica immagine</label>
           <input type="file" id="img" name="img" accept="image/*">
         </div>
 
