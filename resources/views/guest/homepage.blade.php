@@ -40,8 +40,9 @@
   {{-- header --}}
   <header>
     
-    <div class="nav_bar">     
-      <div class="cont_img">
+    <div class="nav_bar" id="nav_bar_res">     
+
+      <div class="cont_img" id="cont_img_res">
         <img src="{{ asset('images/logo.png') }}" alt="logo">
         <ul>
           <li>
@@ -53,23 +54,21 @@
         </ul>
       </div>
 
-      <div class="cont_list">
-        
-            <div class="dropdown">
-              <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Lavora con noi
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
-                <a class="dropdown-item" href="#">Registrati</a>
-              </div>
-            </div>
-
-          
+      <div class="cont_list" id="cont_list_res">        
+        <div class="dropdown" id="dropdown_id">
+          <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lavora con noi
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
+            <a class="dropdown-item" href="#">Registrati</a>
+          </div>
+        </div>          
       </div>
+
     </div>
 
-    <div class="jumbotron">
+    <div class="jumbotron" id="jumbotron_res">
       <div class="layover">
         <h1>Tutto il cibo che vuoi <br> quando vuoi <br> in un click </h1>
       </div>
@@ -82,43 +81,42 @@
   <main>
     <div class="container_main">  
       {{-- Categories --}} 
-      <div class="row_categories">
-        <div class="icons" id="icon_row" v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
-          <h5 id="categ_name">@{{ category.name }}</h5>
-        </div>
-        <div class="ham_off" id="ham_on">
-          <h3>Scegli categoria</h3> <i v-on:click="toggleShow()" class="fas fa-hamburger"></i>
-          
-          <div id="ham_category" v-show="show">
-            <div v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
-              <h5 id="categ_name">@{{ category.name }}</h5>
-            </div>
-          </div>
-        </div>
+      <div class="row_categories" id="row_categories_resp">
+        <ul class="icons">
+          <li id="icon_row" v-for="(category, index in categories" v-on:click="filterCategory(category.name)">
+            <h5 id="categ_name">@{{ category.name }}</h5>
+          </li>
+        </ul>
       </div>   
       {{-- Categories --}} 
 
       {{-- all restaurants --}}
-      <div class="container d-flex justify-content-center flex-wrap" v-if="restaurants.lenght > 0">
-        <div class="card" v-for="restaurant in restaurants">      
-          <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">@{{restaurant.name}}</h2>
-            <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+      <div id="ciao">
+
+        <div class="container d-flex justify-content-center flex-wrap" v-if="restaurants.lenght > 0">
+          <div class="card col-lg-6" v-for="restaurant in restaurants">      
+            <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">@{{restaurant.name}}</h2>
+              <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+            </div>
           </div>
         </div>
       </div>
       {{-- /all restaurants --}}
 
       {{-- Restaurants --}}
-      <div class="container d-flex justify-content-center flex-wrap">
-        <div class="card" v-for="restaurant in restaurants">      
-          <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h2 class="card-title">@{{restaurant.name}}</h2>
-            <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+      <div class="container">
+        <div class="row d-flex justify-content-center flex-wrap">
+          <div class="card col-lg-3 col-md-5 col-sm-10 col-10 p-0" v-for="restaurant in restaurants">      
+            <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">@{{restaurant.name}}</h2>
+              <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+            </div>
           </div>
         </div>
+        
       </div>
       {{-- Restaurants --}}
     </div>
@@ -131,12 +129,12 @@
     <a id="register"></a>
 
 
-    <div class="container_footer" >
+    <div class="container_footer" id="cont_footer_resp">
       <div class="footer_left">
         <img src="{{asset('images/del-rider.jpg')}}" alt="">
       </div>
 
-      <div class="footer_center">
+      <div class="footer_center" id="foot_cent_resp">
         <h3>TEAM DI SVILUPPO</h3>
         <ul>
           <li>

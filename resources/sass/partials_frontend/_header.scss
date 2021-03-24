@@ -15,6 +15,7 @@ header {
     .cont_img {
       display: flex;
       align-items: center;
+      
       height: 90px;
       img {
         margin-left: 50px;
@@ -53,24 +54,38 @@ header {
       }
     }
     
-  }
-  .cont_list {
-    .btn {
-      padding: 10px 20px;
-      border-radius: 0;
-      background-color: $softOrange;
-      color: white;
-      font-size: 20px;
-      font-weight: 500;
-      outline: none;
-      .dropdown button {
-         outline: none;
-      }
-      .dropdown div{
-        background-color: $softOrange;
-        a {
+    .cont_list {
+      display: flex;
+      align-items: center;
+      height: 90px;
+      #dropdown_id {
+        .dropdown-menu{
+          background-color: $softOrange;
+          
+          a {
+            color: white;
+            font-weight: 500;
+          }
+        }
+
+        .btn {
+          padding: 10px 20px;
+          border-radius: 0;
+          background-color: $softOrange;
           color: white;
-          font-weight: 600;
+          font-size: 20px;
+          font-weight: 500;
+          outline: none;
+          .dropdown button {
+             outline: none;
+          }
+          .dropdown div{
+            background-color: $softOrange;
+            a {
+              color: white;
+              font-weight: 600;
+            }
+          }
         }
       }
     }
@@ -106,6 +121,36 @@ header {
 
 // MEDIA QUERIES
 
-@media screen and (max-width: 992px) {
-  
+@media screen and (max-width: 768px) {
+
+  #nav_bar_res {
+    height: 70px;
+    #cont_img_res {
+      height: 70px;
+      img {
+        width: 50px;
+      }
+      li {
+        margin: 0 5px;
+        padding: 5px 10px;
+        font-size: 18px;
+        a {
+          font-size: 18px;
+        }
+      }
+    }
+    #cont_list_res{
+      height: 70px;
+      .btn {
+        padding: 5px 10px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  #jumbotron_res{
+    h1{
+      font-size: 40px;
+    }
+  }
 }

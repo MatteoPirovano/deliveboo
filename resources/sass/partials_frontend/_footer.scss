@@ -51,3 +51,44 @@ footer {
     }
   }
 }
+
+//media-query
+@media screen and (max-width: 992px) {
+  
+  #foot_cent_resp {
+    a {
+      font-size: 14px;
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+  #cont_footer_resp {
+    flex-direction: column;
+    .footer_left {
+      width: 100%;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    .footer_center {
+      width: 100%;
+    }
+    .footer_right {
+      width: 100%;
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
+    }
+  }
+ 
+}
