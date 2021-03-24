@@ -7,6 +7,15 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+header {
+    border-bottom: 0.5px solid #F39200;
+    ul {
+        height: 50px;
+        li {
+            height: 100%;
+        }
+    }
+}
 
 header .chart {
     border: 0.5px solid $softOrange;
@@ -55,7 +64,7 @@ main {
         right: 0;
         height: calc(100vh - 90px);
         width: 400px;
-        padding:30px; 
+        padding:50px 30px; 
         color: white;
         background-color: $darkRed;
         border-top: 0.5px solid #F39200;
@@ -108,6 +117,14 @@ footer {
     display: none;
 }
 
+.hiddenChart {
+    opacity: 0;
+}
+
+.show {
+    opacity: 1;
+}
+
 @media screen and (max-width: 1000px) {
 
     .card {
@@ -120,19 +137,23 @@ footer {
 
     header ul {
         position: absolute;
-        top: 90px;
+        border-bottom: 0.5px solid #F39200;
+        border-top: 0.5px solid #F39200;
+        top: 89px;
         left: 0;
+        height: 40px;
         width: 100%;
         background-color: $darkRed;
         font-size: 20px;
         z-index: -1;
         transition: all 0.5s;
         li {
-            width: calc(100% / 4);
+            margin: 0 !important;
+            width: calc(100% / 3);
             a {
                 width: 100%;
                 text-align: center;
-                font-size: 18px !important;
+                font-size: 16px !important;
             }
             
         }
@@ -140,9 +161,6 @@ footer {
     }
     .hiddenList {
         opacity: 0;
-    }
-    .show {
-        opacity: 1;
     }
     
 }

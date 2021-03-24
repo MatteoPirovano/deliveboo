@@ -40,7 +40,7 @@
                     </div>
                       <label for="amount">
                         <span class="input-label">Amount</span>
-                        <input type="tel" id="amount" name="amount" :value="total" min="1">
+                        <input type="tel" id="amount" name="amount" :value="total" min="1" readonly>
                       </label>
                   </div>
                 </div>

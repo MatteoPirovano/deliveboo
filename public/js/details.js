@@ -49718,10 +49718,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       this.count = count;
     },
     deleteOrder: function deleteOrder() {
-      app.total = "";
+      app.total = 0;
       app.order = [];
+      app.count = 0;
       localStorage.total = 0;
       localStorage.order = [];
+      localStorage.count = 0;
     },
     deleteDishOrder: function deleteDishOrder(name) {
       var _this = this;

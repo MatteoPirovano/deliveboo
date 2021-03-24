@@ -10421,6 +10421,16 @@ h3 {
     border-color: #dee2e6;
   }
 }
+header {
+  border-bottom: 0.5px solid #F39200;
+}
+header ul {
+  height: 50px;
+}
+header ul li {
+  height: 100%;
+}
+
 header .chart {
   border: 0.5px solid #ffa500;
   width: 150px;
@@ -10470,7 +10480,7 @@ main .chart {
   right: 0;
   height: calc(100vh - 90px);
   width: 400px;
-  padding: 30px;
+  padding: 50px 30px;
   color: white;
   background-color: #a51b0b;
   border-top: 0.5px solid #F39200;
@@ -10522,6 +10532,14 @@ footer {
   display: none;
 }
 
+.hiddenChart {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+}
+
 @media screen and (max-width: 1000px) {
   .card {
     width: calc((100% / 2) - 30px) !important;
@@ -10533,8 +10551,11 @@ footer {
 
   header ul {
     position: absolute;
-    top: 90px;
+    border-bottom: 0.5px solid #F39200;
+    border-top: 0.5px solid #F39200;
+    top: 89px;
     left: 0;
+    height: 40px;
     width: 100%;
     background-color: #a51b0b;
     font-size: 20px;
@@ -10542,20 +10563,17 @@ footer {
     transition: all 0.5s;
   }
   header ul li {
-    width: calc(100% / 4);
+    margin: 0 !important;
+    width: calc(100% / 3);
   }
   header ul li a {
     width: 100%;
     text-align: center;
-    font-size: 18px !important;
+    font-size: 16px !important;
   }
 
   .hiddenList {
     opacity: 0;
-  }
-
-  .show {
-    opacity: 1;
   }
 }
 @media screen and (max-width: 720px) {
