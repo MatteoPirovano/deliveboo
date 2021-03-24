@@ -25,16 +25,10 @@
             <li>
               <a href="#contact">Contatti</a>
             </li>
-            <li>
-              <a href="#register">Registrati</a>
-            </li>
-            <li>
-              <a href="#register">Login</a>
-            </li>
           </ul>
         </div>
         <i class="fas fa-hamburger ml-4" v-on:click="showNavList()"></i>
-        <div class="chart d-flex justify-content-between align-items-center mr-4" v-if="total > 0" v-on:click="changeVisibility()">
+        <div class="chart d-flex justify-content-between align-items-center mr-4" :class="(count === 0 ? 'hiddenChart' : '' )" v-on:click="changeVisibility()">
           <i class="fas fa-shopping-cart" v-on:click="changeVisibility()"></i>
           <span class="chartCount">x @{{count}}</span>
           <span class="pipe">|</span>

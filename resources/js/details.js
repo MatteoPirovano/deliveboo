@@ -129,10 +129,12 @@ const app = new Vue({
             this.count = count;
         },
         deleteOrder() {
-            app.total = "";
+            app.total = 0;
             app.order = [];
+            app.count = 0;
             localStorage.total = 0;
             localStorage.order = [];
+            localStorage.count = 0;
         },
         deleteDishOrder(name) {
             this.order.forEach(element => {

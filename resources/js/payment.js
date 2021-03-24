@@ -23,7 +23,9 @@ const app = new Vue({
         deleteOrder() {
             localStorage.total = "";
             localStorage.order = "";
+            localStorage.count = 0;
         }
+
     },
     watch: {
         total(newtotal) {
