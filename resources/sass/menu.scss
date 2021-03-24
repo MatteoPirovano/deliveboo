@@ -7,7 +7,9 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+
 header .chart {
+    border: 0.5px solid $softOrange;
     width: 150px;
     background-color: $darkRed;
     padding: 10px;
@@ -17,6 +19,9 @@ header .chart {
     span {
         font-size: 15px;
     }
+    i, .pipe {
+        color: $softOrange;
+    }
 }
 
 .jumbotron {
@@ -24,7 +29,7 @@ header .chart {
     height: 100vh;
     background-size: cover;
     h1 {
-        margin-top: 50px;
+        margin-top: 70px;
         font-size: 80px;
         color: white;
     }
@@ -95,4 +100,112 @@ main {
 
 footer {
     margin-top: -400px;
+}
+
+.fas.fa-hamburger {
+    color: $softOrange;
+    font-size: 40px;
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .card {
+      width: calc((100% / 2) - 30px) !important;
+    }
+
+    .fas.fa-hamburger {
+        display: block;
+    }
+
+    header ul {
+        position: absolute;
+        top: 90px;
+        left: 0;
+        width: 100%;
+        background-color: $darkRed;
+        font-size: 20px;
+        z-index: -1;
+        transition: all 0.5s;
+        li {
+            width: calc(100% / 4);
+            a {
+                width: 100%;
+                text-align: center;
+                font-size: 18px !important;
+            }
+            
+        }
+      
+    }
+    .hiddenList {
+        opacity: 0;
+    }
+    .show {
+        opacity: 1;
+    }
+    
+}
+
+@media screen and (max-width: 720px) {
+    .chartCount {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .jumbotron {
+        position: relative;
+        h1 {
+            position: absolute;
+            top: 160px;
+            font-size: 100px;
+            margin: auto;
+        }
+    }
+
+    .card {
+      width: calc(100% - 30px) !important;
+    }
+
+    main {
+        .chart {
+            width: 100vw !important;
+        }
+    }
+
+    header {
+        .chart {
+            width: 100px;
+        }
+    }
+
+    .chartCount {
+        display: none;
+    }
+
+    @keyframes fadeout {
+        0% {
+          top: 90px;
+          right: 0;
+        }
+    
+        100% {
+          top: 90px;
+          right: -100vw;
+        }
+    }
+
+    @keyframes out {
+        0% {
+          top: 0;
+          right: 0;
+        }
+    
+        100% {
+          top: 90px;
+          right: 0;
+        }
+    }
 }

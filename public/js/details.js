@@ -49611,7 +49611,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     order: [],
     total: 0,
     count: 0,
-    chartVisibility: 'hidden'
+    chartVisibility: 'hidden',
+    navHidden: 'hiddenList'
   },
   mounted: function mounted() {
     if (localStorage.total) {
@@ -49751,6 +49752,13 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
         app.chartVisibility = 'animate__animated animate__bounceInRight';
       } else {
         app.chartVisibility = 'out';
+      }
+    },
+    showNavList: function showNavList() {
+      if (app.navHidden == 'hiddenList') {
+        app.navHidden = 'show';
+      } else {
+        app.navHidden = 'hiddenList';
       }
     }
   },

@@ -11,7 +11,8 @@ const app = new Vue({
         order: [],
         total: 0,
         count: 0,
-        chartVisibility: 'hidden'
+        chartVisibility: 'hidden',
+        navHidden: 'hiddenList'
     },
     mounted() {
         if (localStorage.total) {
@@ -159,6 +160,13 @@ const app = new Vue({
                 app.chartVisibility = 'animate__animated animate__bounceInRight';
             } else {
                 app.chartVisibility = 'out';
+            }
+        },
+        showNavList() {
+            if(app.navHidden == 'hiddenList') {
+                app.navHidden = 'show';
+            } else {
+                app.navHidden = 'hiddenList';
             }
         }
     },
