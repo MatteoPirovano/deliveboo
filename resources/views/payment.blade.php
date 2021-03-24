@@ -89,13 +89,13 @@
                     <script src="{{asset('js/payment.js')}}"></script>
                       <script>
                         var form = document.querySelector('#payment-form');
-                        var client_token = "sandbox_yknn3tjp_4szxkzqjrjntv2pj";
+                        var client_token = "sandbox_fw6qt9y6_vdk2gbc86h7jcfzs";
                         braintree.dropin.create({
                           authorization: client_token,
                           selector: '#bt-dropin',
-                          paypal: {
-                            flow: 'vault'
-                          }
+                          // paypal: {
+                          //   flow: 'vault'
+                          // }
                         }, function (createErr, instance) {
                           if (createErr) {
                             console.log('Create Error', createErr);
