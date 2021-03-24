@@ -657,6 +657,45 @@ body {
     left: 32%;
   }
 }
+@media screen and (min-width: 768px) and (max-width: 949px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 72%;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 28%;
+  }
+}
+@media screen and (min-width: 570px) and (max-width: 767px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 70%;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 30%;
+  }
+}
+@media screen and (min-width: 300px) and (max-width: 512px) {
+  .body_login_ms .card .center_avatar_ms {
+    font-size: 130px;
+    top: -150px;
+  }
+
+  .body_login_ms .card .right_avatar_ms,
+.body_login_ms .card .left_avatar_ms {
+    font-size: 85px;
+    top: -125px;
+  }
+}
+@media screen and (min-width: 370px) and (max-width: 569px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 74%;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 26%;
+  }
+}
 /*!
  * Bootstrap v4.6.0 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
