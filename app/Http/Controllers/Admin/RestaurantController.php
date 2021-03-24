@@ -205,7 +205,7 @@ class RestaurantController extends Controller
 
       $dishes = Dish::all();
       
-      return view('admin.restaurants.charts', compact('restaurants', 'restaurant', 'orders', 'dishes'));
+      return view('admin.restaurants.charts', compact('restaurants', 'restaurant', 'dishes', 'orders'));
 
   }
 }
