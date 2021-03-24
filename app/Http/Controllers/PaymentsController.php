@@ -9,9 +9,9 @@ use App\Dish;
 
 class PaymentsController extends Controller
 {
-    public function pay() {
-        return view('/payment');
-    }
+    // public function pay() {
+    //     return view('payment');
+    // }
 
     public function prova(Request $request) {
         $data = $request->all();
@@ -41,10 +41,5 @@ class PaymentsController extends Controller
         }
         
         return view('guest.prova' , compact('data'));
-    }
-
-    public function result($data) {
-
-        
     }
 }

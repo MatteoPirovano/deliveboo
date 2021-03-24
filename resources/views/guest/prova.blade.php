@@ -1,5 +1,7 @@
 
-<div id="app">
+{{-- <div id="app">
     @dd($data)
     <script src="{{asset('js/checkout.js')}}"></script>
-</div>
+</div> --}}
+
+CIAO
