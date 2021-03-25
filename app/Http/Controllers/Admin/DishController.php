@@ -79,6 +79,10 @@ class DishController extends Controller
         // dd($restaurant->id);
         $dish->restaurant_id = $restaurant->id;
 
+        if(!empty($data["img"])) {
+            $dish['img'] = Storage::disk('public')->put('immages', $dish['img']);
+        }
+
         $dish_result = $dish->save();
 
         return redirect()
