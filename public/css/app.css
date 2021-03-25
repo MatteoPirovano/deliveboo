@@ -570,7 +570,7 @@ body {
   font-weight: 700;
 }
 .body_login_ms .card {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
   border: 2px solid #A51B0B;
   border-radius: 10px;
   position: relative;
