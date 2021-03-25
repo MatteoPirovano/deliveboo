@@ -4,6 +4,7 @@
     "/js/payment.js": "/js/payment.js",
     "/js/checkout.js": "/js/checkout.js",
     "/css/app.css": "/css/app.css",
+    "/css/payment.css": "/css/payment.css",
     "/css/menu.css": "/css/menu.css",
     "/css/app2.css": "/css/app2.css"
 }

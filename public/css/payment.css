@@ -1,0 +1,39 @@
+body {
+  background-color: #A51B0B;
+  padding: 20px;
+}
+body #order-summary {
+  background-color: white;
+  padding: 70px;
+  box-shadow: 5px 6px 23px 3px rgba(0, 0, 0, 0.75);
+}
+body #app {
+  margin-bottom: 40px;
+  position: relative;
+}
+body .input_ms {
+  border: 0;
+  width: 250px;
+}
+body .input_ms:focus {
+  outline: none;
+}
+body #price,
+body #total {
+  width: 50px;
+}
+body .logo_ms {
+  height: 100px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+body .logo_ms img {
+  height: 100%;
+}
+body #pay-button {
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 5px;
+  background-color: limegreen;
+}
