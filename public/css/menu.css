@@ -10498,6 +10498,10 @@ main .chart {
 }
 main .chart .listDishes {
   overflow-y: auto;
+  height: 100%;
+}
+main .chart .listDishes::-webkit-scrollbar {
+  display: none;
 }
 main .chart .chart_header {
   width: 100%;
