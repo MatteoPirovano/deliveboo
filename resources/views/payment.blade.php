@@ -39,8 +39,9 @@
                       <input type="hidden"  :name="'dish_price['+index+']'" :value="dish.price">
                     </div>
                       <label for="amount">
-                        <span class="input-label">Amount</span>
-                        <input type="tel" id="amount" name="amount" :value="total" min="1" readonly>
+                        <span class="input-label">Totale</span>
+                        {{-- <h4>@{{total.toFixed(2)}}€</h4> --}}
+                        <input type="tel" id="amount" name="amount" :value="total" min="1">
                       </label>
                   </div>
                 </div>
@@ -63,13 +64,6 @@
                 <div class="form-group">
                   <label class="form-label" for="order_date">Data Ordine</label>
                   <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="{{old('order_date')}}" placeholder="Inserisci la data di ordinazione">
-                </div>
-                <div class="form-group">
-                  <label for="amount">
-                    <div class="input-wrapper amount-wrapper">
-                      {{-- <input id="amount" name="amount" type="tel" min="1" placeholder="amount" > --}}
-                    </div>
-                  </label>
                 </div>
               </section>
               <div class="bt-drop-in-wrapper">

@@ -126,6 +126,7 @@ Route::prefix('admin')       // prefisso delle rotte
             ->name('restaurants.')
             ->group(function () {
             Route::resource('dishes', 'DishController');
+            Route::get('charts', 'RestaurantController@charts')->name('charts');
         });
     }
   );

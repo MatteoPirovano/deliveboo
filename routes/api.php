@@ -22,9 +22,12 @@ use App\Restaurant;
 
 
 Route::namespace('Api')->group( function(){
+    Route::get('/statistics', 'HomeController@charts');
+    Route::get('/statisticsYears', 'HomeController@year');
     Route::get('/restaurants', 'HomeController@allCategories');
     Route::get('/restaurants/{category}', 'HomeController@filter');
     Route::get('/categories', 'HomeController@categories');
     Route::get('/{slug}', 'HomeController@details');
+    
 
 });
