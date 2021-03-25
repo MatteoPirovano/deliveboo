@@ -18,11 +18,8 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/app2.scss', 'public/css')
     .sass('resources/sass/menu.scss', 'public/css')
-<<<<<<< HEAD
     .sass('resources/sass/paymentSuccess.scss', 'public/css')
-=======
     .sass('resources/sass/payment.scss', 'public/css')
->>>>>>> LayoutPagamento
     .vue({version:2});
     /* .options({
     processCssUrls: false // questa opzione fa in modo da non modificare i percorsi delle immagini
