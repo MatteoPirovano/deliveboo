@@ -3,21 +3,20 @@
 @section('aside')
 
 @endsection
-
 @section('main')
     {{-- <div class="statistics_restaurant_ms"> --}}
 
-      <div class="container_charts" style="height: 1200px;">
+      <div class="container_charts">
 
-        <div class="container">
+        {{-- <div class="container"> --}}
           
-          <canvas id="myCanvas" class="mb-5">
+          <canvas id="myCanvas">
 
           </canvas>
           <canvas id="year">
 
           </canvas>
-        </div>
+        {{-- </div> --}}
       </div>
     {{-- </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -49,13 +48,19 @@
               data: myData
             }]
           },
+          
 
           // Configuration options go here
           options: {
+            responsive:true,
+            maintainAspectRatio:false,
             title: {
               display: true,
               text: 'Ordini per mese',
               fontSize: 25
+            },
+            layout:{
+            padding:30,
             }
           }
         });
@@ -93,6 +98,8 @@
 
           // Configuration options go here
           options: {
+            responsive:true,
+            maintainAspectRatio:false,
             title: {
               display: true,
               text: 'Ordini per anno',
