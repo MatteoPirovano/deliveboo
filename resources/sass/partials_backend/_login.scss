@@ -23,8 +23,7 @@
         font-weight: 700;
     }
     .card{
-        background-color: transparent;
-        // border: 2px solid white;
+        background-color: rgba(0,0,0,0.1);
         border: 2px solid $colorLogin;
         border-radius: 10px;
         position: relative;
