@@ -39,6 +39,7 @@
     <div class="jumbotron" style="background-image: url({{asset('storage/' . $restaurant->img)}})">
         <h1 class="float-right">{{$restaurant->name}}</h1>
     </div>
+
     <main class="container">
       @foreach ($restaurant->dishes as $dish)
         <div class="card">
@@ -50,7 +51,15 @@
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
                     <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
-                    <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
+                      @if ($dish->visibility == 1)
+                      <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
+                      @else
+                        <button id="not_cursor" class="btn btn-danger">Non Disponibile</button>
+                      @endif
+                   
+                    
+                      
+
                     <div v-else>
                         <button class="btn btn_orange btn-sm" v-on:click="addDish('{{$dish->name}}')">
                           <i class="fas fa-plus"></i>

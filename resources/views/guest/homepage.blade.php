@@ -90,21 +90,7 @@
       </div>   
       {{-- Categories --}} 
 
-      {{-- all restaurants --}}
-      <div id="ciao">
-
-        <div class="container d-flex justify-content-center flex-wrap" v-if="restaurants.lenght > 0">
-          <div class="card col-lg-6" v-for="restaurant in restaurants">      
-            <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h2 class="card-title">@{{restaurant.name}}</h2>
-              <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      {{-- /all restaurants --}}
-
+      {{-- all restaurants --}}   
       {{-- Restaurants --}}
       <div class="container">
         <div class="row d-flex justify-content-center flex-wrap">
@@ -115,10 +101,33 @@
               <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
             </div>
           </div>
+        </div>        
+      </div>      
+      {{-- Restaurants --}}   
+
+      
+        <div class="container d-flex justify-content-center flex-wrap" v-if="restaurants.lenght >= 1">
+          <div class="card col-lg-6" v-for="restaurant in restaurants">      
+            <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">@{{restaurant.name}}</h2>
+              <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
+            </div>
+          </div>
         </div>
-        
-      </div>
-      {{-- Restaurants --}}
+
+
+        <div class="container no_result" v-if="restaurants < 1">
+          <h1>Spiacenti <i class="fas fa-sad-tear"></i></h1>
+          <h3>Nessun ristorante trovato per la categoria selezionata</h3>
+        </div>
+      
+
+    
+      
+      {{-- /all restaurants --}}
+
+      
     </div>
   </main>
   {{-- /main --}}

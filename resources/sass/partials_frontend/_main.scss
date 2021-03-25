@@ -1,6 +1,7 @@
 main {
   padding-bottom: 100px;
-  background-color: rgb(229,229,229);
+  /* background-color: rgb(229,229,229); */
+  background-color: whitesmoke;
   background-size: cover;
   .container_main {
     .row_categories {
@@ -50,7 +51,7 @@ main {
   .card {
     margin: 15px;
     width: calc(100% / 3 - 30px);
-    box-shadow: rgba(189, 189, 189, 0.66) 0px 0px 25px 5px;
+    box-shadow: 5px 6px 23px 3px rgb(0 0 0 / 75%);
     border-radius: 0;
     transition: 0.3s;
     &:hover {
@@ -67,14 +68,26 @@ main {
     .btn_orange {
       background-color: $softOrange;
       font-weight: 700;
-
       color: white;
       border-radius: 0;
     }
   }
   //FINE CARD RISTORANTI
 
-  .container_main_bottom {
+  .no_result {
+    padding: 100px 50px;
+    background-color: $softOrange;
+    border-radius: 0;
+    box-shadow: 5px 6px 23px 3px rgb(0 0 0 / 75%);
+    h1, h2 {
+      color: white;
+    }
+    h3 {
+      color: white;
+    }
+  }
+
+ /*  .container_main_bottom {
     display: flex;
     margin-top: 100px;
     height: 350px;
@@ -103,7 +116,7 @@ main {
       }
       
     }
-  }
+  } */
 }
 
 
