@@ -12,6 +12,41 @@
         <link href="{{ asset('css/paymentSuccess.css') }}" rel="stylesheet">
 </head>
 <body>
+
+  {{-- header --}}
+  <header>
+    
+    <div class="nav_bar" id="nav_bar_res">     
+
+      <div class="cont_img" id="cont_img_res">
+        <img src="{{ asset('images/logo.png') }}" alt="logo">
+        <ul>
+          <li>
+            <a href="{{ route('homepage') }}">Home</a>
+          </li>
+          <li>
+            <a href="#contact">Contatti</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="cont_list" id="cont_list_res">        
+        <div class="dropdown" id="dropdown_id">
+          <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Lavora con noi
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
+            <a class="dropdown-item" href="{{ route('register') }}">Registrati</a>
+          </div>
+        </div>          
+      </div>
+
+    </div>
+
+  </header>
+  {{-- /header --}}
+
     <section class="card_payment_ms">
         <div class="img_card_section_ms">
             <img src="{{asset('images/success.png') }}" alt="Success">

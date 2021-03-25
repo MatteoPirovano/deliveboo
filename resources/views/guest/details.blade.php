@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    {{-- Google font Spartan --}}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+
     <!-- Styles -->
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <title>Details</title>
@@ -20,7 +27,7 @@
           <img src="{{ asset('images/logo.png') }}" alt="logo">
           <ul :class="navHidden">
             <li>
-              <a href="{{route('homepage')}}">Home</a>
+              <a href="{{ route('homepage') }}">Home</a>
             </li>
             <li>
               <a href="#contact">Contatti</a>
@@ -37,19 +44,20 @@
       </div>
     </header>
     <div class="jumbotron" style="background-image: url({{asset('storage/' . $restaurant->img)}})">
-        <h1 class="float-right">{{$restaurant->name}}</h1>
+        <h1 id="title_res" class="float-right">{{$restaurant->name}}</h1>
     </div>
 
-    <main class="container">
+    <main>
       @foreach ($restaurant->dishes as $dish)
-        <div class="card">
+        <div class="card" id="id_card">
             <img src="{{asset('storage/' . $dish->img)}}" class="card-img-top" alt="...">
             <div class="card-body d-flex flex-column justify-content-between">
-                <div class="info">
+                <div class="info" id="info_id">
                     <h3 class="card-title">{{"$dish->name"}}</h2>
+                    <p><strong>Descrizione: </strong>{{$dish->description}}</p>
                     <p><strong>Ingredienti: </strong>{{$dish->ingredients}}</p>
                 </div>
-                <div class="d-flex justify-content-between align-items-center">
+                <div id="price_id" class="d-flex justify-content-between align-items-center">
                     <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
                       @if ($dish->visibility == 1)
                       <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
@@ -101,81 +109,44 @@
         </div>
       </div>
     </main>
-        {{-- <footer>
-            <a id="contact"></a>
-            <a id="register"></a>
         
-        
-            <div class="container_footer" >
-              <div class="footer_left" data-aos="flip-right">
-              </div>
-        
-              <div class="footer_center" data-aos="flip-left">
-                <h3>TEAM DI SVILUPPO</h3>
-                <ul>
-                  <li>
-                    <a href="https://www.linkedin.com/in/nicola-porta-846ba6207/" class="btn btn-dark"><i class="fas fa-user-tie"></i>Nicola Porta</a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/vincenzo-antignani-195710114/" class="btn btn-dark"><i class="fas fa-user-astronaut"></i>Vincenzo Antignani</a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/marian-corlade-703958208/" class="btn btn-dark"><i class="fas fa-user-tag"></i>Marian Corlade</a>            
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/cristian-mihai-trusca/" class="btn btn-dark"><i class="fas fa-user-ninja"></i>Cristian Mihai Trusca</a>
-                  </li>
-                  <li>
-                    <a href="https://www.linkedin.com/in/matteopirovano/" class="btn btn-dark"><i class="fas fa-user-plus"></i>Matteo Pirovano</a>
-                  </li>
-                </ul>
-              </div>
-        
-              <div class="footer_right" data-aos="flip-right">
-                <h3>LAVORA CON NOI</h3>
-                <a href="{{route('login')}}" class="btn btn-success">Registrati</a>
-              </div>
-        
-
-            </div>
-          </footer> --}}
-          <footer>
-    <a id="contact"></a>
-    <a id="register"></a>
+    <footer>
+      <a id="contact"></a>
+      <a id="register"></a>
 
 
-    <div class="container_footer" id="cont_footer_resp">
-      <div class="footer_left">
-        <img src="{{asset('images/del-rider.jpg')}}" alt="">
+      <div class="container_footer" id="cont_footer_resp">
+        <div class="footer_left">
+          <img src="{{asset('images/del-rider.jpg')}}" alt="">
+        </div>
+
+        <div class="footer_center" id="foot_cent_resp">
+          <h3>TEAM DI SVILUPPO</h3>
+          <ul>
+            <li>
+              <a href="https://www.linkedin.com/in/nicola-porta-846ba6207/" class="btn btn-dark"><i class="fas fa-user-tie"></i>Nicola Porta</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/vincenzo-antignani-195710114/" class="btn btn-dark"><i class="fas fa-user-astronaut"></i>Vincenzo Antignani</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/marian-corlade-703958208/" class="btn btn-dark"><i class="fas fa-user-tag"></i>Marian Corlade</a>            
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/cristian-mihai-trusca/" class="btn btn-dark"><i class="fas fa-user-ninja"></i>Cristian Mihai Trusca</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/matteopirovano/" class="btn btn-dark"><i class="fas fa-user-plus"></i>Matteo Pirovano</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer_right">
+          <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
+        </div>
+
       </div>
-
-      <div class="footer_center" id="foot_cent_resp">
-        <h3>TEAM DI SVILUPPO</h3>
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/nicola-porta-846ba6207/" class="btn btn-dark"><i class="fas fa-user-tie"></i>Nicola Porta</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/vincenzo-antignani-195710114/" class="btn btn-dark"><i class="fas fa-user-astronaut"></i>Vincenzo Antignani</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/marian-corlade-703958208/" class="btn btn-dark"><i class="fas fa-user-tag"></i>Marian Corlade</a>            
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/cristian-mihai-trusca/" class="btn btn-dark"><i class="fas fa-user-ninja"></i>Cristian Mihai Trusca</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/matteopirovano/" class="btn btn-dark"><i class="fas fa-user-plus"></i>Matteo Pirovano</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="footer_right">
-        <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
-      </div>
-
-    </div>
-  </footer>
+    </footer>
   </div>
   <script src="{{asset('js/details.js')}}"></script>
 </body>

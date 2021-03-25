@@ -12,7 +12,7 @@ const app = new Vue({
         total: 0,
         count: 0,
         chartVisibility: 'hidden',
-        navHidden: 'hiddenList'
+        navHidden: 'hiddenList',
     },
     mounted() {
         if (localStorage.total) {
