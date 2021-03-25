@@ -10599,9 +10599,13 @@ footer {
     opacity: 0;
   }
 }
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 780px) {
   .chartCount {
     opacity: 0;
+  }
+
+  .card {
+    width: calc(100% - 70px) !important;
   }
 }
 @media screen and (max-width: 700px) {

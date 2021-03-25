@@ -56,10 +56,6 @@
                       @else
                         <button id="not_cursor" class="btn btn-danger">Non Disponibile</button>
                       @endif
-                   
-                    
-                      
-
                     <div v-else>
                         <button class="btn btn_orange btn-sm" v-on:click="addDish('{{$dish->name}}')">
                           <i class="fas fa-plus"></i>
@@ -143,6 +139,43 @@
 
             </div>
           </footer> --}}
+          <footer>
+    <a id="contact"></a>
+    <a id="register"></a>
+
+
+    <div class="container_footer" id="cont_footer_resp">
+      <div class="footer_left">
+        <img src="{{asset('images/del-rider.jpg')}}" alt="">
+      </div>
+
+      <div class="footer_center" id="foot_cent_resp">
+        <h3>TEAM DI SVILUPPO</h3>
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/nicola-porta-846ba6207/" class="btn btn-dark"><i class="fas fa-user-tie"></i>Nicola Porta</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/vincenzo-antignani-195710114/" class="btn btn-dark"><i class="fas fa-user-astronaut"></i>Vincenzo Antignani</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/marian-corlade-703958208/" class="btn btn-dark"><i class="fas fa-user-tag"></i>Marian Corlade</a>            
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/cristian-mihai-trusca/" class="btn btn-dark"><i class="fas fa-user-ninja"></i>Cristian Mihai Trusca</a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/matteopirovano/" class="btn btn-dark"><i class="fas fa-user-plus"></i>Matteo Pirovano</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer_right">
+        <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
+      </div>
+
+    </div>
+  </footer>
   </div>
   <script src="{{asset('js/details.js')}}"></script>
 </body>
