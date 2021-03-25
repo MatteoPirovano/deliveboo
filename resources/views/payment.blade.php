@@ -30,12 +30,12 @@
                 <div id="app">
                   <div class="order-summary-box">
                     <div class="separate-summary">
-                      <h1>
-                        Riepilogo dell'ordine
+                      <h1 style="font-weight: 700">
+                        IL TUO ORDINE
                       </h1>
                     </div>
-                    <div class="logo_ms">
-                      <img src="{{ asset("images/logo.png") }}" alt="">
+                    <div class="logo_ms" id="logo_resp">
+                      <a href="{{route('homepage')}}"><img src="{{ asset("images/logo.png") }}" alt=""></a>
                     </div>
                     <div v-for="(dish,index) in order">
                       <span>@{{ dish.count }} x </span>
@@ -45,11 +45,11 @@
                       <p>@{{ dish.price.toFixed(2) }}</p><span>&euro;</span>
                     </div>
                     <hr>
-                      <label for="amount">
+                      <label for="amount" style="font-size: 32px">
                         <span class="input-label">Totale</span>
                         {{-- <h4>@{{total.toFixed(2)}}€</h4> --}}
-                        <input id="total" class="input_ms" type="tel" id="amount" name="amount" :value="total" min="1" readonly>
-                      </label><span>&euro;</span>
+                        <input id="total" class="input_ms" type="tel" id="amount" name="amount" :value="total" min="1" readonly style="font-size: 32px">
+                      </label><span style="font-size: 32px">&euro;</span>
                   </div>
                 </div>
                 <div class="form-group">
@@ -77,9 +77,16 @@
                 <div id="bt-dropin"></div>
               </div>
               <input type="hidden" id="nonce" name="payment_method_nonce" type="text" readonly />
-              <button id="pay-button" class="button" type="submit" v-on:click="deleteOrder()">
-                <span>Effettua il Pagamento</span>
-              </button>
+
+              <div class="buttons">
+                <button id="pay-button" class="btn" type="submit" v-on:click="deleteOrder()">
+                  <span>EFFETTUA PAGAMENTO</span>
+                </button>
+                <a id="pay_none" class="btn" type="submit" href="{{ route('homepage') }}">
+                  ANNULLA E VAI ALLA HOME
+                </a>
+
+              </div>
             </form>
           </div>
         </div>

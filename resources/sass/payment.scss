@@ -1,3 +1,5 @@
+@import 'partials_frontend/_variables';
+
 body {
   // background-color: #A51B0B;
   background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a);
@@ -39,11 +41,54 @@ body {
     }
   }
 
-  #pay-button {
-    padding: 10px 20px;
-    border: 0;
-    border-radius: 5px;;
-    background-color: limegreen;
-
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    #pay-button, #pay_none {
+      padding: 10px 20px;
+      border-radius: 0 !important;
+      border-radius: 5px;;
+      background-color: $darkGreen;
+      color: white;
+      font-weight: 700;
+    }
+    #pay_none {
+      background-color: $darkRed;
+      a {
+        display: block;
+        height: 100%;
+        width: 100%;
+        color: white;
+        text-decoration: none;
+        &:hover {
+          background-color: red;
+        }
+      }
+    }
   }
+
+  
+}
+
+@media screen and (max-width: 768px) {
+
+  #order-summary {
+    padding: 20px !important;
+  }
+
+  h1 {
+    font-size: 22px !important;
+  }
+
+  #logo_resp img {
+    height: 35px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    #pay_none {
+      margin-top: 20px;
+    }
+  }
+
 }

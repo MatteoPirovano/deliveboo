@@ -135,6 +135,9 @@ header .nav_bar .cont_list #dropdown_id .dropdown-menu a {
 header .nav_bar .cont_list #dropdown_id .dropdown-menu a:hover {
   color: #ffa500;
 }
+header .nav_bar .cont_list #dropdown_id .dropdown-menu a:active {
+  background-color: red !important;
+}
 header .nav_bar .cont_list #dropdown_id .btn {
   padding: 10px 20px;
   border-radius: 0;
@@ -144,13 +147,13 @@ header .nav_bar .cont_list #dropdown_id .btn {
   font-weight: 500;
   outline: none;
 }
-header .nav_bar .cont_list #dropdown_id .btn .dropdown button {
+header .nav_bar .cont_list #dropdown_id .dropdown button {
   outline: none;
 }
-header .nav_bar .cont_list #dropdown_id .btn .dropdown div {
+header .nav_bar .cont_list #dropdown_id .dropdown div {
   background-color: #ffa500;
 }
-header .nav_bar .cont_list #dropdown_id .btn .dropdown div a {
+header .nav_bar .cont_list #dropdown_id .dropdown div a {
   color: white;
   font-weight: 600;
 }

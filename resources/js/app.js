@@ -30,7 +30,7 @@ import Vue from 'vue';
 const app = new Vue({
     el: '#app',
     data: {
-        restaurants: "",
+        restaurants: "",       
         category: '',
         categories: [],
         restaurants: [],
@@ -61,12 +61,12 @@ const app = new Vue({
 
           app.restaurants = [];
           
-
             axios.get("http://127.0.0.1:8000/api/restaurants/" + category, {
         }).then(
             (response) => {
               console.log(response.data);
                 app.restaurants = response.data;
+                console.log(app.restaurants);
             });
         },
 

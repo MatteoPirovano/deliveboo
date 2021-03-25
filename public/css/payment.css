@@ -33,9 +33,49 @@ body .logo_ms {
 body .logo_ms img {
   height: 100%;
 }
-body #pay-button {
+body .buttons {
+  display: flex;
+  justify-content: space-between;
+}
+body .buttons #pay-button, body .buttons #pay_none {
   padding: 10px 20px;
-  border: 0;
+  border-radius: 0 !important;
   border-radius: 5px;
-  background-color: limegreen;
+  background-color: #43865d;
+  color: white;
+  font-weight: 700;
+}
+body .buttons #pay_none {
+  background-color: #a51b0b;
+}
+body .buttons #pay_none a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+}
+body .buttons #pay_none a:hover {
+  background-color: red;
+}
+
+@media screen and (max-width: 768px) {
+  #order-summary {
+    padding: 20px !important;
+  }
+
+  h1 {
+    font-size: 22px !important;
+  }
+
+  #logo_resp img {
+    height: 35px;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+  .buttons #pay_none {
+    margin-top: 20px;
+  }
 }
