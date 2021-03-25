@@ -6,6 +6,7 @@
 
 @section('main')
     <div class="container flex_ms">
+        <div id="app"></div>
         <div class="card_h_ms mb-3">
             <div class="card card_restaurant_show_ms">
 
@@ -41,19 +42,22 @@
             </div>
         </div>  
 
-        <div class="statistics_restaurant_ms" style="background-color: lightgrey">
-            
-            <canvas id="myCanvas" class="mb-5">
+        <div class="statistics_restaurant_ms" style="background-color: white">
+            <h3 class="text-center pt-4 mb-5">Statistiche Ordini</h3>
+            <canvas id="myCanvas" class="statistics_restaurant_ms" style="margin: 0">
 
             </canvas>
-            <a  class="btn btn-secondary" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Statistiche</a>
+            <hr class="mx-5">
+            <div class="text-center pt-5">
+                <a  class="btn btn-success" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Dettagli Statistiche</a>
+            </div>
         </div>     
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       var ctx = document.getElementById('myCanvas').getContext('2d');
-      let myLabels = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+      let myLabels = ['Gennaio:', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
       let slug = @json($restaurant->slug);
       let myData = [];
       $.ajax({
@@ -65,9 +69,10 @@
           chart.update();
         }
 });
+    Chart.defaults.global.defaultFontFamily = 'Lato';
       var chart = new Chart(myCanvas, {
           // The type of chart we want to create
-          type: 'pie',
+          type: 'doughnut',
 
           // The data for our dataset
           data: {
@@ -81,13 +86,14 @@
 
           // Configuration options go here
           options: {
-            title: {
-              display: true,
-              text: 'Statistiche',
-              fontSize: 25
-            },
-            labels: {
+            // title: {
+            //   display: true,
+            //   text: 'Statistiche',
+            //   fontSize: 25,
+            // },
+            legend: {
                 display: false,
+                position: 'bottom',
             }
             
           }
