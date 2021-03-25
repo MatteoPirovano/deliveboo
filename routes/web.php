@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Order;
 use App\Dish;
 use Illuminate\Support\Str;
+use App\Mail\DeliveMail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,7 @@ Route::post('/checkout', function(Request $request) {
   
   if ($result->success) {
       $transaction = $result->transaction;
+      Mail::to($order["client_mail"])->send(new DeliveMail());
       // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
       return redirect()
         ->route('payment_result', compact('data'))

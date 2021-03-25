@@ -7,6 +7,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/payment.css') }}" rel="stylesheet">
     <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.73.1/js/hosted-fields.min.js"></script>
     <title>payment</title>
@@ -30,19 +31,25 @@
                   <div class="order-summary-box">
                     <div class="separate-summary">
                       <h1>
-                        Riepilogo dell'ordine:
+                        Riepilogo dell'ordine
                       </h1>
                     </div>
-                    <div v-for="(dish,index) in order">
-                      <input type="hidden" :name="'dish_name['+index+']'" :value="dish.name">
-                      <input type="hidden" :name="'dish_count['+index+']'" :value="dish.count">
-                      <input type="hidden"  :name="'dish_price['+index+']'" :value="dish.price">
+                    <div class="logo_ms">
+                      <img src="{{ asset("images/logo.png") }}" alt="">
                     </div>
+                    <div v-for="(dish,index) in order">
+                      <span>@{{ dish.count }} x </span>
+                      <input class="input_ms" type="text" :name="'dish_name['+index+']'" :value="dish.name" readonly>
+                      <input type="hidden" :name="'dish_count['+index+']'" :value="dish.count" readonly>
+                      <input id="price" class="input_ms price" type="hidden"  :name="'dish_price['+index+']'" :value="dish.price" readonly>
+                      <p>@{{ dish.price.toFixed(2) }}</p><span>&euro;</span>
+                    </div>
+                    <hr>
                       <label for="amount">
                         <span class="input-label">Totale</span>
                         {{-- <h4>@{{total.toFixed(2)}}€</h4> --}}
-                        <input type="tel" id="amount" name="amount" :value="total" min="1">
-                      </label>
+                        <input id="total" class="input_ms" type="tel" id="amount" name="amount" :value="total" min="1" readonly>
+                      </label><span>&euro;</span>
                   </div>
                 </div>
                 <div class="form-group">
