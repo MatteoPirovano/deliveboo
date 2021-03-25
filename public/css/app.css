@@ -359,6 +359,14 @@
   z-index: 999;
 }
 
+#responsive_show {
+  display: none;
+}
+
+#responsive_hidden {
+  display: block;
+}
+
 @media screen and (min-width: 1180px) and (max-width: 1919px) {
   .main_ms .position_card_index_ms .shadow_card_ms {
     max-width: 240px;
@@ -385,6 +393,15 @@
 @media screen and (min-width: 1920px) {
   .smartphone_dishes_show_container_ms {
     display: none;
+  }
+}
+@media screen and (max-width: 1180px) {
+  #responsive_show {
+    display: block;
+  }
+
+  #responsive_hidden, .responsive_hidden {
+    display: none !important;
   }
 }
 @media screen and (max-width: 830px) {

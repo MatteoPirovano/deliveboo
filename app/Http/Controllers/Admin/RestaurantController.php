@@ -159,7 +159,7 @@ class RestaurantController extends Controller
 
         return redirect()
             ->route('admin.restaurants.index')
-            ->with('message', "The restaurant has been edited successfully");
+            ->with('message', "Il ristorante " . $restaurant->name . "è stato modificato correttamente");
     }
 
     /**
@@ -175,45 +175,13 @@ class RestaurantController extends Controller
 
         return redirect()
             ->route('admin.restaurants.index')
-            ->with('message', "The restaurant has been deleted successfully");
+            ->with('message', "Il ristorante " . $restaurant->name . "è stato eliminato correttamente");
     }
 
     public function charts($slug) {
 
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
       $restaurant = Restaurant::where('slug', $slug)->first();
-      // $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
-
-      
-      // $months = [
-      //   '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
-      // ];
-
-      // $order_dish = [];
-
-      // foreach($dishes as $dish){
-      //   foreach($dish->orders as $order) {
-      //     if(!in_array($order->id, $order_dish)) {
-      //       $order_dish[] = $order->id;
-      //     } 
-      //   }
-      // }
-
-      // foreach($months as $month) {
-      //    $orders[] = Order::whereMonth('order_date', $month)->whereIn('id', $order_dish)->sum('price');
-       
-      // }
-      //   /* foreach ($orders as $order) {
-      //     foreach ($order->dishes as $dish) {
-      //       if ($dish->restaurant_id == $restaurant->id) {
-      //         $control = true;
-      //       } else $control = false;
-      //     }
-      //     if ($control == true) {
-      //       $order_true[] = $order;
-      //     }
-      //   } */
-
       
       return view('admin.restaurants.charts', compact('restaurants', 'restaurant',));
   }
