@@ -41,9 +41,57 @@
             </div>
         </div>  
 
-        <div class="statistics_restaurant_ms">
-            <img src="{{ asset('images/stat-restaurant.jpg') }}" alt="">
+        <div class="statistics_restaurant_ms" style="background-color: lightgrey">
+            
+            <canvas id="myCanvas" class="mb-5">
+
+            </canvas>
+            <a  class="btn btn-secondary" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Statistiche</a>
         </div>     
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      var ctx = document.getElementById('myCanvas').getContext('2d');
+      let myLabels = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+      let slug = @json($restaurant->slug);
+      let myData = [];
+      $.ajax({
+        url: "http://127.0.0.1:8000/api/" + slug + "/statistics",
+        type: "GET",
+        dataType: 'json',
+        success: function(data){
+          chart.data.datasets[0].data = data;
+          chart.update();
+        }
+});
+      var chart = new Chart(myCanvas, {
+          // The type of chart we want to create
+          type: 'pie',
+
+          // The data for our dataset
+          data: {
+            datasets: [{
+              label: '€',
+              backgroundColor: ['#85d4d1','#85d4c2','#85d49e','#95d485','#b4d485','#e8e592','#e8c092','#e8a692','#e89292','#e892a2','#d092e8','#92b3e8',],
+              data: myData
+            }],
+            labels: myLabels,
+          },
+
+          // Configuration options go here
+          options: {
+            title: {
+              display: true,
+              text: 'Statistiche',
+              fontSize: 25
+            },
+            labels: {
+                display: false,
+            }
+            
+          }
+        });
+    </script>
     
 @endsection

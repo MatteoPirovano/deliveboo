@@ -7,7 +7,7 @@
 @section('main')
     {{-- <div class="statistics_restaurant_ms"> --}}
 
-      <div class="container_charts" style="height: 1200px">
+      <div class="container_charts" style="height: 1200px;">
 
         <div class="container">
           
@@ -25,9 +25,10 @@
     <script>
       var ctx = document.getElementById('myCanvas').getContext('2d');
       let myLabels = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'];
+      let slug = @json($restaurant->slug);
       let myData = [];
       $.ajax({
-        url: "http://127.0.0.1:8000/api/statistics",
+        url: "http://127.0.0.1:8000/api/" + slug + "/statistics",
         type: "GET",
         dataType: 'json',
         success: function(data){
@@ -35,9 +36,6 @@
           chart.update();
         }
 });
-     
-    
-
       var chart = new Chart(myCanvas, {
           // The type of chart we want to create
           type: 'bar',
@@ -46,9 +44,8 @@
           data: {
             labels: myLabels,
             datasets: [{
-              label: 'Euro',
-              backgroundColor: '#2f4f4f',
-              /* borderColor: 'rgb(255, 99, 132)', */
+              label: '€',
+              backgroundColor: '#F39200',
               data: myData
             }]
           },
@@ -68,7 +65,7 @@
       let myLabels2 = ['2020', '2021'];
       let myData2 = [];
       $.ajax({
-        url: "http://127.0.0.1:8000/api/statisticsYears",
+        url: "http://127.0.0.1:8000/api/" + slug + "/statisticsYears",
         type: "GET",
         dataType: 'json',
         success: function(data){
@@ -87,8 +84,8 @@
           data: {
             labels: myLabels2,
             datasets: [{
-              label: 'Euro',
-              backgroundColor: '#2f4f4f',
+              label: '€',
+              backgroundColor: '#a51b0b',
               /* borderColor: 'rgb(255, 99, 132)', */
               data: myData
             }]
