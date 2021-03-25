@@ -66,7 +66,7 @@ Route::post('/checkout', function(Request $request) {
   
   if ($result->success) {
       $transaction = $result->transaction;
-      Mail::to('mail@mail.it')->send(new DeliveMail());
+      Mail::to($order["client_mail"])->send(new DeliveMail());
       // header("Location: " . $baseUrl . "transaction.php?id=" . $transaction->id);
       return redirect()
         ->route('payment_result', compact('data'))

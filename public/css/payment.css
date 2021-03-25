@@ -23,10 +23,10 @@ body #total {
   width: 50px;
 }
 body .logo_ms {
-  height: 100px;
+  height: 60px;
   position: absolute;
   right: 20px;
-  top: 20px;
+  top: 0px;
 }
 body .logo_ms img {
   height: 100%;
