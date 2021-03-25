@@ -182,16 +182,22 @@ class RestaurantController extends Controller
 
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
       $restaurant = Restaurant::where('slug', $slug)->first();
+      $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+
       
-      $months = [
-        '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
-      ];
+      // $months = [
+      //   '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'
+      // ];
 
-      foreach($months as $month) {
+      // $order_dish = [];
+      // foreach($dishes as $dish){
+        
+      // }
 
-        $orders[] = Order::whereMonth('order_date', $month)->sum('price');
+      // foreach($months as $month) {
+      //    $orders[] = Order::whereMonth('order_date', $month)->sum('price');
        
-      }
+      // }
         /* foreach ($orders as $order) {
           foreach ($order->dishes as $dish) {
             if ($dish->restaurant_id == $restaurant->id) {
@@ -203,9 +209,8 @@ class RestaurantController extends Controller
           }
         } */
 
-      $dishes = Dish::all();
       
-      return view('admin.restaurants.charts', compact('restaurants', 'restaurant', 'dishes', 'orders'));
+      return view('admin.restaurants.charts', compact('restaurants', 'restaurant', 'dishes'));
 
   }
 }
