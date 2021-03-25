@@ -105,6 +105,18 @@ main {
             font-size: 20px;
         }
     }
+    #not_cursor{
+      border-radius: 0;
+      &:hover {
+        cursor: no-drop;
+      }
+    }
+    .btn-danger {
+      background-color: $darkRed;
+      &:hover {
+        background-color: $darkRed;
+      }
+    }
 }
 
 footer {

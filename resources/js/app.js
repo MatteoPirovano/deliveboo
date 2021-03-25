@@ -34,9 +34,10 @@ const app = new Vue({
         category: '',
         categories: [],
         restaurants: [],
-        show: false
+        show: false,
     },
     mounted() {
+
         axios.get("http://127.0.0.1:8000/api/categories/", {
       }).then(
         (response) => {
@@ -55,6 +56,7 @@ const app = new Vue({
         filterCategory: function(category) {
 
           app.restaurants = [];
+          
 
             axios.get("http://127.0.0.1:8000/api/restaurants/" + category, {
         }).then(
