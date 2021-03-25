@@ -18,9 +18,11 @@ body .input_ms {
 body .input_ms:focus {
   outline: none;
 }
-body #price,
 body #total {
-  width: 50px;
+  width: 55px;
+}
+body p {
+  display: inline-block;
 }
 body .logo_ms {
   height: 60px;

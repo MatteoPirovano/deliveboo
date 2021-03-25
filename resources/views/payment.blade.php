@@ -41,7 +41,8 @@
                       <span>@{{ dish.count }} x </span>
                       <input class="input_ms" type="text" :name="'dish_name['+index+']'" :value="dish.name" readonly>
                       <input type="hidden" :name="'dish_count['+index+']'" :value="dish.count" readonly>
-                      <input id="price" class="input_ms price" type="text"  :name="'dish_price['+index+']'" :value="dish.price" readonly><span>&euro;</span>
+                      <input id="price" class="input_ms price" type="hidden"  :name="'dish_price['+index+']'" :value="dish.price" readonly>
+                      <p>@{{ dish.price.toFixed(2) }}</p><span>&euro;</span>
                     </div>
                     <hr>
                       <label for="amount">
