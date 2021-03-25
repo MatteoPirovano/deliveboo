@@ -31,7 +31,7 @@
                   <div class="order-summary-box">
                     <div class="separate-summary">
                       <h1>
-                        Riepilogo dell'ordine:
+                        Riepilogo dell'ordine
                       </h1>
                     </div>
                     <div class="logo_ms">
