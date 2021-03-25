@@ -20,7 +20,7 @@
           <img src="{{ asset('images/logo.png') }}" alt="logo">
           <ul :class="navHidden">
             <li>
-              <a href="#">Home</a>
+              <a href="{{route('homepage')}}">Home</a>
             </li>
             <li>
               <a href="#contact">Contatti</a>

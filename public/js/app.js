@@ -1915,6 +1915,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     category: '',
     categories: []
   }, _defineProperty(_data, "restaurants", []), _defineProperty(_data, "show", false), _data),
+  created: function created() {
+    localStorage.total = "";
+    localStorage.order = [];
+  },
   mounted: function mounted() {
     axios.get("http://127.0.0.1:8000/api/categories/", {}).then(function (response) {
       //console.log(response.data);
@@ -34529,6 +34533,19 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 /***/ }),
 
+/***/ "./resources/sass/payment.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/payment.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -34568,10 +34585,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/payment.scss":
-/*!*************************************!*\
-  !*** ./resources/sass/payment.scss ***!
-  \*************************************/
+/***/ "./resources/sass/paymentSuccess.scss":
+/*!********************************************!*\
+  !*** ./resources/sass/paymentSuccess.scss ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -49803,11 +49820,12 @@ Vue.compile = compileToFunctions;
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/payment","css/menu","css/app2"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/payment","css/menu","css/app2"], () => (__webpack_require__("./resources/sass/app.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/payment","css/menu","css/app2"], () => (__webpack_require__("./resources/sass/app2.scss")))
-/******/ 	__webpack_require__.O(undefined, ["css/app","css/payment","css/menu","css/app2"], () => (__webpack_require__("./resources/sass/menu.scss")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/payment","css/menu","css/app2"], () => (__webpack_require__("./resources/sass/payment.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/paymentSuccess","css/menu","css/app2","css/payment"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/paymentSuccess","css/menu","css/app2","css/payment"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/paymentSuccess","css/menu","css/app2","css/payment"], () => (__webpack_require__("./resources/sass/app2.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/paymentSuccess","css/menu","css/app2","css/payment"], () => (__webpack_require__("./resources/sass/menu.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/paymentSuccess","css/menu","css/app2","css/payment"], () => (__webpack_require__("./resources/sass/paymentSuccess.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/paymentSuccess","css/menu","css/app2","css/payment"], () => (__webpack_require__("./resources/sass/payment.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

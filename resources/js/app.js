@@ -36,6 +36,10 @@ const app = new Vue({
         restaurants: [],
         show: false,
     },
+    created() {
+      localStorage.total = "";
+      localStorage.order = [];
+    },
     mounted() {
 
         axios.get("http://127.0.0.1:8000/api/categories/", {
