@@ -13,9 +13,9 @@
     <title>payment</title>
 </head>
 <body>
-  @if (session('message'))
-    <div class="alert alert-success mt-2 ml-2">
-        {{ session('message') }}
+  @if (!session('message'))
+    <div class="alert alert-danger mt-2 ml-2">
+        {{ 'Errore nei dati di pagamento' }}
     </div>
   @endif
     

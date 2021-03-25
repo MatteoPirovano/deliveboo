@@ -29,15 +29,7 @@
     <title>Home Page Deliveboo</title>
 </head>
 <body>
-    <div id="app">
-        {{-- <select v-model="category" v-on:change="filterCategory()">
-            <option value="" disabled>Scegli la categoria</option>
-            <option v-for="category in categories" :value="category.name">@{{category.name}}</option>
-        </select>
-        <a v-for="restaurant in restaurants" :href="restaurant.slug">@{{restaurant.name}}</a>
-    </div> --}}
 
-  {{-- header --}}
   <header>
     
     <div class="nav_bar" id="nav_bar_res">     
@@ -54,7 +46,19 @@
         </ul>
       </div>
 
-      <div class="cont_list" id="cont_list_res">        
+      <div class="cont_list" id="cont_list_res">
+        @auth
+          <div class="dropdown" id="dropdown_id">
+            <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->name }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Dashboard</a>
+              {{-- <a class="dropdown-item" href="{{ route('logout') }}">Logout</a> --}}
+            </div>
+          </div>          
+        </div>
+        @else
         <div class="dropdown" id="dropdown_id">
           <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Lavora con noi
@@ -63,7 +67,9 @@
             <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
             <a class="dropdown-item" href="{{ route('register') }}">Registrati</a>
           </div>
-        </div>          
+        </div>  
+        @endauth        
+                
       </div>
 
     </div>
@@ -76,7 +82,7 @@
     </div>
   </header>
   {{-- /header --}}
-  
+  <div id="app">
   {{-- main --}}
   <main>
     <div class="container_main">  
@@ -117,7 +123,7 @@
         </div>
       </template>
 
-        <template  v-else-if="restaurants == 0">
+        <template  v-else-if="notRestaurant === true">
           <div class="container no_result">
             <h1>Spiacenti <i class="fas fa-sad-tear"></i></h1>
             <h3>Nessun ristorante trovato per la categoria selezionata</h3>
