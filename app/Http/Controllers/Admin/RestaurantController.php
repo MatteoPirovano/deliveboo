@@ -83,7 +83,7 @@ class RestaurantController extends Controller
 
         return redirect()
             ->route('admin.restaurants.index')
-            ->with('message', "The restaurant has been added successfully");
+            ->with('message', "Il ristorante " . $restaurant->name . " è stato aggiunto correttamente");
     }
 
     /**
@@ -159,7 +159,7 @@ class RestaurantController extends Controller
 
         return redirect()
             ->route('admin.restaurants.index')
-            ->with('message', "Il ristorante " . $restaurant->name . "è stato modificato correttamente");
+            ->with('message', "Il ristorante " . $restaurant->name . " è stato modificato correttamente");
     }
 
     /**
@@ -175,7 +175,7 @@ class RestaurantController extends Controller
 
         return redirect()
             ->route('admin.restaurants.index')
-            ->with('message', "Il ristorante " . $restaurant->name . "è stato eliminato correttamente");
+            ->with('message', "Il ristorante " . $restaurant->name . " è stato eliminato correttamente");
     }
 
     public function charts($slug) {

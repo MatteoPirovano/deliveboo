@@ -87,7 +87,7 @@ class DishController extends Controller
 
         return redirect()
             ->route('admin.restaurants.dishes.index', $restaurant->slug)
-            ->with('message', "The dish has been added successfully");
+            ->with('message', "Il piatto " . $dish->name . " è stato aggiunto correttamente");
     }
 
     /**
@@ -150,7 +150,7 @@ class DishController extends Controller
 
         return redirect()
             ->route('admin.restaurants.dishes.index', $restaurant->slug)
-            ->with('message', "The dish has been edited successfully");
+            ->with('message', "Il piatto " . $dish->name . " è stato modificato correttamente");
     }
 
     /**
@@ -167,6 +167,6 @@ class DishController extends Controller
 
         return redirect()
             ->route('admin.restaurants.dishes.index', $restaurant->slug)
-            ->with('message', "The dish has been deleted successfully");
+            ->with('message', "Il piatto " . $dish->name . " è stato eliminato correttamente");
     }
 }
