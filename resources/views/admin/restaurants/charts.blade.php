@@ -3,15 +3,14 @@
 @section('aside')
 
 @endsection
-
 @section('main')
     {{-- <div class="statistics_restaurant_ms"> --}}
 
-      <div class="container_charts" style="height: 1200px;">
+      <div class="container_charts">
 
         <div class="container">
           
-          <canvas id="myCanvas" class="mb-5">
+          <canvas id="myCanvas">
 
           </canvas>
           <canvas id="year">
@@ -52,6 +51,8 @@
 
           // Configuration options go here
           options: {
+            responsive:true,
+            maintainAspectRatio:false,
             title: {
               display: true,
               text: 'Ordini per mese',
@@ -93,6 +94,8 @@
 
           // Configuration options go here
           options: {
+            responsive:true,
+            maintainAspectRatio:false,
             title: {
               display: true,
               text: 'Ordini per anno',
