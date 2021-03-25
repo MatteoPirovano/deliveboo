@@ -233,15 +233,9 @@
 .container_charts {
   margin: auto;
   width: 100%;
-  min-height: 700px;
+  height: 500px;
   background-color: white;
   z-index: 999;
-  .container {
-    position: relative;
-    margin: auto;
-    height: 80vh;
-    width: 100%;
-  }
 }
 
 
@@ -280,6 +274,9 @@
 }
 
 @media screen and (max-width: 830px) {
+    .container_charts {
+        height: 350px;
+      }
     
     .back_img {
         width: calc(100% - 180px);

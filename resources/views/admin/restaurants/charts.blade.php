@@ -8,7 +8,7 @@
 
       <div class="container_charts">
 
-        <div class="container">
+        {{-- <div class="container"> --}}
           
           <canvas id="myCanvas">
 
@@ -16,7 +16,7 @@
           <canvas id="year">
 
           </canvas>
-        </div>
+        {{-- </div> --}}
       </div>
     {{-- </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
@@ -48,6 +48,7 @@
               data: myData
             }]
           },
+          
 
           // Configuration options go here
           options: {
@@ -57,6 +58,9 @@
               display: true,
               text: 'Ordini per mese',
               fontSize: 25
+            },
+            layout:{
+            padding:30,
             }
           }
         });
