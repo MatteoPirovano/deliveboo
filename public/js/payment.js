@@ -49613,7 +49613,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
   },
   mounted: function mounted() {
     if (localStorage.total) {
-      this.total = localStorage.total;
+      this.total = Number(localStorage.total);
     }
 
     if (localStorage.getItem('order')) {

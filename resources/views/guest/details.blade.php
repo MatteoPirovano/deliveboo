@@ -61,17 +61,18 @@
                     <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
                       @if ($dish->visibility == 1)
                       <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
-                      @else
-                        <button id="not_cursor" class="btn btn-danger">Non Disponibile</button>
-                      @endif
-                    <div v-else>
+                      <div v-else>
                         <button class="btn btn_orange btn-sm" v-on:click="addDish('{{$dish->name}}')">
                           <i class="fas fa-plus"></i>
                         </button>
                         <button v-for="ordered_dish in order" v-if="ordered_dish.count > 0 && ordered_dish.name == '{{$dish->name}}'" class="btn btn_orange btn-sm" v-on:click="leaveDish('{{$dish->name}}')">
                           <i class="fas fa-minus"></i>
                         </button>
-                    </div>
+                      </div>
+                      @else
+                        <button id="not_cursor" class="btn btn-danger">Non Disponibile</button>
+                      @endif
+                    
                 </div>
               
             </div>

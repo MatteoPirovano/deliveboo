@@ -13,7 +13,7 @@ const app = new Vue({
     },
     mounted() {
         if (localStorage.total) {
-            this.total = localStorage.total;
+            this.total = Number(localStorage.total);
         }
         if(localStorage.getItem('order')) {
             this.order = JSON.parse(localStorage.getItem('order'));

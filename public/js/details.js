@@ -49707,8 +49707,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       var total = 0;
       this.order.forEach(function (element) {
         total = total + element['price'];
+        total = Number(total.toFixed(2));
       });
-      this.total = total;
+      this.total = Number(total.toFixed(2));
     },
     totalCount: function totalCount() {
       var count = 0;
@@ -49733,6 +49734,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
           element['count'] = 0;
           element['price'] = 0;
           element['name'] = "";
+          console.log(localStorage.total);
+          console.log();
         }
 
         _this.totalPrice();
