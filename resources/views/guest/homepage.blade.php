@@ -61,7 +61,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
-            <a class="dropdown-item" href="#">Registrati</a>
+            <a class="dropdown-item" href="{{ route('register') }}">Registrati</a>
           </div>
         </div>          
       </div>
@@ -76,7 +76,7 @@
     </div>
   </header>
   {{-- /header --}}
-
+  
   {{-- main --}}
   <main>
     <div class="container_main">  
@@ -92,7 +92,7 @@
 
       {{-- all restaurants --}}   
       {{-- Restaurants --}}
-      <div class="container">
+      
         <div class="row d-flex justify-content-center flex-wrap">
           <div class="card col-lg-3 col-md-5 col-sm-10 col-10 p-0" v-for="restaurant in restaurants">      
             <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
@@ -102,11 +102,11 @@
             </div>
           </div>
         </div>        
-      </div>      
+          
       {{-- Restaurants --}}   
 
-      
-        <div class="container d-flex justify-content-center flex-wrap" v-if="restaurants.lenght >= 1">
+      <template v-if="restaurants.lenght >= 1">
+        <div class="container d-flex justify-content-center flex-wrap">
           <div class="card col-lg-6" v-for="restaurant in restaurants">      
             <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
             <div class="card-body">
@@ -115,18 +115,14 @@
             </div>
           </div>
         </div>
+      </template>
 
-
-        <div class="container no_result" v-if="restaurants < 1">
-          <h1>Spiacenti <i class="fas fa-sad-tear"></i></h1>
-          <h3>Nessun ristorante trovato per la categoria selezionata</h3>
-        </div>
-      
-
-    
-      
-      {{-- /all restaurants --}}
-
+        <template  v-else-if="restaurants == 0">
+          <div class="container no_result">
+            <h1>Spiacenti <i class="fas fa-sad-tear"></i></h1>
+            <h3>Nessun ristorante trovato per la categoria selezionata</h3>
+          </div>
+        </template>
       
     </div>
   </main>

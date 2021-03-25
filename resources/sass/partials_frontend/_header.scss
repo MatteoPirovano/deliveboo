@@ -10,7 +10,7 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    background-color: $darkRed;
+    background-color: rgba(165,27,11, 0.9);
     z-index: 99;
     .cont_img {
       display: flex;
@@ -33,7 +33,6 @@ header {
           transition: 0.3s;
           &:hover {
             background-color: $softOrange ;
-           
           }
           &:hover a {
             color: white;
@@ -58,13 +57,17 @@ header {
       display: flex;
       align-items: center;
       height: 90px;
+      z-index: 999;
       #dropdown_id {
         .dropdown-menu{
           background-color: $softOrange;
-          
+          box-shadow: #bfbfbf 0px 13px 17px -3px;
           a {
             color: white;
             font-weight: 500;
+            &:hover {
+              color: $softOrange;
+            }
           }
         }
 
@@ -93,7 +96,7 @@ header {
   .jumbotron {
     margin: 0;
     padding: 0;
-    height: 70vh;
+    height: 90vh;
     background: url('https://www.romehints.com/data/aperitivo.jpg');
     background-size: cover;
     background-attachment: fixed; 

@@ -7,6 +7,27 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//vue animation
+.bounce-enter-active {
+  animation: bounce-in .5s;
+}
+.bounce-leave-active {
+  animation: bounce-in .5s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+//vue animation
+
+
 header {
     border-bottom: 0.5px solid #F39200;
     ul {
@@ -39,8 +60,12 @@ header .chart {
     background-size: cover;
     h1 {
         margin-top: 70px;
+        padding: 50px 10px 50px 150px;
         font-size: 80px;
         color: white;
+        border-bottom: 5px solid $softOrange;
+        font-family: 'Train One', cursive;
+        background-color: rgba(0,0,0,0.5);
     }
 }
 
@@ -50,12 +75,18 @@ main {
     left: 0;
     background-color: transparent;
     margin: 0;
+    margin-bottom: 50px;
+    padding: 0 70px;
     display: flex;
     flex-wrap: wrap;
     img {
         width: 100%;
         height: 225px;
         object-fit: cover;
+    }
+    #id_card {
+      margin: 20px;
+      width: calc(100% / 3 - 40px);
     }
     .chart {
         transition: 0.5s;
@@ -103,6 +134,7 @@ main {
         .info > * {
             width: calc(100% / 3);
         }
+        
         .total {
             text-align: right;
             padding-right: 20px;
@@ -115,6 +147,23 @@ main {
         cursor: no-drop;
       }
     }
+
+    #info_id {
+      h3 {
+        padding-left: 10px;
+        color: $darkRed;
+        border-left: 5px solid $softOrange;
+      }
+    }
+
+    #price_id {
+      span {
+        font-size: 24px;
+        padding-left: 10px;
+        border-left: 5px solid $softOrange;
+      }
+    }
+
     .btn-danger {
       background-color: $darkRed;
       &:hover {
@@ -141,8 +190,25 @@ footer {
     opacity: 1;
 }
 
-@media screen and (max-width: 1000px) {
 
+@media screen and (max-width: 1400px) {
+  #id_card {
+    margin: 30px;
+    width: calc(100% / 2 - 60px) !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #id_card {
+    margin: 15px !important;
+    width: calc(100% / 2 - 30px) !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+    main{
+      padding: 0 50px;
+    }
     .card {
       width: calc((100% / 2) - 30px) !important;
     }
@@ -181,7 +247,24 @@ footer {
     
 }
 
+
+@media screen and (max-width: 960px) {
+  #title_res{
+        margin-top: 50px;
+        padding: 30px 10px 30px 100px;
+        font-size: 50px;
+        color: white;
+    }
+    #id_card {
+      margin: 15px !important;
+      width: calc(100% / 1 - 30px) !important;
+    }
+}
+
 @media screen and (max-width: 780px) {
+    main{
+      padding: 0 30px;
+    }
     .chartCount {
         opacity: 0;
     }
@@ -206,7 +289,8 @@ footer {
       width: calc(100% - 30px) !important;
     }
 
-    main {
+    main {       
+        padding: 0 20px;    
         .chart {
             width: 100vw !important;
         }
