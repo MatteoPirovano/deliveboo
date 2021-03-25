@@ -130,6 +130,7 @@ Route::prefix('admin')       // prefisso delle rotte
             ->group(function () {
             Route::resource('dishes', 'DishController');
             Route::get('charts', 'RestaurantController@charts')->name('charts');
+            // Route::get('statistics', 'RestaurantController@slug')->name('statisticsMonth');
         });
     }
   );

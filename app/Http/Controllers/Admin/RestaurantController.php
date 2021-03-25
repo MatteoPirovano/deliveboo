@@ -182,7 +182,7 @@ class RestaurantController extends Controller
 
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
       $restaurant = Restaurant::where('slug', $slug)->first();
-      $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
+      // $dishes = Dish::where('restaurant_id', $restaurant->id)->get();
 
       
       // $months = [
@@ -190,27 +190,32 @@ class RestaurantController extends Controller
       // ];
 
       // $order_dish = [];
+
       // foreach($dishes as $dish){
-        
+      //   foreach($dish->orders as $order) {
+      //     if(!in_array($order->id, $order_dish)) {
+      //       $order_dish[] = $order->id;
+      //     } 
+      //   }
       // }
 
       // foreach($months as $month) {
-      //    $orders[] = Order::whereMonth('order_date', $month)->sum('price');
+      //    $orders[] = Order::whereMonth('order_date', $month)->whereIn('id', $order_dish)->sum('price');
        
       // }
-        /* foreach ($orders as $order) {
-          foreach ($order->dishes as $dish) {
-            if ($dish->restaurant_id == $restaurant->id) {
-              $control = true;
-            } else $control = false;
-          }
-          if ($control == true) {
-            $order_true[] = $order;
-          }
-        } */
+      //   /* foreach ($orders as $order) {
+      //     foreach ($order->dishes as $dish) {
+      //       if ($dish->restaurant_id == $restaurant->id) {
+      //         $control = true;
+      //       } else $control = false;
+      //     }
+      //     if ($control == true) {
+      //       $order_true[] = $order;
+      //     }
+      //   } */
 
       
-      return view('admin.restaurants.charts', compact('restaurants', 'restaurant', 'dishes'));
-
+      return view('admin.restaurants.charts', compact('restaurants', 'restaurant',));
   }
+
 }
