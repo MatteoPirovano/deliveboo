@@ -63,3 +63,14 @@ body .card_payment_ms .btn_card_section_ms a {
 body .card_payment_ms .btn_card_section_ms a:hover {
   opacity: 0.8;
 }
+
+@media screen and (min-width: 850px) and (max-width: 1180px) {
+  body .card_payment_ms .main_card_section_ms h1 {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 550px) and (max-width: 850px) {
+  body .card_payment_ms .main_card_section_ms h1 {
+    font-size: 26px;
+  }
+}
