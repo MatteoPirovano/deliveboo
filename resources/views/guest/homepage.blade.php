@@ -60,11 +60,44 @@
             Lavora con noi
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
-            <a class="dropdown-item" href="{{ route('register') }}">Registrati</a>
+            {{-- <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li> --}}
+          @guest
+          <li class="nav-item">
+              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+          </li>
+          @if (Route::has('register'))
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+              </li>
+          @endif
+      @else
+          <li class="nav-item dropdown">
+              {{-- <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre> --}}
+                  <a id="user_name" href="{{ route('admin.restaurants.index') }}">{{ Auth::user()->name }}</a> 
+              </a>
+              <a class="dropdown-item" href="{{ route('logout') }}"
+              onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+               {{ __('Logout') }}
+           </a>
+
+           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+               @csrf
+           </form>
+
+              {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                 
+              </div> --}}
+          </li>
+      @endguest
+            {{-- <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a> --}}
+            {{-- <a class="dropdown-item" href="{{ route('register') }}">Registrati</a> --}}
           </div>
         </div>          
       </div>
+     
 
     </div>
 

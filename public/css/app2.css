@@ -79,6 +79,9 @@ header .nav_bar {
   background-color: rgba(165, 27, 11, 0.9);
   z-index: 99;
 }
+header .nav_bar #user_name {
+  color: red;
+}
 header .nav_bar .cont_img {
   display: flex;
   align-items: center;
@@ -131,9 +134,11 @@ header .nav_bar .cont_list #dropdown_id .dropdown-menu {
 header .nav_bar .cont_list #dropdown_id .dropdown-menu a {
   color: white;
   font-weight: 500;
+  padding: 0.25rem 1.5rem;
 }
 header .nav_bar .cont_list #dropdown_id .dropdown-menu a:hover {
-  color: #ffa500;
+  text-decoration: none;
+  background-color: #e9ecef;
 }
 header .nav_bar .cont_list #dropdown_id .btn {
   padding: 10px 20px;
