@@ -46,7 +46,7 @@
         </ul>
       </div>
 
-      <div class="cont_list" id="cont_list_res">
+      <div class="cont_list mr-5" id="cont_list_res">
         @auth
           <div class="dropdown" id="dropdown_id">
             <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
