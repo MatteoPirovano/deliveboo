@@ -446,6 +446,7 @@
     }
 }
 
+
 @media screen and (max-width: 500px) {
 
     .back_img {
@@ -481,18 +482,12 @@
         justify-content: space-between;
 
         .btn-secondary{
-            width: 45%;
+            width: 49% !important;
         }
     }
 
     #side_resp_ms{
         position: relative;
-
-        header{
-            .align-items-center{
-                text-align: left !important;
-            }
-        }
 
         #btn_close_responsive_ms{
         display: block;
@@ -500,9 +495,14 @@
         right: 15px;
         top: 15px;
         
-        i{
-            font-size: 30px;
-            color: #F39200;
-        }    }
+            i{
+                font-size: 30px;
+                color: #F39200;
+            }    
+        }
+
+        footer a {
+            width: 50%;
+        }
     }
 }

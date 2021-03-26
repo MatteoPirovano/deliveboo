@@ -623,14 +623,11 @@
     justify-content: space-between;
   }
   .create_modify_restaurant_ms .btn-secondary {
-    width: 45%;
+    width: 49% !important;
   }
 
   #side_resp_ms {
     position: relative;
-  }
-  #side_resp_ms header .align-items-center {
-    text-align: left !important;
   }
   #side_resp_ms #btn_close_responsive_ms {
     display: block;
@@ -641,6 +638,9 @@
   #side_resp_ms #btn_close_responsive_ms i {
     font-size: 30px;
     color: #F39200;
+  }
+  #side_resp_ms footer a {
+    width: 50%;
   }
 }
 * {
