@@ -1914,7 +1914,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     restaurants: "",
     category: '',
     categories: []
-  }, _defineProperty(_data, "restaurants", []), _defineProperty(_data, "show", false), _defineProperty(_data, "notRestaurant", false), _data),
+  }, _defineProperty(_data, "restaurants", []), _defineProperty(_data, "show", false), _defineProperty(_data, "notRestaurant", false), _defineProperty(_data, "showCat", true), _data),
   created: function created() {
     localStorage.total = "";
     localStorage.order = [];
@@ -1937,13 +1937,28 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
 
         if (app.restaurants.length == 0) {
           app.notRestaurant = true;
-        } else app.notRestaurant = false;
+        } else app.notRestaurant = false; // funzione per ancoraggio al click delle categorie
+
+
+        window.scrollTo({
+          top: 500,
+          left: 0,
+          behavior: 'smooth'
+        });
       });
     },
     toggleShow: function toggleShow() {
       this.show = !this.show;
+    },
+    scrollContacts: function scrollContacts() {
+      window.scrollTo({
+        bottom: 0,
+        left: 0,
+        behavior: 'smooth'
+      });
     }
-  }
+  } // metods
+
 });
 
 /***/ }),

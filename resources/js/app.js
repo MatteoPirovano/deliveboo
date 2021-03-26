@@ -35,7 +35,8 @@ const app = new Vue({
         categories: [],
         restaurants: [],
         show: false,
-        notRestaurant: false
+        notRestaurant: false,
+        showCat: true
     },
     created() {
       localStorage.total = "";
@@ -71,13 +72,28 @@ const app = new Vue({
                 if(app.restaurants.length == 0) {
                   app.notRestaurant = true;
                 } else app.notRestaurant = false;
+                
+                // funzione per ancoraggio al click delle categorie
+                window.scrollTo({
+                    top: 500,
+                    left: 0,
+                    behavior: 'smooth'
+                });
             });
         },
 
         toggleShow() {
           this.show = !this.show
-        }
+        },
 
-    }
+        scrollContacts() {
+          window.scrollTo({
+              bottom: 0,
+              left: 0,
+              behavior: 'smooth'
+          });
+        },
+
+    } // metods
 
 });

@@ -56,6 +56,7 @@ header {
     .cont_list {
       display: flex;
       align-items: center;
+      margin-right: 50px;
       height: 90px;
       z-index: 999;
       #dropdown_id {
@@ -151,8 +152,37 @@ header {
   }
 
   #jumbotron_res{
+    background-position: center;
     h1{
       font-size: 40px;
     }
   }
+}
+
+@media screen and (max-width: 550px) {
+
+  .user {
+    display: none;
+  }
+  #cont_img_res {
+    img {
+      margin-left: 25px;
+    }
+  }
+
+
+  #cont_list_res {
+    margin-right: 25px;
+  }
+  #hamb {
+    display: block;
+    padding-bottom: 4px;
+    font-size: 24px;
+  }
+
+  #jumbotron_res{
+    height: 80vh;
+    background-position: right;
+  }
+
 }

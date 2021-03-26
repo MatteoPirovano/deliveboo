@@ -30,10 +30,9 @@
 </head>
 <body>
 
-  <header>
-    
+  {{-- header --}}
+  <header>    
     <div class="nav_bar" id="nav_bar_res">     
-
       <div class="cont_img" id="cont_img_res">
         <img src="{{ asset('images/logo.png') }}" alt="logo">
         <ul>
@@ -49,12 +48,12 @@
       <div class="cont_list" id="cont_list_res">
         @auth
           <div class="dropdown" id="dropdown_id">
-            <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              {{ Auth::user()->name }}
+            <button class="btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="user">{{ Auth::user()->name }}</span> 
+              <i id="hamb" class="fas fa-hamburger"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Dashboard</a>
-              {{-- <a class="dropdown-item" href="{{ route('logout') }}">Logout</a> --}}
             </div>
           </div>          
         </div>
@@ -68,20 +67,19 @@
             <a class="dropdown-item" href="{{ route('register') }}">Registrati</a>
           </div>
         </div>  
-        @endauth        
-                
+        @endauth                        
       </div>
-
     </div>
 
     <div class="jumbotron" id="jumbotron_res">
       <div class="layover">
         <h1>Tutto il cibo che vuoi <br> quando vuoi <br> in un click </h1>
       </div>
-
     </div>
   </header>
   {{-- /header --}}
+
+
   <div id="app">
   {{-- main --}}
   <main>
@@ -98,11 +96,11 @@
 
       {{-- all restaurants --}}   
       {{-- Restaurants --}}
-      <div class="container">
+      <div class="container" data-aos="zoom-in-up">
         <div class="row d-flex justify-content-center flex-wrap">
           <div class="card col-lg-3 col-md-5 col-sm-10 col-10 p-0" v-for="restaurant in restaurants">      
             <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
-            <div class="card-body">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h2 class="card-title">@{{restaurant.name}}</h2>
               <a :href="restaurant.slug" class="btn btn_orange">Menu</a>
             </div>
