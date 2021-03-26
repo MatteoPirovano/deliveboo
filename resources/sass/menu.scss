@@ -94,6 +94,7 @@ main {
     }
     .chart {
         transition: 0.5s;
+        font-size: 18px;
         position: fixed;
         top: 90px;
         right: 0;
@@ -131,12 +132,12 @@ main {
           color: #F39200;
         }
         .delete {
-            font-size: 12px;
+            font-size: 18px;
             color: #F39200;
             transition: 0.3s;
             cursor: pointer;
             &:hover {
-                font-size: 14px;
+                font-size: 20px;
             }
         }
         .info > * {
@@ -300,13 +301,7 @@ footer {
     main {       
         padding: 0 20px;    
         .chart {
-            width: 100vw !important;
-        }
-    }
-
-    header {
-        .chart {
-            width: 100px;
+            width: 100% !important;
         }
     }
 
