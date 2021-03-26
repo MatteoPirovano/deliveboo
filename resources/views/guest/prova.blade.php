@@ -31,6 +31,18 @@
       </div>
 
       <div class="cont_list" id="cont_list_res">        
+        @auth
+          <div class="dropdown" id="dropdown_id">
+            <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth::user()->name }}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Dashboard</a>
+              {{-- <a class="dropdown-item" href="{{ route('logout') }}">Logout</a> --}}
+            </div>
+          </div>          
+        </div>
+        @else
         <div class="dropdown" id="dropdown_id">
           <button class="btn dropdown-toggle mx-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Lavora con noi
@@ -39,7 +51,8 @@
             <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Login</a>
             <a class="dropdown-item" href="{{ route('register') }}">Registrati</a>
           </div>
-        </div>          
+        </div>  
+        @endauth  
       </div>
 
     </div>
