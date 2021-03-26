@@ -32,7 +32,7 @@
 
   {{-- header --}}
   <header>    
-    <div class="nav_bar" id="nav_bar_res">     
+    <div class="nav_bar pl-5" id="nav_bar_res">     
       <div class="cont_img" id="cont_img_res">
         <img src="{{ asset('images/logo.png') }}" alt="logo">
         <ul>
