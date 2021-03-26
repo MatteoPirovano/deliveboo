@@ -33,7 +33,7 @@
             <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
         </div>
 
-        <aside class="container_ms">
+        <aside id="side_resp_ms" class="container_ms">
             <header>
 
                 <div class="flex_ms align-items-center mb-3">
@@ -86,6 +86,21 @@
             </footer>
             
             
+        </aside>
+
+        <aside id="responsive_400_ms">
+            <header>
+                {{-- <img src="{{ asset('images/logo.png') }}" alt="ImageLogoResponsive"> --}}
+                <a href="#">+</a>
+            </header>
+
+            <main>
+                
+            </main>
+
+            <footer>
+                
+            </footer>
         </aside>
 
         <main class="main_ms">

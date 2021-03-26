@@ -123,7 +123,44 @@
     
 }
 
+#responsive_400_ms{
+    display: none;
+}
+
 // QUERIES___________________________________________________________________________________________________
+
+@media screen and (max-width: 500px) {
+    
+    #side_resp_ms{
+        display: none;
+
+    } 
+
+    .back_img {
+        width: calc(100% - 50px);        
+    }
+
+    #responsive_400_ms{
+        display: block;
+        width: 50px;
+        height: 100vh;
+        background-color: #A51B0B;
+
+        header{
+            width: 100%;
+            height: 20%;
+            background-color: white;
+
+            a{
+                font-size: 80px;
+                text-align: center;
+                &:hover #side_resp_ms{
+                    display: block;
+                }
+            }
+        }
+    }
+}
 
 @media screen and (max-width: 830px) {
     

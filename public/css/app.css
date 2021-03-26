@@ -93,6 +93,38 @@
   text-decoration: none;
 }
 
+#responsive_400_ms {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  #side_resp_ms {
+    display: none;
+  }
+
+  .back_img {
+    width: calc(100% - 50px);
+  }
+
+  #responsive_400_ms {
+    display: block;
+    width: 50px;
+    height: 100vh;
+    background-color: #A51B0B;
+  }
+  #responsive_400_ms header {
+    width: 100%;
+    height: 20%;
+    background-color: white;
+  }
+  #responsive_400_ms header a {
+    font-size: 80px;
+    text-align: center;
+  }
+  #responsive_400_ms header a:hover #side_resp_ms {
+    display: block;
+  }
+}
 @media screen and (max-width: 830px) {
   .container_ms {
     width: 180px;
@@ -246,6 +278,16 @@
 .main_ms .card_restaurant_show_ms .card_restaurant_info_ms {
   height: 150px;
 }
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms p {
+  margin-top: 20px;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
+  display: flex;
+  justify-content: space-between;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms .card-title, .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms h2 {
+  margin-bottom: 0;
+}
 .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms {
   height: 50px;
   position: relative;
@@ -257,6 +299,10 @@
 }
 .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms i {
   padding-right: 10px;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms .btn-secondary {
+  background-color: #FFA500;
+  border-color: goldenrod;
 }
 .main_ms .position_card_index_ms {
   margin-top: 150px;
@@ -526,6 +572,41 @@
   }
   .dishes_show_container_ms .smartphone_dishes_show_container_ms .float-right {
     float: none !important;
+  }
+
+  .btn-success {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .btn_success_update_restaurant {
+    width: 15%;
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .back_img {
+    width: calc(100% - 50px);
+  }
+
+  .main_ms {
+    width: calc(100% - 50px);
+    padding: 0;
+  }
+
+  .btn-success {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .main_ms .card_h_ms {
+    max-width: 85%;
+    margin: auto;
+  }
+
+  .btn_success_update_restaurant {
+    width: 25%;
+    margin-bottom: 0;
   }
 }
 * {

@@ -109,10 +109,21 @@
         }
         .card_restaurant_info_ms{
             height: 150px;
+            p{
+                margin-top: 20px;
+            }
+            .statistic_card_restaurant_ms{
+                display: flex;
+                justify-content: space-between;
+                .card-title, h2{
+                    margin-bottom: 0;
+                }
+            }
+
         }
         .card_restaurant_bnt_ms{
             height: 50px;
-            position: relative;            
+            position: relative; 
             
             button{
                 position: absolute;
@@ -121,7 +132,12 @@
             }
             i {
                 padding-right: 10px;
-            }        
+            }
+            
+            .btn-secondary{
+               background-color: #FFA500;
+               border-color: goldenrod; 
+            }           
         }
     }
 
@@ -414,6 +430,42 @@
                 float: none !important;
             }       
         }
+    } 
+    
+    .btn-success{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .btn_success_update_restaurant{
+        width: 15%;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .back_img {
+        width: calc(100% - 50px);        
+    }
+
+    .main_ms {
+        width: calc(100% - 50px); 
+        padding: 0;
+    }
+
+    .btn-success{
+        width: 100%;
+        margin-bottom: 5px;
     }
     
+    .main_ms .card_h_ms {
+        max-width: 85%;
+        margin: auto;
+    }
+
+    .btn_success_update_restaurant{
+        width: 25%;
+        margin-bottom: 0;
+    }
 }
