@@ -291,6 +291,15 @@
 
 }
 
+@media screen and (min-width: 501px) and (max-width: 666px){
+    .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
+        flex-direction: column;
+        h2{
+            margin-bottom: 10px !important;
+        }
+    }
+}
+
 @media screen and (min-width: 830px) and (max-width: 1180px){
     .smartphone_dishes_show_container_ms{
         display: none;
@@ -317,6 +326,10 @@
     .main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
         margin-left: 24px;
         width: 85%;
+    }
+    .main_ms .card_h_ms {
+        max-width: 400px;
+        margin: 110px auto;
     }
 }
 
@@ -354,7 +367,8 @@
 
     // prove card index restaurant
     .main_ms .card_h_ms {
-        max-width: 100%;
+        max-width: 70%;
+        margin: auto;
     }
 
     .main_ms .card_h_ms img {
