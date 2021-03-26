@@ -49,15 +49,15 @@
                     <i class="fas fa-plus plus_ms"> 
                         <span>Aggiungi un ristorante</span>
                     </i>
-                    <div onclick="w3_close()" id="btn_close_responsive_ms">
-                        <i class="fas fa-window-close"></i>
-                    </div>
                 </a>  
                 <h2>I tuoi ristoranti:</h2> 
             </header>
-
+            
             <main>
-
+                <div onclick="w3_close()" id="btn_close_responsive_ms">
+                    <i class="fas fa-window-close"></i>
+                </div>
+                
                 <div>                    
                     @foreach ($restaurants as $restaurant)                    
                         <a class="prova_ms" href="{{ route('admin.restaurants.show', $restaurant->slug) }}">
@@ -111,6 +111,9 @@
         }
         function w3_close() {
             document.getElementById("side_resp_ms").style.display = "none";
+            document.getElementById("responsive_400_ms").style.display = "block";
+            document.getElementById("back_img_ms").style.display = "block";
+            document.getElementById("hide_main_ms").style.display = "block";
         }
     </script>
     {{-- /script show/hide sidebar responsive 400 --}}
