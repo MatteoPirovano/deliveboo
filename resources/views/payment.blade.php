@@ -13,11 +13,11 @@
     <title>payment</title>
 </head>
 <body>
-  @if (!session('message'))
+  {{-- @if (!session('message'))
     <div class="alert alert-danger mt-2 ml-2">
         {{ 'Errore nei dati di pagamento' }}
     </div>
-  @endif
+  @endif --}}
     
     <div class="order-pay-container container">
       <div class="cont-marg-left">
