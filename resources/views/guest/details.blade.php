@@ -35,11 +35,11 @@
           </ul>
         </div>
         <i class="fas fa-hamburger ml-4" v-on:click="showNavList()"></i>
-        <div class="chart d-flex justify-content-between align-items-center mr-4" :class="(count === 0 ? 'hiddenChart' : '' )" v-on:click="changeVisibility()">
+        <div class="chart d-flex justify-content-between align-items-center mr-4"  v-on:click="changeVisibility()">
           <i class="fas fa-shopping-cart" v-on:click="changeVisibility()"></i>
-          <span class="chartCount">x @{{count}}</span>
-          <span class="pipe">|</span>
-          <span>@{{total.toFixed(2)}}€</span>
+          <span class="chartCount" :class="(count === 0 ? 'hiddenChart' : '' )">x @{{count}}</span>
+          <span class="pipe" :class="(count === 0 ? 'hiddenChart' : '' )">|</span>
+          <span :class="(count === 0 ? 'hiddenChart' : '' )">@{{total.toFixed(2)}}€</span>
         </div>
       </div>
     </header>

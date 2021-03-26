@@ -40,7 +40,7 @@ header {
 
 header .chart {
     border: 0.5px solid $softOrange;
-    width: 150px;
+    // width: 150px;
     background-color: $darkRed;
     padding: 10px;
     color: white;
@@ -48,9 +48,13 @@ header .chart {
     transition: all 0.5s;
     span {
         font-size: 15px;
+        padding: 0 5px;
     }
     i, .pipe {
         color: $softOrange;
+    }
+    i {
+      padding-right: 5px;
     }
 }
 
@@ -183,7 +187,7 @@ footer {
 }
 
 .hiddenChart {
-    opacity: 0;
+    display: none;
 }
 
 .show {

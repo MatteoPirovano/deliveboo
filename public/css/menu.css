@@ -10497,7 +10497,6 @@ header ul li {
 
 header .chart {
   border: 0.5px solid #ffa500;
-  width: 150px;
   background-color: #a51b0b;
   padding: 10px;
   color: white;
@@ -10506,9 +10505,13 @@ header .chart {
 }
 header .chart span {
   font-size: 15px;
+  padding: 0 5px;
 }
 header .chart i, header .chart .pipe {
   color: #ffa500;
+}
+header .chart i {
+  padding-right: 5px;
 }
 
 .jumbotron {
@@ -10633,7 +10636,7 @@ footer {
 }
 
 .hiddenChart {
-  opacity: 0;
+  display: none;
 }
 
 .show {
