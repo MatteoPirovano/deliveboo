@@ -83,8 +83,8 @@
           <div class="chart_header d-flex justify-content-between align-items-center">
             <img src="{{asset('images/logo.png')}}" alt="LOGO">
             <div>
-              <button class="btn" v-on:click="deleteOrder()">Annulla</button>
-              <a href="{{route('payment')}}" class="btn">Conferma</a>
+              <button class="btn btn_delete" v-on:click="deleteOrder()">Annulla</button>
+              <a href="{{route('payment')}}" class="btn btn_confirm">Conferma</a>
             </div>
           </div>
           <hr>
@@ -95,8 +95,8 @@
               </div>
               <div class="d-flex justify-content-between align-items-center info">
                 <div class="quantity">
-                  <button  class="btn btn-sm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
-                  <button class="btn btn-sm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
+                  <button  class="btn btn-sm btn_confirm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
+                  <button class="btn btn-sm btn_confirm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
                 </div>
                 <div>n. @{{ordered_dish.count}}</div>
                 <div v-if="ordered_dish.count > 0">Prezzo: @{{ordered_dish.price.toFixed(2)}}€</div>

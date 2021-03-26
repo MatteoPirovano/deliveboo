@@ -122,9 +122,13 @@ main {
             padding-bottom: 10px;
             border-bottom: 0.5px solid #F39200;
         }
-        .btn {
-            border-color: #F39200;
-            color: #F39200;
+        .btn_confirm {
+            background-color: #F39200;
+            color: white;
+        }
+        .btn_delete {
+          border-color: #F39200;
+          color: #F39200;
         }
         .delete {
             font-size: 12px;
