@@ -98,7 +98,7 @@
 
       {{-- all restaurants --}}   
       {{-- Restaurants --}}
-      
+      <div class="container">
         <div class="row d-flex justify-content-center flex-wrap">
           <div class="card col-lg-3 col-md-5 col-sm-10 col-10 p-0" v-for="restaurant in restaurants">      
             <img :src="'storage/' + restaurant.img" class="card-img-top" alt="...">
@@ -108,7 +108,7 @@
             </div>
           </div>
         </div>        
-          
+      </div>
       {{-- Restaurants --}}   
 
       <template v-if="restaurants.lenght >= 1">
