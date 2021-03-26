@@ -481,6 +481,10 @@
     .main_ms {
         width: 100%; 
         padding: 0;
+
+        .position_card_index_ms {
+            margin-top: 15px !important;
+        }
     }
 
     .btn-success{
@@ -490,7 +494,7 @@
     
     .main_ms .card_h_ms {
         max-width: 85%;
-        margin: auto;
+        margin: 30px auto;
     }
 
     .btn_success_update_restaurant{
