@@ -417,6 +417,10 @@
   display: none;
 }
 
+.create_modify_restaurant_ms {
+  display: none;
+}
+
 @media screen and (min-width: 1180px) and (max-width: 1919px) {
   .main_ms .position_card_index_ms .shadow_card_ms {
     max-width: 240px;
@@ -618,11 +622,20 @@
     margin-top: 70px;
   }
 
-  .create_modify_restaurant_ms {
+  .card_restaurant_bnt_ms .btn-secondary {
+    display: none;
+  }
+  .card_restaurant_bnt_ms #create_response_ms {
+    display: block !important;
+  }
+  .card_restaurant_bnt_ms #create_response_ms .btn_secondary_49_ms {
+    display: inline-block !important;
+  }
+  .card_restaurant_bnt_ms .create_modify_restaurant_ms {
     display: flex;
     justify-content: space-between;
   }
-  .create_modify_restaurant_ms .btn-secondary {
+  .card_restaurant_bnt_ms .create_modify_restaurant_ms .btn-secondary {
     width: 49% !important;
   }
 

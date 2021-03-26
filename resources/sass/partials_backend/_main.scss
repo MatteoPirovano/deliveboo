@@ -264,6 +264,10 @@
     display: none;
 }
 
+.create_modify_restaurant_ms{
+    display: none;
+}
+
 
 
 // QUERIES_____________________________________________________________________________________________________
@@ -477,12 +481,24 @@
         margin-top: 70px;
     }
 
-    .create_modify_restaurant_ms{
-        display: flex;
-        justify-content: space-between;
-
+    .card_restaurant_bnt_ms{
         .btn-secondary{
-            width: 49% !important;
+            display: none;
+        }
+        #create_response_ms{
+            display: block !important; 
+                       
+            .btn_secondary_49_ms{
+                display: inline-block !important;
+            }
+        }
+        .create_modify_restaurant_ms{
+            display: flex;
+            justify-content: space-between;
+    
+            .btn-secondary{
+                width: 49% !important;
+            }
         }
     }
 
@@ -496,8 +512,8 @@
         top: 15px;
         
             i{
-                font-size: 30px;
-                color: #F39200;
+            font-size: 30px;
+            color: #F39200;
             }    
         }
 

@@ -31,10 +31,11 @@
 
                     <div class="card_restaurant_bnt_ms">
                         <a class="btn btn-success" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}} "><i class="far fa-calendar-minus"></i>Vedi Menù</a>
+                        <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}"><i class="fas fa-pencil-alt"></i>Modifica</a>
 
-                        <div class="create_modify_restaurant_ms">
-                            <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}"><i class="fas fa-pencil-alt"></i>Modifica</a>
-                            <a class="btn btn-secondary" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}"><i class="fas fa-plus"></i>Crea Piatto</a>
+                        <div id="create_response_ms" class="create_modify_restaurant_ms">
+                            <a class="btn btn-secondary btn_secondary_49_ms" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}"><i class="fas fa-pencil-alt"></i>Modifica</a>
+                            <a class="btn btn-secondary btn_secondary_49_ms" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}"><i class="fas fa-plus"></i>Crea Piatto</a>
                         </div>
 
                         <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?')">
