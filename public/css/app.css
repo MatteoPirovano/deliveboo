@@ -100,29 +100,30 @@
 @media screen and (max-width: 500px) {
   #side_resp_ms {
     display: none;
+    z-index: 4;
   }
 
   .back_img {
-    width: calc(100% - 50px);
+    width: 100%;
+    position: relative;
   }
-
-  #responsive_400_ms {
+  .back_img #responsive_400_ms {
+    position: absolute;
+    top: 10px;
+    left: 10px;
     display: block;
     width: 50px;
-    height: 100vh;
+    height: 50px;
     background-color: #A51B0B;
   }
-  #responsive_400_ms header {
-    width: 100%;
-    height: 20%;
-    background-color: white;
+
+  .container_ms main .container_btn_menu_ms .menu_detail_ms {
+    width: 125px !important;
+    padding: 10px 20px;
   }
-  #responsive_400_ms header a {
-    font-size: 80px;
-    text-align: center;
-  }
-  #responsive_400_ms header a:hover #side_resp_ms {
-    display: block;
+
+  .main_ms .position_card_index_ms {
+    margin-top: 40px !important;
   }
 }
 @media screen and (max-width: 830px) {
@@ -412,6 +413,10 @@
   display: block;
 }
 
+#btn_close_responsive_ms {
+  display: none;
+}
+
 @media screen and (min-width: 1180px) and (max-width: 1919px) {
   .main_ms .position_card_index_ms .shadow_card_ms {
     max-width: 240px;
@@ -586,11 +591,11 @@
 }
 @media screen and (max-width: 500px) {
   .back_img {
-    width: calc(100% - 50px);
+    width: 100%;
   }
 
   .main_ms {
-    width: calc(100% - 50px);
+    width: 100%;
     padding: 0;
   }
 
@@ -607,6 +612,35 @@
   .btn_success_update_restaurant {
     width: 25%;
     margin-bottom: 0;
+  }
+
+  .main_ms .container {
+    margin-top: 70px;
+  }
+
+  .create_modify_restaurant_ms {
+    display: flex;
+    justify-content: space-between;
+  }
+  .create_modify_restaurant_ms .btn-secondary {
+    width: 45%;
+  }
+
+  #side_resp_ms {
+    position: relative;
+  }
+  #side_resp_ms header .align-items-center {
+    text-align: left !important;
+  }
+  #side_resp_ms #btn_close_responsive_ms {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  #side_resp_ms #btn_close_responsive_ms i {
+    font-size: 30px;
+    color: #F39200;
   }
 }
 * {

@@ -53,7 +53,7 @@
           @endforeach
         @endif
           
-        <button type="submit" class="btn btn-success mt-4">Salva</button>
+        <button type="submit" class="btn btn-success btn_success_update_restaurant mt-4">Salva</button>
         <a href="{{ route('admin.restaurants.index') }}" class="btn btn-secondary mt-4">Home</a>
       </form>
     </div>

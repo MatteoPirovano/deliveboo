@@ -133,33 +133,34 @@
     
     #side_resp_ms{
         display: none;
+        z-index: 4;
 
     } 
 
     .back_img {
-        width: calc(100% - 50px);        
-    }
+        width: 100%;  
+        position: relative; 
 
-    #responsive_400_ms{
-        display: block;
-        width: 50px;
-        height: 100vh;
-        background-color: #A51B0B;
-
-        header{
-            width: 100%;
-            height: 20%;
-            background-color: white;
-
-            a{
-                font-size: 80px;
-                text-align: center;
-                &:hover #side_resp_ms{
-                    display: block;
-                }
-            }
+        #responsive_400_ms{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #A51B0B;                   
         }
     }
+
+    .container_ms main .container_btn_menu_ms .menu_detail_ms {
+        width: 125px !important;
+        padding: 10px 20px;
+    }
+
+    .main_ms .position_card_index_ms {
+        margin-top: 40px !important;
+    }
+
 }
 
 @media screen and (max-width: 830px) {

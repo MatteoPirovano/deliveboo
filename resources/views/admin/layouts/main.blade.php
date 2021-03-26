@@ -29,16 +29,17 @@
 
     <section class="flex_ms">  
         
-        <div class="back_img">
+        <div id="back_img_ms" class="back_img">
+            <button id="responsive_400_ms" onclick="w3_open()" class="btn btn-secondary">☰</button>
             <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
         </div>
 
         <aside id="side_resp_ms" class="container_ms">
             <header>
 
-                <div class="flex_ms align-items-center mb-3">
+                <div class="flex_ms mb-3">
                     <a class="mr-3" href="{{ route('homepage') }}">
-                        <img src="{{ asset('images/logo.png') }}" alt="">
+                        <img class="mb-2" src="{{ asset('images/logo.png') }}" alt="logo">
                     </a>
                      <h1>{{ Auth::user()->name }}</h1>
                 </div>
@@ -48,6 +49,9 @@
                     <i class="fas fa-plus plus_ms"> 
                         <span>Aggiungi un ristorante</span>
                     </i>
+                    <div onclick="w3_close()" id="btn_close_responsive_ms">
+                        <i class="fas fa-window-close"></i>
+                    </div>
                 </a>  
                 <h2>I tuoi ristoranti:</h2> 
             </header>
@@ -65,8 +69,7 @@
                                 </i>
                                 <span>Crea Piatto</span> 
                             </a>
-                        </div>
-                        
+                        </div>                        
                     @endforeach    
                 </div>
 
@@ -87,26 +90,29 @@
             
             
         </aside>
-
-        <aside id="responsive_400_ms">
-            <header>
-                {{-- <img src="{{ asset('images/logo.png') }}" alt="ImageLogoResponsive"> --}}
-                <a href="#">+</a>
-            </header>
-
-            <main>
-                
-            </main>
-
-            <footer>
-                
-            </footer>
-        </aside>
-
-        <main class="main_ms">
+        
+        
+        <main id="hide_main_ms" class="main_ms">
             @yield('main')
         </main>
 
     </section>
+
+
+
+    {{-- script show/hide sidebar responsive 400 --}}
+    <script>
+        function w3_open() {
+            document.getElementById("side_resp_ms").style.width = "100vw";
+            document.getElementById("side_resp_ms").style.display = "block";
+            document.getElementById("responsive_400_ms").style.display = "none";
+            document.getElementById("back_img_ms").style.display = "none";
+            document.getElementById("hide_main_ms").style.display = "none";
+        }
+        function w3_close() {
+            document.getElementById("side_resp_ms").style.display = "none";
+        }
+    </script>
+    {{-- /script show/hide sidebar responsive 400 --}}
 </body>
 </html>

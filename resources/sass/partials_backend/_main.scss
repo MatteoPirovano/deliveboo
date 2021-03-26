@@ -260,6 +260,9 @@
 #responsive_hidden {
     display: block;
 }
+#btn_close_responsive_ms{
+    display: none;
+}
 
 
 
@@ -446,11 +449,11 @@
 @media screen and (max-width: 500px) {
 
     .back_img {
-        width: calc(100% - 50px);        
+        width: 100%;        
     }
 
     .main_ms {
-        width: calc(100% - 50px); 
+        width: 100%; 
         padding: 0;
     }
 
@@ -467,5 +470,39 @@
     .btn_success_update_restaurant{
         width: 25%;
         margin-bottom: 0;
+    }
+
+    .main_ms .container {
+        margin-top: 70px;
+    }
+
+    .create_modify_restaurant_ms{
+        display: flex;
+        justify-content: space-between;
+
+        .btn-secondary{
+            width: 45%;
+        }
+    }
+
+    #side_resp_ms{
+        position: relative;
+
+        header{
+            .align-items-center{
+                text-align: left !important;
+            }
+        }
+
+        #btn_close_responsive_ms{
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        
+        i{
+            font-size: 30px;
+            color: #F39200;
+        }    }
     }
 }
