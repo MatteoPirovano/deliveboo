@@ -5,19 +5,23 @@
 @endsection
 @section('main')
     {{-- <div class="statistics_restaurant_ms"> --}}
-
-      <div class="container_charts">
+    <div class="container d-flex flex-column">
+      <div class="container_charts mb-4">
 
         {{-- <div class="container"> --}}
           
           <canvas id="myCanvas">
 
           </canvas>
+      </div>
+      <div class="container_charts">
           <canvas id="year">
 
           </canvas>
-        {{-- </div> --}}
       </div>
+    </div>
+      
+        {{-- </div> --}}
     {{-- </div> --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -104,6 +108,9 @@
               display: true,
               text: 'Ordini per anno',
               fontSize: 25
+            },
+            layout:{
+            padding:30,
             }
           }
         });

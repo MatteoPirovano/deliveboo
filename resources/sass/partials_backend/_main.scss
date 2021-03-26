@@ -238,6 +238,13 @@
   z-index: 999;
 }
 
+#responsive_show {
+    display: none;
+}
+#responsive_hidden {
+    display: block;
+}
+
 
 
 // QUERIES_____________________________________________________________________________________________________
@@ -270,6 +277,16 @@
 @media screen and (min-width: 1920px){
     .smartphone_dishes_show_container_ms{
         display: none;
+    }
+}
+
+@media screen and (max-width: 1180px) {
+    #responsive_show {
+        display: block;
+    }
+    
+    #responsive_hidden, .responsive_hidden {
+        display: none !important;
     }
 }
 

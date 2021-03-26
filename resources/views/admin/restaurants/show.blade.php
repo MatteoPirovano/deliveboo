@@ -22,6 +22,7 @@
 
                     <div class="card_restaurant_info_ms">
                         <h2 class="card-title">{{$restaurant->name}}</h2>
+                        <a class="btn btn-success float-right" id="responsive_show" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Dettagli Statistiche</a>
                         <p class="card-text">Partita IVA: {{$restaurant->p_iva}}</p>
                         <p class="card-text">Indirizzo: {{$restaurant->address}}</p>
                     </div>
@@ -42,14 +43,14 @@
             </div>
         </div>  
 
-        <div class="statistics_restaurant_ms" style="background-color: white">
+        <div id="responsive_hidden" class="statistics_restaurant_ms" style="background-color: white">
             <h3 class="text-center pt-4 mb-5">Statistiche Ordini</h3>
             <canvas id="myCanvas" class="statistics_restaurant_ms" style="margin: 0">
 
             </canvas>
             <hr class="mx-5">
             <div class="text-center pt-5">
-                <a  class="btn btn-success" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Dettagli Statistiche</a>
+                <a class="btn btn-success mx-5" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Dettagli Statistiche</a>
             </div>
         </div>     
     </div>

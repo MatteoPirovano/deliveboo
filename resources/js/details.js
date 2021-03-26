@@ -115,9 +115,10 @@ const app = new Vue({
             this.order.forEach(
                 element => {
                     total = total + element['price'];
+                    total = Number(total.toFixed(2));
                 }
             );  
-            this.total = total;
+            this.total = Number(total.toFixed(2));
         },
         totalCount() {
             var count = 0;
@@ -143,7 +144,10 @@ const app = new Vue({
                     element['price'] = 0;
                     element['name'] = "";
                     
+                    console.log(localStorage.total);
+                    console.log();
                 }
+                
             this.totalPrice();
             this.totalCount();
             });

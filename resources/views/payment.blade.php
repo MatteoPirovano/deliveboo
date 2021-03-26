@@ -13,9 +13,9 @@
     <title>payment</title>
 </head>
 <body>
-  @if (session('message'))
-    <div class="alert alert-success mt-2 ml-2">
-        {{ session('message') }}
+  @if (!session('message'))
+    <div class="alert alert-danger mt-2 ml-2">
+        {{ 'Errore nei dati di pagamento' }}
     </div>
   @endif
     
@@ -37,7 +37,7 @@
                     <div class="logo_ms">
                       <img src="{{ asset("images/logo.png") }}" alt="">
                     </div>
-                    <div v-for="(dish,index) in order">
+                    <div v-for="(dish,index) in order" v-if="dish.count > 0">
                       <span>@{{ dish.count }} x </span>
                       <input class="input_ms" type="text" :name="'dish_name['+index+']'" :value="dish.name" readonly>
                       <input type="hidden" :name="'dish_count['+index+']'" :value="dish.count" readonly>
@@ -47,9 +47,10 @@
                     <hr>
                       <label for="amount">
                         <span class="input-label">Totale</span>
-                        {{-- <h4>@{{total.toFixed(2)}}€</h4> --}}
-                        <input id="total" class="input_ms" type="tel" id="amount" name="amount" :value="total" min="1" readonly>
+                        <h4>@{{total.toFixed(2)}}</h4>
+                        <input id="total" class="input_ms" type="hidden" id="amount" name="amount" :value="total" min="1" readonly>
                       </label><span>&euro;</span>
+                      
                   </div>
                 </div>
                 <div class="form-group">

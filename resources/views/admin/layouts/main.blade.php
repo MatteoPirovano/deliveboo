@@ -36,8 +36,8 @@
         <aside class="container_ms">
             <header>
 
-                <div class="flex_ms">
-                    <a href="{{ route('homepage') }}">
+                <div class="flex_ms align-items-center mb-3">
+                    <a class="mr-3" href="{{ route('homepage') }}">
                         <img src="{{ asset('images/logo.png') }}" alt="">
                     </a>
                      <h1>{{ Auth::user()->name }}</h1>

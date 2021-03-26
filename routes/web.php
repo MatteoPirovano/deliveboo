@@ -28,13 +28,13 @@ Route::post('/checkout', function(Request $request) {
     'privateKey' => '5d8ada5bd7f4a635c540fc7596f285f8'
   ]);
 
-  // $request->validate([
-  //   'client_name'=> 'required|max:100',
-  //   'client_surname'=> 'required|max:100',
-  //   'client_address'=> 'required|max:100',
-  //   'client_mail'=> 'required|max:100|email:rfc,dns',
-  //   'order_date'=> 'required'
-  // ]);
+  $request->validate([
+    'client_name'=> 'required|max:100',
+    'client_surname'=> 'required|max:100',
+    'client_address'=> 'required|max:100',
+    'client_mail'=> 'required|max:100|email:rfc,dns',
+    'order_date'=> 'required'
+  ]);
 
   $data = $request->all();
   
@@ -72,15 +72,15 @@ Route::post('/checkout', function(Request $request) {
         ->route('payment_result', compact('data'))
         ->with('message', 'ok');
   } else {
-      $errorString = "";
+      // $errorString = "";
   
-      foreach($result->errors->deepAll() as $error) {
-          $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-      }
+      // foreach($result->errors->deepAll() as $error) {
+      //     $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+      // }
   
       // $_SESSION["errors"] = $errorString;
       // header("Location: " . $baseUrl . "index.php");
-      return back()->withErrors('ERROR');
+      return back()->with('message','Errore nel pagamento');
   }
 })->name('checkout');
 

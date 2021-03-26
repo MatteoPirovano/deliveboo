@@ -35,6 +35,7 @@ const app = new Vue({
         categories: [],
         restaurants: [],
         show: false,
+        notRestaurant: false
     },
     created() {
       localStorage.total = "";
@@ -67,6 +68,9 @@ const app = new Vue({
             (response) => {
               console.log(response.data);
                 app.restaurants = response.data;
+                if(app.restaurants.length == 0) {
+                  app.notRestaurant = true;
+                } else app.notRestaurant = false;
             });
         },
 

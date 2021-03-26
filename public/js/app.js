@@ -1914,7 +1914,7 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     restaurants: "",
     category: '',
     categories: []
-  }, _defineProperty(_data, "restaurants", []), _defineProperty(_data, "show", false), _data),
+  }, _defineProperty(_data, "restaurants", []), _defineProperty(_data, "show", false), _defineProperty(_data, "notRestaurant", false), _data),
   created: function created() {
     localStorage.total = "";
     localStorage.order = [];
@@ -1934,6 +1934,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       axios.get("http://127.0.0.1:8000/api/restaurants/" + category, {}).then(function (response) {
         console.log(response.data);
         app.restaurants = response.data;
+
+        if (app.restaurants.length == 0) {
+          app.notRestaurant = true;
+        } else app.notRestaurant = false;
       });
     },
     toggleShow: function toggleShow() {
