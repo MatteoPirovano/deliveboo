@@ -93,6 +93,39 @@
   text-decoration: none;
 }
 
+#responsive_400_ms {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  #side_resp_ms {
+    display: none;
+    z-index: 4;
+  }
+
+  .back_img {
+    width: 100%;
+    position: relative;
+  }
+  .back_img #responsive_400_ms {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #A51B0B;
+  }
+
+  .container_ms main .container_btn_menu_ms .menu_detail_ms {
+    width: 125px !important;
+    padding: 10px 20px;
+  }
+
+  .main_ms .position_card_index_ms {
+    margin-top: 40px !important;
+  }
+}
 @media screen and (max-width: 830px) {
   .container_ms {
     width: 180px;
@@ -246,6 +279,16 @@
 .main_ms .card_restaurant_show_ms .card_restaurant_info_ms {
   height: 150px;
 }
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms p {
+  margin-top: 20px;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
+  display: flex;
+  justify-content: space-between;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms .card-title, .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms h2 {
+  margin-bottom: 0;
+}
 .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms {
   height: 50px;
   position: relative;
@@ -257,6 +300,10 @@
 }
 .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms i {
   padding-right: 10px;
+}
+.main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms .btn-secondary {
+  background-color: #FFA500;
+  border-color: goldenrod;
 }
 .main_ms .position_card_index_ms {
   margin-top: 150px;
@@ -366,6 +413,14 @@
   display: block;
 }
 
+#btn_close_responsive_ms {
+  display: none;
+}
+
+.create_modify_restaurant_ms {
+  display: none;
+}
+
 @media screen and (min-width: 1180px) and (max-width: 1919px) {
   .main_ms .position_card_index_ms .shadow_card_ms {
     max-width: 240px;
@@ -382,6 +437,14 @@
 
   .smartphone_dishes_show_container_ms {
     display: none;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 666px) {
+  .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
+    flex-direction: column;
+  }
+  .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms h2 {
+    margin-bottom: 10px !important;
   }
 }
 @media screen and (min-width: 830px) and (max-width: 1180px) {
@@ -403,7 +466,18 @@
     display: none !important;
   }
 }
-@media screen and (max-width: 830px) {
+@media screen and (min-width: 830px) and (max-width: 1179px) {
+  .main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
+    margin-left: 24px;
+    width: 85%;
+  }
+
+  .main_ms .card_h_ms {
+    max-width: 400px;
+    margin: 110px auto;
+  }
+}
+@media screen and (max-width: 831px) {
   .container_charts {
     height: 350px;
   }
@@ -438,7 +512,8 @@
   }
 
   .main_ms .card_h_ms {
-    max-width: 100%;
+    max-width: 70%;
+    margin: auto;
   }
 
   .main_ms .card_h_ms img {
@@ -526,6 +601,82 @@
   }
   .dishes_show_container_ms .smartphone_dishes_show_container_ms .float-right {
     float: none !important;
+  }
+
+  .btn-success {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .btn_success_update_restaurant {
+    width: 15%;
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 500px) {
+  .back_img {
+    width: 100%;
+  }
+
+  .main_ms {
+    width: 100%;
+    padding: 0;
+  }
+  .main_ms .position_card_index_ms {
+    margin-top: 15px !important;
+  }
+
+  .btn-success {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .main_ms .card_h_ms {
+    max-width: 85%;
+    margin: 30px auto;
+  }
+
+  .btn_success_update_restaurant {
+    width: 25%;
+    margin-bottom: 0;
+  }
+
+  .main_ms .container {
+    margin-top: 70px;
+  }
+
+  .card_restaurant_bnt_ms .btn-secondary {
+    display: none;
+  }
+  .card_restaurant_bnt_ms #create_response_ms {
+    display: block !important;
+  }
+  .card_restaurant_bnt_ms #create_response_ms .btn_secondary_49_ms {
+    display: inline-block !important;
+  }
+  .card_restaurant_bnt_ms .create_modify_restaurant_ms {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card_restaurant_bnt_ms .create_modify_restaurant_ms .btn-secondary {
+    width: 49% !important;
+  }
+
+  #side_resp_ms {
+    position: relative;
+  }
+  #side_resp_ms #btn_close_responsive_ms {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+  #side_resp_ms #btn_close_responsive_ms i {
+    font-size: 30px;
+    color: #F39200;
+  }
+  #side_resp_ms footer a {
+    width: 50%;
   }
 }
 * {

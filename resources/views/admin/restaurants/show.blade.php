@@ -21,15 +21,22 @@
                 <div class="card-body">
 
                     <div class="card_restaurant_info_ms">
-                        <h2 class="card-title">{{$restaurant->name}}</h2>
-                        <a class="btn btn-success float-right" id="responsive_show" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Dettagli Statistiche</a>
+                        <div class="statistic_card_restaurant_ms">
+                            <h2 class="card-title">{{$restaurant->name}}</h2>
+                            <a class="btn btn-primary float-right" id="responsive_show" href="{{ route('admin.restaurants.charts', $restaurant->slug) }}">Statistiche</a>
+                        </div>
                         <p class="card-text">Partita IVA: {{$restaurant->p_iva}}</p>
                         <p class="card-text">Indirizzo: {{$restaurant->address}}</p>
                     </div>
 
                     <div class="card_restaurant_bnt_ms">
-                        <a class="btn btn-info" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}} "><i class="far fa-calendar-minus"></i>Vedi Menù</a>
+                        <a class="btn btn-success" href="{{route('admin.restaurants.dishes.index', $restaurant->slug)}} "><i class="far fa-calendar-minus"></i>Vedi Menù</a>
                         <a class="btn btn-secondary" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}"><i class="fas fa-pencil-alt"></i>Modifica</a>
+
+                        <div id="create_response_ms" class="create_modify_restaurant_ms">
+                            <a class="btn btn-secondary btn_secondary_49_ms" href="{{ route('admin.restaurants.edit', $restaurant->slug) }}"><i class="fas fa-pencil-alt"></i>Modifica</a>
+                            <a class="btn btn-secondary btn_secondary_49_ms" href="{{route('admin.restaurants.dishes.create', $restaurant->slug)}}"><i class="fas fa-plus"></i>Crea Piatto</a>
+                        </div>
 
                         <form action="{{route('admin.restaurants.destroy', $restaurant->slug)}}" method="POST" onSubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?')">
                             @csrf
