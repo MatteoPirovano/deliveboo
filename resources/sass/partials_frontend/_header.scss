@@ -18,7 +18,7 @@ header {
       
       height: 90px;
       img {
-        /* margin-left: 50px; */
+        margin-left: 50px;
         width: 70px;
       }
       ul {
@@ -51,6 +51,7 @@ header {
           background-color: $darkRed;
         }
       }
+    
     }
     
     .cont_list {
@@ -126,7 +127,6 @@ header {
 }
 
 // MEDIA QUERIES
-
 @media screen and (max-width: 768px) {
 
   #nav_bar_res {
@@ -173,6 +173,7 @@ header {
     }
   }
 
+ 
 
   #cont_list_res {
     margin-right: 25px;

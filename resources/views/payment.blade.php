@@ -14,7 +14,7 @@
     <title>payment</title>
 </head>
 <body>
-
+  {{-- Header --}}
   <header>
     <div class="nav_bar pl-4" id="nav_bar_res"> 
       <div class="cont_img" id="cont_img_res">
@@ -30,8 +30,8 @@
       </div>
     </div>
 
-    <div class="jumbotron" id="jumbotron_res">
-      
+    {{-- jumbotron e Form --}}
+    <div class="jumbotron" id="jumbotron_res">     
         <div class="order-pay-container container">
           <div class="cont-marg-left">
             <div id="order-summary">
@@ -108,7 +108,10 @@
         </div>
      
     </div>
+    {{-- jumbotron e Form --}}
+
   </header>
+  {{-- Header --}}
 
 
     
