@@ -24,7 +24,7 @@
     <header>
       <div class="nav_bar d-flex justify-content-between align-items-center">
         <div class="cont_img">
-          <img src="{{ asset('images/logo.png') }}" alt="logo">
+          <img class="ml-4" src="{{ asset('images/logo.png') }}" alt="logo">
           <ul :class="navHidden">
             <li>
               <a href="{{ route('homepage') }}">Home</a>
@@ -34,12 +34,19 @@
             </li>
           </ul>
         </div>
-        <i class="fas fa-hamburger ml-4" v-on:click="showNavList()"></i>
-        <div class="chart d-flex justify-content-between align-items-center mr-4"  v-on:click="changeVisibility()">
-          <i class="fas fa-shopping-cart" v-on:click="changeVisibility()"></i>
-          <span class="chartCount" :class="(count === 0 ? 'hiddenChart' : '' )">x @{{count}}</span>
-          <span class="pipe" :class="(count === 0 ? 'hiddenChart' : '' )">|</span>
-          <span :class="(count === 0 ? 'hiddenChart' : '' )">@{{total.toFixed(2)}}€</span>
+
+        <div class="hamb_icon">
+          <i class="fas fa-hamburger" v-on:click="showNavList()"></i>
+        </div>
+
+
+        <div class="d-flex justify-content-end cont_shop pr-4">
+          <div class="chart d-flex justify-content-between align-items-center"  v-on:click="changeVisibility()">
+            <i class="fas fa-shopping-cart" v-on:click="changeVisibility()"></i>
+            <span class="chartCount" :class="(count === 0 ? 'hiddenChart' : '' )">x @{{count}}</span>
+            <span class="pipe" :class="(count === 0 ? 'hiddenChart' : '' )">|</span>
+            <span :class="(count === 0 ? 'hiddenChart' : '' )">@{{total.toFixed(2)}}€</span>
+          </div>
         </div>
       </div>
     </header>
@@ -47,34 +54,33 @@
         <h1 id="title_res" class="float-right">{{$restaurant->name}}</h1>
     </div>
 
+    {{-- Main --}}
     <main>
       @foreach ($restaurant->dishes as $dish)
         <div class="card" id="id_card">
-            <img src="{{asset('storage/' . $dish->img)}}" class="card-img-top" alt="...">
-            <div class="card-body d-flex flex-column justify-content-between">
-                <div class="info" id="info_id">
-                    <h3 class="card-title">{{"$dish->name"}}</h2>
-                    <p><strong>Descrizione: </strong>{{$dish->description}}</p>
-                    <p><strong>Ingredienti: </strong>{{$dish->ingredients}}</p>
-                </div>
-                <div id="price_id" class="d-flex justify-content-between align-items-center">
-                    <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
-                      @if ($dish->visibility == 1)
-                      <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
-                      <div v-else>
-                        <button class="btn btn_orange btn-sm" v-on:click="addDish('{{$dish->name}}')">
-                          <i class="fas fa-plus"></i>
-                        </button>
-                        <button v-for="ordered_dish in order" v-if="ordered_dish.count > 0 && ordered_dish.name == '{{$dish->name}}'" class="btn btn_orange btn-sm" v-on:click="leaveDish('{{$dish->name}}')">
-                          <i class="fas fa-minus"></i>
-                        </button>
-                      </div>
-                      @else
-                        <button id="not_cursor" class="btn btn-danger">Non Disponibile</button>
-                      @endif
-                    
-                </div>
-              
+          <img src="{{asset('storage/' . $dish->img)}}" class="card-img-top" alt="...">
+          <div class="card-body d-flex flex-column justify-content-between">
+              <div class="info" id="info_id">
+                  <h3 class="card-title">{{"$dish->name"}}</h2>
+                  <p><strong>Descrizione: </strong>{{$dish->description}}</p>
+                  <p><strong>Ingredienti: </strong>{{$dish->ingredients}}</p>
+              </div>
+              <div id="price_id" class="d-flex justify-content-between align-items-center">
+                  <span><strong>Prezzo: </strong>{{number_format($dish->price, 2)}}€</span>
+                    @if ($dish->visibility == 1)
+                    <button v-if="inOrder('{{$dish->name}}') == false" class="btn btn_orange" v-on:click="chart('{{$dish->name}}',{{number_format($dish->price, 2)}})">Aggiungi al carrello</button>
+                    <div v-else>
+                      <button class="btn btn_orange btn-sm mr-2" v-on:click="addDish('{{$dish->name}}')">
+                        <i class="fas fa-plus"></i>
+                      </button>
+                      <button v-for="ordered_dish in order" v-if="ordered_dish.count > 0 && ordered_dish.name == '{{$dish->name}}'" class="btn btn_orange btn-sm" v-on:click="leaveDish('{{$dish->name}}')">
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                    @else
+                      <button id="not_cursor" class="btn btn-danger">Non Disponibile</button>
+                    @endif                    
+              </div>             
             </div>
         </div>
       @endforeach
@@ -90,31 +96,32 @@
           <hr>
           <div v-for="ordered_dish in order" class="order mb-3" v-if="ordered_dish.count > 0">
               <div class="mb-2">
-                  <span>@{{ordered_dish.name}}</span>
-                  <span class="float-right" v-on:click="deleteDishOrder(ordered_dish.name)"><i class="delete fas fa-trash-alt"></i></span>
+                  <span class="shop_dish_name">@{{ordered_dish.name}}</span>
+                  <span class="float-right " v-on:click="deleteDishOrder(ordered_dish.name)"><i class="delete fas fa-trash-alt"></i></span>
               </div>
               <div class="d-flex justify-content-between align-items-center info">
                 <div class="quantity">
-                  <button  class="btn btn-sm btn_confirm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
-                  <button class="btn btn-sm btn_confirm" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
+                  <button  class="btn btn_plusmin btn-sm mr-2" v-on:click="addDish(ordered_dish.name)"><i class="fas fa-plus"></i></button>
+                  <button class="btn btn-sm btn_plusmin" v-if="ordered_dish.count > 1" v-on:click="leaveDish(ordered_dish.name)"><i class="fas fa-minus"></i></button>
                 </div>
                 <div>n. @{{ordered_dish.count}}</div>
-                <div v-if="ordered_dish.count > 0">Prezzo: @{{ordered_dish.price.toFixed(2)}}€</div>
+                <div v-if="ordered_dish.count > 0" class="text-right font-weight-bold">@{{ordered_dish.price.toFixed(2)}}€</div>
               </div>
           </div>
           <hr v-if="total > 0">
-          <div v-if="total > 0" class="total">
+          <div v-if="total > 0" class="total btn_confirm">
               <span>Totale: </span>
               <span >@{{total.toFixed(2)}}€</span>
           </div>
         </div>
       </div>
     </main>
-        
+    {{-- Main --}}
+    
+    {{-- Footer --}}
     <footer>
       <a id="contact"></a>
       <a id="register"></a>
-
 
       <div class="container_footer" id="cont_footer_resp">
         <div class="footer_left">
@@ -148,6 +155,7 @@
 
       </div>
     </footer>
+    {{-- Footer --}}
   </div>
   <script src="{{asset('js/details.js')}}"></script>
 </body>

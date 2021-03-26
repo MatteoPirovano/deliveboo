@@ -1,15 +1,82 @@
 body {
+  height: 100vh;
   // background-color: #A51B0B;
-  background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a);
-  padding: 40px;
-  #order-summary {
+ /*  background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a); */
+  .jumbotron {
+    height: 100vh;
+    padding-top: 100px;
+  }
+  section {
+      margin: 20px;
+      padding: 25px;
+      box-shadow: 5px 6px 23px 3px rgb(0 0 0 / 75%);
+      background-color: white;
+      .separate-summary h1{
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: orange;
+        color: white;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      .item_order {
+        display: flex;
+        align-items: center;
+        padding-left: 10px;
+        font-size: 24px;
+        font-weight: 700;
+        border-left: 5px solid orange;
+        input {
+          font-size: 24px;
+          font-weight: 700;
+        }
+      }
+      .tot_order {
+        span {
+          display: block;
+          margin-top: 10px;
+          padding: 5px 10px;
+          background-color: orange;
+          font-size: 28px;
+          font-weight: 500;
+          color: white;
+        }
+        h4 {
+          margin-top: 10px;
+          padding-left: 10px;
+          font-size: 32px;
+          border-left: 5px solid orange;
+        }
+      }
+
+  }
+  .cont_form {
+    margin: 20px;
+    background-color: rgba(0,0,0,0);
+  }
+  .cont_pay_left, .cont_pay_right {   
+    padding: 20px !important;
+    width: 50%;
+    padding: 0 25px;
     background-color: white;
-    padding: 70px;
     box-shadow: 5px 6px 23px 3px rgb(0 0 0 / 75%);
   }
+  .cont_pay_left {
+    margin-right: 20px;
+  }
+
+ 
+
+  .order-pay-container {
+    padding-top: 30px;
+  }
+  
   #app {
     margin-bottom: 40px;
     position: relative;
+    .separate-summary {
+      width: 100%;
+    }
   }
 
   .input_ms {
@@ -30,7 +97,7 @@ body {
   }
 
   .logo_ms {
-    height: 60px;
+    height: 150px;
     position: absolute;
     right: 20px;
     top: 0px;

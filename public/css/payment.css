@@ -1,15 +1,75 @@
 body {
-  background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a);
-  padding: 40px;
+  height: 100vh;
+  /*  background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a); */
 }
-body #order-summary {
-  background-color: white;
-  padding: 70px;
+body .jumbotron {
+  height: 100vh;
+  padding-top: 100px;
+}
+body section {
+  margin: 20px;
+  padding: 25px;
   box-shadow: 5px 6px 23px 3px rgba(0, 0, 0, 0.75);
+  background-color: white;
+}
+body section .separate-summary h1 {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: orange;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+body section .item_order {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  border-left: 5px solid orange;
+}
+body section .item_order input {
+  font-size: 24px;
+  font-weight: 700;
+}
+body section .tot_order span {
+  display: block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: orange;
+  font-size: 28px;
+  font-weight: 500;
+  color: white;
+}
+body section .tot_order h4 {
+  margin-top: 10px;
+  padding-left: 10px;
+  font-size: 32px;
+  border-left: 5px solid orange;
+}
+body .cont_form {
+  margin: 20px;
+  background-color: rgba(0, 0, 0, 0);
+}
+body .cont_pay_left, body .cont_pay_right {
+  padding: 20px !important;
+  width: 50%;
+  padding: 0 25px;
+  background-color: white;
+  box-shadow: 5px 6px 23px 3px rgba(0, 0, 0, 0.75);
+}
+body .cont_pay_left {
+  margin-right: 20px;
+}
+body .order-pay-container {
+  padding-top: 30px;
 }
 body #app {
   margin-bottom: 40px;
   position: relative;
+}
+body #app .separate-summary {
+  width: 100%;
 }
 body .input_ms {
   border: 0;
@@ -25,7 +85,7 @@ body p {
   display: inline-block;
 }
 body .logo_ms {
-  height: 60px;
+  height: 150px;
   position: absolute;
   right: 20px;
   top: 0px;

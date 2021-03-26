@@ -7,85 +7,111 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app2.css') }}" rel="stylesheet">
     <link href="{{ asset('css/payment.css') }}" rel="stylesheet">
     <script src="https://js.braintreegateway.com/web/dropin/1.26.1/js/dropin.min.js"></script>
     <script src="https://js.braintreegateway.com/web/3.73.1/js/hosted-fields.min.js"></script>
     <title>payment</title>
 </head>
 <body>
-  {{-- @if (!session('message'))
-    <div class="alert alert-danger mt-2 ml-2">
-        {{ 'Errore nei dati di pagamento' }}
-    </div>
-  @endif --}}
-    
-    <div class="order-pay-container container">
-      <div class="cont-marg-left">
-        <div id="order-summary">
-          <div class="content pay-box">
-            <form class="container" method="post" id="payment-form" action="{{url('/checkout')}}">
-              @csrf
-              @method('post')
-              <section>
-                <div id="app">
-                  <div class="order-summary-box">
-                    <div class="separate-summary">
-                      <h1>
-                        Riepilogo dell'ordine
-                      </h1>
-                    </div>
-                    <div class="logo_ms">
-                      <img src="{{ asset("images/logo.png") }}" alt="">
-                    </div>
-                    <div v-for="(dish,index) in order" v-if="dish.count > 0">
-                      <span>@{{ dish.count }} x </span>
-                      <input class="input_ms" type="text" :name="'dish_name['+index+']'" :value="dish.name" readonly>
-                      <input type="hidden" :name="'dish_count['+index+']'" :value="dish.count" readonly>
-                      <input id="price" class="input_ms price" type="hidden"  :name="'dish_price['+index+']'" :value="dish.price" readonly>
-                      <p>@{{ dish.price.toFixed(2) }}</p><span>&euro;</span>
-                    </div>
-                    <hr>
-                      <label for="amount">
-                        <span class="input-label">Totale</span>
-                        <h4>@{{total.toFixed(2)}}</h4>
-                        <input id="total" class="input_ms" type="hidden" id="amount" name="amount" :value="total" min="1" readonly>
-                      </label><span>&euro;</span>
-                      
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="name">Nome</label>
-                  <input class="form-control" type="text" id="name" name="client_name" value="{{old('client_name')}}" placeholder="Inserisci nome">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="surname">Cognome</label>
-                  <input class="form-control" id="surname" type="text" name="client_surname" value="{{old('client_surname')}}" placeholder="Inserisci cognome">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="email">Email</label>
-                  <input class="form-control" type="email" id="email" name="client_mail" value="{{old('client_mail')}}" placeholder="Inserisci email">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="address">Indirizzo</label>
-                  <input class="form-control" type="text" id="address" name="client_address" value="{{old('client_address')}}" placeholder="Inserisci indirizzo">
-                </div>
-                <div class="form-group">
-                  <label class="form-label" for="order_date">Data Ordine</label>
-                  <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="{{old('order_date')}}" placeholder="Inserisci la data di ordinazione">
-                </div>
-              </section>
-              <div class="bt-drop-in-wrapper">
-                <div id="bt-dropin"></div>
-              </div>
-              <input type="hidden" id="nonce" name="payment_method_nonce" type="text" readonly />
-              <button id="pay-button" class="button" type="submit" v-on:click="deleteOrder()">
-                <span>Effettua il Pagamento</span>
-              </button>
-            </form>
-          </div>
-        </div>
+
+  <header>
+    <div class="nav_bar pl-4" id="nav_bar_res"> 
+      <div class="cont_img" id="cont_img_res">
+        <img src="{{ asset('images/logo.png') }}" alt="logo">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#contact">Contatti</a>
+          </li>
+        </ul>
       </div>
     </div>
+
+    <div class="jumbotron" id="jumbotron_res">
+      
+        <div class="order-pay-container container">
+          <div class="cont-marg-left">
+            <div id="order-summary">
+              <div class="content pay-box">
+                <form class="container" method="post" id="payment-form" action="{{url('/checkout')}}">
+                  @csrf
+                  @method('post')
+                  <section>
+                    <div id="app">
+                      <div class="order-summary-box">
+                        <div class="separate-summary">
+                          <h1>Riepilogo dell'ordine</h1>
+                        </div>
+                        <div class="logo_ms">
+                          <img src="{{ asset("images/logo.png") }}" alt="logo">
+                        </div>
+                        <div class="item_order" v-for="(dish,index) in order" v-if="dish.count > 0">
+                          <span>@{{ dish.count }} x </span>
+                          <input class="input_ms" type="text" :name="'dish_name['+index+']'" :value="dish.name" readonly>
+                          <input type="hidden" :name="'dish_count['+index+']'" :value="dish.count" readonly>
+                          <input id="price" class="input_ms price" type="hidden"  :name="'dish_price['+index+']'" :value="dish.price" readonly>
+                          <p class="m-0">@{{ dish.price.toFixed(2) }}</p><span>&euro;</span>
+                        </div>
+                        
+                          <label for="amount" class="tot_order">
+                            <span class="input-label">Totale</span>
+                            <h4>@{{total.toFixed(2)}} &euro;</h4>
+                            <input id="total" class="input_ms" type="hidden" id="amount" name="amount" :value="total" min="1" readonly>
+                          </label>
+                          
+                      </div>                      
+                    </div>
+                  </section>
+
+                  <div class="cont_form d-flex">
+                    <div class="cont_pay_left">
+                      <div class="form-group">
+                        <label class="form-label" for="name">Nome</label>
+                        <input class="form-control" type="text" id="name" name="client_name" value="{{old('client_name')}}" placeholder="Inserisci nome">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="surname">Cognome</label>
+                        <input class="form-control" id="surname" type="text" name="client_surname" value="{{old('client_surname')}}" placeholder="Inserisci cognome">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control" type="email" id="email" name="client_mail" value="{{old('client_mail')}}" placeholder="Inserisci email">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="address">Indirizzo</label>
+                        <input class="form-control" type="text" id="address" name="client_address" value="{{old('client_address')}}" placeholder="Inserisci indirizzo">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="order_date">Data Ordine</label>
+                        <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="{{old('order_date')}}" placeholder="Inserisci la data di ordinazione">
+                      </div>
+                  </div>
+                    
+                  <div class="cont_pay_right">
+                    <div class="bt-drop-in-wrapper">
+                      <div id="bt-dropin"></div>
+                    </div>
+                    <input type="hidden" id="nonce" name="payment_method_nonce" type="text" readonly />
+
+                    <button id="pay-button" class="button" type="submit" v-on:click="deleteOrder()">
+                      <span>Effettua il Pagamento</span>
+                    </button>
+                  </div>                      
+                  {{-- </div> --}}
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+    </div>
+  </header>
+
+
+    
     
   <script src="{{asset('js/payment.js')}}"></script>
   <script>

@@ -18,6 +18,10 @@ select {
   outline: none;
 }
 
+.btn {
+  border-radius: 0 !important;
+}
+
 .hidden {
   display: none;
 }
@@ -85,7 +89,7 @@ header .nav_bar .cont_img {
   height: 90px;
 }
 header .nav_bar .cont_img img {
-  margin-left: 50px;
+  /* margin-left: 50px; */
   width: 70px;
 }
 header .nav_bar .cont_img ul {
@@ -178,6 +182,9 @@ header .jumbotron .layover h1 {
   font-size: 60px;
   text-transform: uppercase;
   font-family: "Train One", cursive;
+}
+header .cont_shop {
+  min-width: 70px;
 }
 
 @media screen and (max-width: 768px) {
