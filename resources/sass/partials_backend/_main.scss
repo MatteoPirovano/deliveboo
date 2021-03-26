@@ -313,7 +313,14 @@
     }
 }
 
-@media screen and (max-width: 830px) {
+@media screen and (min-width: 830px) and (max-width: 1179px) {
+    .main_ms .dishes_show_container_ms .right_dishes_show_container_ms img {
+        margin-left: 24px;
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 831px) {
     .container_charts {
         height: 350px;
       }
