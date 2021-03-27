@@ -39,6 +39,13 @@
                 <form class="container" method="post" id="payment-form" action="{{url('/checkout')}}">
                   @csrf
                   @method('post')
+                  @if(count($errors) > 0)
+                    <div class="alert alert-danger p-4">
+                      @foreach ($errors->all() as $error)
+                          <div>{{$error}}</div>
+                      @endforeach
+                    </div>
+                  @endif
                   <section>
                     <div id="app">
                       <div class="order-summary-box">

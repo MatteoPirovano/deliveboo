@@ -72,15 +72,15 @@ Route::post('/checkout', function(Request $request) {
         ->route('payment_result', compact('data'))
         ->with('message', 'ok');
   } else {
-      // $errorString = "";
+      $errorString = "";
   
-      // foreach($result->errors->deepAll() as $error) {
-      //     $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-      // }
+      foreach($result->errors->deepAll() as $error) {
+          $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+      }
   
       // $_SESSION["errors"] = $errorString;
       // header("Location: " . $baseUrl . "index.php");
-      return back()->with('message','Errore nel pagamento');
+      return back()->with('message',$result->message);
   }
 })->name('checkout');
 
