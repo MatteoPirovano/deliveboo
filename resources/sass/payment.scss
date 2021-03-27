@@ -3,7 +3,7 @@ body {
   // background-color: #A51B0B;
  /*  background-image: radial-gradient(circle, #eda130, #e59228, #dd8221, #d5731c, #cc6417, #c15816, #b64b14, #aa3f13, #9a3412, #892810, #791e0e, #69130a); */
   .jumbotron {
-    height: 100vh;
+    height: 100%;
     padding-top: 100px;
   }
   section {
@@ -180,8 +180,11 @@ body {
 }
 
 @media screen and (max-width: 768px) {  
+  h2 {
+    font-size: 18px;
+  }
   .item_order {
-    font-size: 20px !important;
+    font-size: 12px !important;
   }
   .cont_form {
     flex-direction: column;
@@ -192,16 +195,20 @@ body {
   .price_resume {
     margin-left: 20px;
   }
+  #jumbotron_res{
+    height: 100%;
+    background-position: right;
+  }
 }
 
 @media screen and (max-width: 426px) {
   section {
-    padding: 20px;
+    padding: 20px !important;
     h2 {
-      font-size: 24px;
+      font-size: 18px;
     }
     .item_order {
-      font-size: 20px !important;
+      font-size: 11px !important;
       div:first-child {
         padding-right: 25px;
         display: inline-block;
@@ -213,6 +220,12 @@ body {
         margin-left: 15px;
       }
     }
+
+    
+  }
+  #jumbotron_res{
+    height: 100%;
+    background-position: right;
   }
   
 }
