@@ -129,12 +129,11 @@
 
 // QUERIES___________________________________________________________________________________________________
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
     
     #side_resp_ms{
         display: none;
         z-index: 4;
-
     } 
 
     .back_img {
@@ -161,6 +160,26 @@
         margin-top: 40px !important;
     }
 
+}
+
+@media screen and (min-width: 601px) {
+   #side_resp_ms{
+       display: block !important;
+       width: 180px !important;
+   }
+   #responsive_400_ms{
+       display: none !important;
+   }
+}
+
+@media screen and (min-width: 831px) {
+   #side_resp_ms{
+       display: block !important;
+       width: 300px !important;
+   }
+   #responsive_400_ms{
+       display: none !important;
+   }
 }
 
 @media screen and (max-width: 830px) {
