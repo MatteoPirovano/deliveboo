@@ -163,13 +163,13 @@
 }
 
 @media screen and (min-width: 601px) {
-   #side_resp_ms{
-       display: block !important;
-       width: 180px !important;
-   }
-   #responsive_400_ms{
-       display: none !important;
-   }
+//    #side_resp_ms{
+//        width: 100px !important;
+//    }
+
+//    #responsive_400_ms{
+//        display: none !important;
+//    }
 }
 
 @media screen and (min-width: 831px) {
@@ -234,3 +234,4 @@
     }
 
 }
+

@@ -126,6 +126,7 @@ Route::prefix('admin')       // prefisso delle rotte
   ->group(
     function () {
         Route::resource('restaurants', 'RestaurantController');
+        Route::get('/index', 'RestaurantController@indexList')->name('index');
         Route::prefix('restaurants/{restaurant}')
             ->name('restaurants.')
             ->group(function () {
