@@ -21,10 +21,7 @@
         <img src="{{ asset('images/logo.png') }}" alt="logo">
         <ul>
           <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#contact">Contatti</a>
+            <a href="{{ route('homepage') }}">Home</a>
           </li>
         </ul>
       </div>
