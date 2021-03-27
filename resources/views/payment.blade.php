@@ -76,7 +76,6 @@
                         </div>                      
                       </div>
                   </section>
-                  
                   <div class="cont_form d-flex">
                     <div class="cont_pay_left">
                       <h3>I TUOI DATI</h3>

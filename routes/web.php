@@ -43,6 +43,7 @@ Route::post('/checkout', function(Request $request) {
   $order->price = $data['amount'];
   $order->status="accepted";
   $order_result = $order->save();
+  
 
   foreach($data['dish_name'] as $key => $slug) {
       $slug = Str::slug($slug, '-');

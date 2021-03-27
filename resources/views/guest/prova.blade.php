@@ -56,21 +56,23 @@
       </div>
 
     </div>
-
+    <div class="jumbotron" id="jumbotron_res">
+      <div class="layover">
+      </div>
+    </div>
   </header>
   {{-- /header --}}
 
-    <section class="card_payment_ms">
+    <section class="card_payment_ms d-flex flex-column justify-content-center">
         <div class="img_card_section_ms">
             <img src="{{asset('images/success.png') }}" alt="Success">
         </div>
         <div class="main_card_section_ms">
             <h1>
-                Pagamento avvenuto con successo
-            </h1>                      
-        </div>
-        <div class="btn_card_section_ms">
-            <a class="btn btn-info" href="{{ route('homepage')}} ">Torna alla home</a>
+                Pagamento Effettuato
+            </h1> 
+            <h2>Grazie per aver ordinato con Deliveboo</h2>   
+            <p>Controlla la tua email per la ricevuta di avvenuto ordine</p>                  
         </div>
     </section>
     <script src="{{asset('js/checkout.js')}}"></script>

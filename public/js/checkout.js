@@ -49612,8 +49612,11 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
     localStorage.total = "";
     localStorage.order = [];
   },
-  methods: {},
-  watch: {}
+  mounted: function mounted() {
+    setTimeout(function () {
+      window.location.href = 'http://127.0.0.1:8000/homepage';
+    }, 3000);
+  }
 });
 })();
 
