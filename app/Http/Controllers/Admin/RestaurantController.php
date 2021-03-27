@@ -26,13 +26,18 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function indexList()
     {
       $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
       return view('admin.layouts.main', compact('restaurants'));
     }
+    public function index()
+    {
+      $restaurants = Restaurant::where('user_id', Auth::id())->get();
 
+      return view('admin.index', compact('restaurants'));
+    }
     /**
      * Show the form for creating a new resource.
      *

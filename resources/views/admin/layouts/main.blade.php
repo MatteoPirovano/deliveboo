@@ -30,7 +30,11 @@
     <section class="flex_ms">  
         
         <div id="back_img_ms" class="back_img">
-            <button id="responsive_400_ms" onclick="w3_open()" class="btn btn-secondary">☰</button>
+            <nav class="nav_responsive_backend justify-content-between">
+                <img class="mb-2" src="{{ asset('images/logo.png') }}" alt="logo">
+                    <h1>Deliveboo</h1>
+                <div class="user">{{Auth::user()->name}}</div>
+            </nav>
             <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
         </div>
 
@@ -54,7 +58,7 @@
             </header>
             
             <main>
-                <div onclick="w3_close()" id="btn_close_responsive_ms">
+                <div id="btn_close_responsive_ms">
                     <i class="fas fa-window-close"></i>
                 </div>
                 
@@ -102,19 +106,19 @@
 
     {{-- script show/hide sidebar responsive 400 --}}
     <script>
-        function w3_open() {
-            document.getElementById("side_resp_ms").style.width = "100vw";
-            document.getElementById("side_resp_ms").style.display = "block";
-            document.getElementById("responsive_400_ms").style.display = "none";
-            document.getElementById("back_img_ms").style.display = "none";
-            document.getElementById("hide_main_ms").style.display = "none";
-        }
-        function w3_close() {
-            document.getElementById("side_resp_ms").style.display = "none";
-            document.getElementById("responsive_400_ms").style.display = "block";
-            document.getElementById("back_img_ms").style.display = "block";
-            document.getElementById("hide_main_ms").style.display = "block";
-        }
+        // function w3_open() {
+        //     document.getElementById("side_resp_ms").style.width = "100vw";
+        //     document.getElementById("side_resp_ms").style.display = "block";
+        //     document.getElementById("responsive_400_ms").style.display = "none";
+        //     document.getElementById("back_img_ms").style.display = "none";
+        //     document.getElementById("hide_main_ms").style.display = "none";
+        // }
+        // function w3_close() {
+        //     document.getElementById("side_resp_ms").style.display = "none";
+        //     document.getElementById("responsive_400_ms").style.display = "block";
+        //     document.getElementById("back_img_ms").style.display = "block";
+        //     document.getElementById("hide_main_ms").style.display = "block";
+        // }
     </script>
     {{-- /script show/hide sidebar responsive 400 --}}
 </body>
