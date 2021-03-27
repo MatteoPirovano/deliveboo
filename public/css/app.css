@@ -730,26 +730,22 @@
   #side_resp_ms footer a {
     width: 50%;
   }
-<<<<<<< HEAD
-
-=======
 }
-@media screen and (max-width: 768px) {
->>>>>>> ResponsiveBackend
+@media screen and (max-width: 600px) and (max-width: 768px) {
   .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms .btn-secondary {
     font-size: 14px;
   }
 
-<<<<<<< HEAD
   .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
     flex-direction: column;
   }
   .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms h2 {
     margin-bottom: 10px !important;
-=======
+  }
+}
+@media screen and (max-width: 600px) {
   .position_card_index_ms.index {
     display: flex;
->>>>>>> ResponsiveBackend
   }
 }
 * {
