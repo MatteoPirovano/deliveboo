@@ -52,14 +52,14 @@ const app = new Vue({
             }
         },
         addDish(name) {
-            var filtered = app.order.filter(
-                element => {
-                    return element['name'] == name;
-                });
+            // var filtered = app.order.filter(
+            //     element => {
+            //         return element['name'] == name;
+            //     });
                 
             app.order = app.order.map(
                 element=> {
-                    if(element['name'] == filtered[0]['name']) {
+                    if(element['name'] == name) {
                         var dish_name = element['name'];
                         var dish_count = element['count']+1;
                         var dish_price = element['price']+(element['price'] / element['count']);
@@ -77,14 +77,14 @@ const app = new Vue({
             app.totalCount();
         },
         leaveDish(name) {
-            var filtered = app.order.filter(
-                element => {
-                    return element['name'] == name;
-                });
+            // var filtered = app.order.filter(
+            //     element => {
+            //         return element['name'] == name;
+            //     });
                 
             app.order = app.order.map(
                 element=> {
-                    if(element['name'] == filtered[0]['name']) {
+                    if(element['name'] == name) {
                         var dish_name = element['name'];
                         var dish_count = element['count']-1;
                         var dish_price = element['price']-(element['price'] / element['count']);
@@ -105,6 +105,11 @@ const app = new Vue({
                        
                     } else return element;
                     
+                }
+            );
+            app.order = app.order.filter(
+                element => {
+                    return element.count > 0;
                 }
             );
             this.totalPrice();
@@ -147,7 +152,11 @@ const app = new Vue({
                     console.log(localStorage.total);
                     console.log();
                 }
-                
+            app.order = app.order.filter(
+                element => {
+                    return element.count > 0;
+                }
+            );
             this.totalPrice();
             this.totalCount();
             });

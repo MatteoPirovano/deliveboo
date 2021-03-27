@@ -49657,11 +49657,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       }
     },
     addDish: function addDish(name) {
-      var filtered = app.order.filter(function (element) {
-        return element['name'] == name;
-      });
+      // var filtered = app.order.filter(
+      //     element => {
+      //         return element['name'] == name;
+      //     });
       app.order = app.order.map(function (element) {
-        if (element['name'] == filtered[0]['name']) {
+        if (element['name'] == name) {
           var dish_name = element['name'];
           var dish_count = element['count'] + 1;
           var dish_price = element['price'] + element['price'] / element['count'];
@@ -49676,11 +49677,12 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
       app.totalCount();
     },
     leaveDish: function leaveDish(name) {
-      var filtered = app.order.filter(function (element) {
-        return element['name'] == name;
-      });
+      // var filtered = app.order.filter(
+      //     element => {
+      //         return element['name'] == name;
+      //     });
       app.order = app.order.map(function (element) {
-        if (element['name'] == filtered[0]['name']) {
+        if (element['name'] == name) {
           var dish_name = element['name'];
           var dish_count = element['count'] - 1;
           var dish_price = element['price'] - element['price'] / element['count'];
@@ -49699,6 +49701,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
             };
           }
         } else return element;
+      });
+      app.order = app.order.filter(function (element) {
+        return element.count > 0;
       });
       this.totalPrice();
       this.totalCount();
@@ -49737,6 +49742,10 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0__.default({
           console.log(localStorage.total);
           console.log();
         }
+
+        app.order = app.order.filter(function (element) {
+          return element.count > 0;
+        });
 
         _this.totalPrice();
 
