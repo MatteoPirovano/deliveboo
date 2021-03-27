@@ -39,7 +39,8 @@
 .main_ms{
     width: calc(100% - 300px);
     height: 100vh;
-    background-color: #EBECF1;
+    // background-color: #EBECF1;
+    background-image: linear-gradient(to right, #a51b0b, #b12d0a, #bd3d09, #c84b08, #d35a06, #d96404, #df6d02, #e57701, #e87e00, #eb8500, #ee8c00, #f19300);
     color: black;
     box-shadow: inset 19px 0px 65px -20px black;
     padding: 50px 40px;
