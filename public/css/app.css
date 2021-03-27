@@ -97,7 +97,7 @@
   display: none;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   #side_resp_ms {
     display: none;
     z-index: 4;
@@ -126,7 +126,7 @@
     margin-top: 40px !important;
   }
 }
-@media screen and (min-width: 501px) {
+@media screen and (min-width: 601px) {
   #side_resp_ms {
     display: block !important;
     width: 180px !important;
@@ -443,7 +443,7 @@
 
 @media screen and (min-width: 1180px) and (max-width: 1919px) {
   .main_ms .position_card_index_ms .shadow_card_ms {
-    max-width: 240px;
+    width: calc(100% / 3);
   }
 
   .position_card_index_h2_ms h2 {
@@ -457,6 +457,12 @@
 
   .smartphone_dishes_show_container_ms {
     display: none;
+  }
+}
+@media screen and (min-width: 880px) and (max-width: 1042px) {
+  .main_ms .position_card_index_ms .shadow_card_ms {
+    width: calc((100% / 2) - 20px);
+    margin: 10px;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 666px) {
@@ -532,8 +538,8 @@
   }
 
   .main_ms .card_h_ms {
-    max-width: 70%;
-    margin: auto;
+    max-width: 65%;
+    margin: 210px auto;
   }
 
   .main_ms .card_h_ms img {
@@ -633,7 +639,7 @@
     margin-bottom: 0;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   .back_img {
     width: 100%;
   }
@@ -697,6 +703,11 @@
   }
   #side_resp_ms footer a {
     width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms .btn-secondary {
+    font-size: 14px;
   }
 }
 * {
