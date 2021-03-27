@@ -163,6 +163,26 @@
 
 }
 
+@media screen and (min-width: 501px) {
+   #side_resp_ms{
+       display: block !important;
+       width: 180px !important;
+   }
+   #responsive_400_ms{
+       display: none !important;
+   }
+}
+
+@media screen and (min-width: 831px) {
+   #side_resp_ms{
+       display: block !important;
+       width: 300px !important;
+   }
+   #responsive_400_ms{
+       display: none !important;
+   }
+}
+
 @media screen and (max-width: 830px) {
     
     // sidebar header
