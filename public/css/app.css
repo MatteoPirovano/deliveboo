@@ -465,6 +465,11 @@
     margin: 10px;
   }
 }
+@media screen and (min-width: 601px) {
+  .main_ms .position_card_index_ms .shadow_card_ms {
+    display: block !important;
+  }
+}
 @media screen and (min-width: 501px) and (max-width: 666px) {
   .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
     flex-direction: column;
@@ -704,10 +709,16 @@
   #side_resp_ms footer a {
     width: 50%;
   }
-}
-@media screen and (max-width: 600px) {
+
   .main_ms .card_restaurant_show_ms .card_restaurant_bnt_ms .btn-secondary {
     font-size: 14px;
+  }
+
+  .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
+    flex-direction: column;
+  }
+  .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms h2 {
+    margin-bottom: 10px !important;
   }
 }
 * {
@@ -856,6 +867,34 @@ body {
 
   .body_login_ms .card .left_avatar_ms {
     left: 36%;
+  }
+}
+@media screen and (min-width: 981px) and (max-width: 1143px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 62% !important;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 38% !important;
+  }
+
+  .col-md-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 980px) {
+  .body_login_ms .card .right_avatar_ms {
+    left: 64% !important;
+  }
+
+  .body_login_ms .card .left_avatar_ms {
+    left: 36% !important;
+  }
+
+  .col-md-8 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
   }
 }
 @media screen and (min-width: 950px) and (max-width: 1199px) {

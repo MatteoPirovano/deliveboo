@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div id="col_md_768_ms" class="col-md-8">
             <div class="card">
 
                 {{-- avatr in position absolute --}}

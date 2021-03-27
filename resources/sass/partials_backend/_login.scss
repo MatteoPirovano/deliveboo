@@ -125,6 +125,32 @@
     }
 }
 
+@media screen and (min-width: 981px) and (max-width: 1143px) {
+    .body_login_ms .card .right_avatar_ms {
+        left: 62% !important;
+    }
+    .body_login_ms .card .left_avatar_ms {
+        left: 38% !important;
+    }
+    .col-md-8 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 980px) {
+    .body_login_ms .card .right_avatar_ms {
+        left: 64% !important;
+    }
+    .body_login_ms .card .left_avatar_ms {
+        left: 36% !important;
+    }
+    .col-md-8 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
 @media screen and (min-width: 950px) and (max-width: 1199px) {
     .body_login_ms .card .right_avatar_ms {
         left: 68%;
@@ -172,8 +198,4 @@
     .body_login_ms .card .left_avatar_ms {
         left: 26%;
     }
-}
-
-@media screen and (max-width: 830px) {
-
 }
