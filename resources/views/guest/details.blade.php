@@ -120,9 +120,7 @@
     
     {{-- Footer --}}
     <footer>
-      <a id="contact"></a>
-      <a id="register"></a>
-
+      
       <div class="container_footer" id="cont_footer_resp">
         <div class="footer_left">
           <img src="{{asset('images/del-rider.jpg')}}" alt="">
@@ -148,12 +146,17 @@
             </li>
           </ul>
         </div>
+        <a id="contact"></a>
 
         <div class="footer_right">
           <img src="{{ asset('images/del-app.jpg') }}" alt="app-phone">
+          <div class="btn go_up">
+            <a href=""><i class="fas fa-chevron-up"></i></a>        
+          </div>
         </div>
 
       </div>
+      
     </footer>
     {{-- Footer --}}
   </div>

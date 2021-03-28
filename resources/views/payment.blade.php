@@ -43,7 +43,7 @@
                       @endforeach
                     </div>
                   @endif
-                  <section>
+                  <section class="mx-0">
                     <div id="app">
                       <div class="order-summary-box">
                         <div class="separate-summary mb-2">
@@ -73,7 +73,7 @@
                         </div>                      
                       </div>
                   </section>
-                  <div class="cont_form d-flex">
+                  <div class="cont_form d-flex my-0 mx-0">
                     <div class="cont_pay_left">
                       <h3>I TUOI DATI</h3>
                       <div class="form-group">

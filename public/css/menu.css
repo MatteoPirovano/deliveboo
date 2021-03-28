@@ -10657,6 +10657,22 @@ main .btn-danger:hover {
 footer {
   margin-top: -400px;
 }
+footer .footer_right {
+  position: relative;
+}
+footer .footer_right .go_up {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #a51b0b;
+}
+footer .footer_right .go_up a {
+  color: white;
+}
+footer .footer_right .go_up a:hover {
+  color: white;
+  text-decoration: none;
+}
 
 .fas.fa-hamburger {
   color: #ffa500;

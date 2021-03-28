@@ -198,6 +198,22 @@ main {
 
 footer {
     margin-top: -400px;
+    .footer_right {
+      position: relative;
+      .go_up{
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        background-color: $darkRed;
+        a {
+          color: white;
+          &:hover {
+            color: white;
+            text-decoration: none;
+          }
+        }
+      }
+    }
 }
 
 .fas.fa-hamburger {
