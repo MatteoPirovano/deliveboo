@@ -11,6 +11,12 @@
             {{ session('message') }}
         </div>
         @endif 
+        <a  href=" {{ route('admin.restaurants.create') }} ">
+            <i id="agg_rist_resp" class="fas fa-plus btn"></i>
+        </a>
+        <a  href=" {{ route('logout') }} ">
+            <i id="logout_resp" class="fas fa-door-open"></i>
+        </a>
         <div class="d-flex flex-wrap justify-content-center align-items-center position_card_index_ms index">
             @foreach ($restaurants->sortBy('name') as $restaurant)
             <div class="shadow_card_ms card m-2 d-flex justify-content-center">
