@@ -52,7 +52,7 @@
             labels: myLabels,
             datasets: [{
               label: '€',
-              backgroundColor: '#F39200',
+              backgroundColor: ['#85d4d1','#85d4c2','#85d49e','#95d485','#b4d485','#e8e592','#e8c092','#e8a692','#e89292','#e892a2','#d092e8','#92b3e8',],
               data: myData
             }]
           },
