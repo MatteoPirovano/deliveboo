@@ -32,7 +32,6 @@
         <div id="back_img_ms" class="back_img">
             <nav class="nav_responsive_backend justify-content-between">
                 <img class="mb-2" src="{{ asset('images/logo.png') }}" alt="logo">
-                    <h1>Deliveboo</h1>
                 <div class="user">{{Auth::user()->name}}</div>
             </nav>
             <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
