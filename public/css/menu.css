@@ -10565,6 +10565,7 @@ main .chart {
   position: fixed;
   top: 90px;
   right: 0;
+  z-index: 9999;
   height: calc(100vh - 90px);
   width: 400px;
   padding: 50px 30px;
