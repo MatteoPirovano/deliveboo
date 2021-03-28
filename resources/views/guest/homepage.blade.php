@@ -53,7 +53,7 @@
               <i id="hamb" class="fas fa-hamburger"></i>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Dashboard</a>
+              <a id="blue-dropdown" class="dropdown-item" href="{{ route('admin.restaurants.index') }}">Dashboard</a>
             </div>
           </div>          
         </div>

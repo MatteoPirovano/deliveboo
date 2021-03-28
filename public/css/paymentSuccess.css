@@ -10548,3 +10548,8 @@ body .card_payment_ms .btn_card_section_ms a:hover {
     font-size: 26px;
   }
 }
+@media screen and (max-width: 550px) {
+  #jumbotron_res {
+    height: 100vh;
+  }
+}

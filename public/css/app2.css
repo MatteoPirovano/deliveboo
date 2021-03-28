@@ -10462,3 +10462,6 @@ h3 {
     border-color: #dee2e6;
   }
 }
+#blue-dropdown:active {
+  background-color: #a51b0b;
+}

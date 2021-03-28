@@ -30,7 +30,7 @@
   font-family: "Lato", sans-serif;
 }
 .container_ms main {
-  height: calc(90% - 170px);
+  height: calc(90% - 180px);
   overflow-y: scroll;
 }
 .container_ms main::-webkit-scrollbar {
@@ -188,8 +188,10 @@
   padding: 0 25px;
   font-size: 20px;
 }
+.nav_responsive_backend a:hover, .nav_responsive_backend a:active {
+  text-decoration: none;
+}
 .nav_responsive_backend div {
-  max-width: 60px;
   text-align: center;
   line-height: 22px;
 }
@@ -306,6 +308,7 @@
 .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms {
   display: flex;
   justify-content: space-between;
+  align-items: start;
 }
 .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms .card-title, .main_ms .card_restaurant_show_ms .card_restaurant_info_ms .statistic_card_restaurant_ms h2 {
   margin-bottom: 0;
@@ -439,6 +442,10 @@
 }
 
 .create_modify_restaurant_ms {
+  display: none;
+}
+
+#agg_rist_resp {
   display: none;
 }
 
@@ -646,6 +653,17 @@
   }
 }
 @media screen and (max-width: 600px) {
+  #agg_rist_resp {
+    display: inline-block;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: white;
+    background-color: #A51B0B;
+    font-weight: 800;
+    font-size: 24px;
+  }
+
   .back_img {
     width: 100%;
   }

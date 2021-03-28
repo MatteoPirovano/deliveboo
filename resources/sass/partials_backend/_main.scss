@@ -2,11 +2,17 @@
     display: none;
     padding: 0 25px;
     font-size: 20px;
-    div {
-        text-align: center;
-        line-height: 22px;
+    
+        a:hover, a:active {
+            text-decoration: none;
+        }
+        
+        div {
+            text-align: center;
+            line-height: 22px;
+        }
     }
-}
+
 
 .back_img{
     width: calc(100% - 300px);
@@ -126,6 +132,7 @@
             .statistic_card_restaurant_ms{
                 display: flex;
                 justify-content: space-between;
+                align-items: start;
                 .card-title, h2{
                     margin-bottom: 0;
                 }
@@ -276,6 +283,10 @@
 }
 
 .create_modify_restaurant_ms{
+    display: none;
+}
+
+#agg_rist_resp {
     display: none;
 }
 
@@ -497,7 +508,16 @@
 
 
 @media screen and (max-width: 600px) {
-
+    #agg_rist_resp {
+        display: inline-block;
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        color: white ;
+        background-color: $colorLogin;
+        font-weight: 800;
+        font-size: 24px;
+    }
 
     .back_img {
         width: 100%;        
@@ -590,6 +610,8 @@
         footer a {
             width: 50%;
         }
+
+        
     }
 
 
@@ -607,7 +629,7 @@
         }
     }
 
-}
+    }
 
     .position_card_index_ms.index {
         display: flex;

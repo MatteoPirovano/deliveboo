@@ -7,3 +7,7 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+#blue-dropdown:active {
+  background-color: $darkRed;
+}

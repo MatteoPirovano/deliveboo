@@ -30,11 +30,20 @@
     <section class="flex_ms">  
         
         <div id="back_img_ms" class="back_img">
+        <a  href=" {{ route('admin.restaurants.create') }} ">
+            <i id="agg_rist_resp" class="fas fa-plus btn"></i>
+        </a>
             <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
         </div>
         <nav class="nav_responsive_backend justify-content-between">
-            <img class="mb-2" src="{{ asset('images/logo.png') }}" alt="logo">
-            <div class="user">{{Auth::user()->name}}</div>
+            <a href="{{ route('homepage') }}">
+                <img class="mb-2" src="{{ asset('images/logo.png') }}" alt="logo">
+            </a>
+            <a id="resp_user_ms" href="{{ route('admin.restaurants.index') }}">
+                <div class="user">
+                    {{Auth::user()->name}}  
+                </div>
+            </a>
         </nav>
         <aside id="side_resp_ms" class="container_ms">
             <header>
