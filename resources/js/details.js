@@ -138,6 +138,7 @@ const app = new Vue({
             app.total = 0;
             app.order = [];
             app.count = 0;
+            app.chartVisibility = "hidden";
             localStorage.total = 0;
             localStorage.order = [];
             localStorage.count = 0;
