@@ -658,7 +658,7 @@
     display: inline-block;
     position: fixed;
     top: 25px;
-    left: calc(50% - 50px);
+    left: 95px;
     padding: 11px 10px;
     color: white;
     background-color: #A51B0B;
@@ -672,7 +672,7 @@
     display: inline-block;
     position: fixed;
     top: 25px;
-    left: 50%;
+    left: 35%;
     color: white;
     border: 0.5px solid orange;
     background-color: #A51B0B;
