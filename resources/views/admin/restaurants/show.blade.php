@@ -73,7 +73,11 @@
         type: "GET",
         dataType: 'json',
         success: function(data){
-          chart.data.datasets[0].data = data;
+            newdata = data.map(
+            element => {
+              return element.toFixed(2);
+          });
+          chart.data.datasets[0].data = newdata;
           chart.update();
         }
 });

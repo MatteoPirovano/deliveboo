@@ -94,8 +94,7 @@
                       </div>
                       <div class="form-group">
                         <label class="form-label" for="order_date">Data Ordine</label>
-                        {{-- <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="{{old('order_date')}}" placeholder="Inserisci la data di ordinazione"> --}}
-                        <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="{{old('order_date')}}" placeholder="Inserisci la data di ordinazione" min="2021-03-28T11:00" max="2021-03-28T23:59">
+                        <input class="form-control" type="datetime-local" id="order_date" name="order_date" value="{{old('order_date')}}" min="2021-03-29T11:00" max="2021-03-29T23:59">
                       </div>
                   </div>
                   
