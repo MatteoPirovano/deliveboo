@@ -286,9 +286,11 @@
     display: none;
 }
 
-#agg_rist_resp {
+#agg_rist_resp,
+#logout_resp {
     display: none;
 }
+
 
 
 
@@ -508,6 +510,19 @@
 
 
 @media screen and (max-width: 600px) {
+
+    #logout_resp {
+        display: inline-block;
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        padding: 15px 10px;
+        color: white ;
+        background-color: $colorLogin;
+        font-weight: 800;
+        font-size: 24px;
+
+    }
     #agg_rist_resp {
         display: inline-block;
         position: fixed;

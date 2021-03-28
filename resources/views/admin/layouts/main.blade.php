@@ -33,7 +33,11 @@
         <a  href=" {{ route('admin.restaurants.create') }} ">
             <i id="agg_rist_resp" class="fas fa-plus btn"></i>
         </a>
+        <a  href=" {{ route('logout') }} ">
+            <i id="logout_resp" class="fas fa-door-open"></i>
+        </a>
             <img class="back_img_det_ms" src="{{asset('images/sfondo-back.jpg') }}" alt="Analytics">
+
         </div>
         <nav class="nav_responsive_backend justify-content-between">
             <a href="{{ route('homepage') }}">
