@@ -10843,6 +10843,11 @@ footer .footer_right .go_up a:hover {
   }
 }
 @media screen and (max-width: 500px) {
+  .jumbotron h1 {
+    font-size: 30px !important;
+    margin-top: 80px !important;
+  }
+
   #price_id button {
     font-size: 20px;
     font-weight: 700;
