@@ -14,7 +14,11 @@
         <a  href=" {{ route('admin.restaurants.create') }} ">
             <i id="agg_rist_resp" class="fas fa-plus btn"></i>
         </a>
-        <a  href=" {{ route('logout') }} ">
+        <a  href="{{ route('logout') }}"
+        onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
+            <i class="fas fa-door-open"></i>
+            {{ __('Logout') }}>
             <i id="logout_resp" class="fas fa-door-open"></i>
         </a>
         <div class="d-flex flex-wrap justify-content-center align-items-center position_card_index_ms index">
